@@ -10,6 +10,7 @@ const routes = {
     index: '/structure',
     body: '/body',
     steering: '/steering',
+    braking: '/braking',
   },
   about: '/about',
   contact: '/contact',

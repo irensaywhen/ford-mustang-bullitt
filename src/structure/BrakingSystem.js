@@ -1,7 +1,13 @@
 import React from 'react';
 
+import Section from '../common/UI/Section';
+
 const BrakingSystem = () => {
-  return <div>Braking system</div>;
+  return (
+    <React.Fragment>
+      <Section>Braking system</Section>
+    </React.Fragment>
+  );
 };
 
 export default BrakingSystem;
