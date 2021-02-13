@@ -1,0 +1,91 @@
+.Accordion {
+  .message {
+    overflow-y: hidden;
+    position: relative;
+
+    .message-header {
+      position: relative;
+      z-index: 10;
+      border-radius: 0;
+    }
+
+    &:first-of-type {
+      .message-header {
+        border-radius: $radius $radius 0 0;
+      }
+    }
+
+    &:last-of-type {
+      .message-header {
+        border-radius: 0 0 $radius $radius;
+      }
+    }
+
+    &.is-primary {
+      .message-body {
+        background-color: $info-light !important;
+      }
+    }
+
+    .message-body {
+      position: relative;
+      z-index: 5;
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+
+      transition: all 0.3s linear;
+
+      &.hide {
+        max-height: 0;
+      }
+      &.show {
+        max-height: 150px;
+      }
+    }
+  }
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  animation-name: fade-in;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  animation-name: fade-out;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    //opacity: 0;
+    height: 0;
+  }
+  50% {
+    height: 50%;
+  }
+  100% {
+    //opacity: 1;
+    height: 100%;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    //opacity: 1;
+    //height: 100%;
+  }
+  100% {
+    //opacity: 0;
+    //height: 0;
+  }
+}

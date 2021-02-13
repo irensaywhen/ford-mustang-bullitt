@@ -1,0 +1,12 @@
+img {
+  max-width: 100%;
+  width: auto !important;
+  height: auto !important;
+}
+
+.image {
+  &.is-128x128 {
+    height: auto;
+    max-height: 128px !important;
+  }
+}

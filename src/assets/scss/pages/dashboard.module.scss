@@ -1,0 +1,16 @@
+@import '../utilities/variables';
+
+.WarningLightsSection {
+  .card {
+    border-radius: $radius-small;
+    .card-image {
+      border-radius: $radius-small;
+    }
+  }
+  .swiper-wrapper {
+    padding-bottom: $size-7;
+  }
+  .swiper-slide {
+    max-width: 250px;
+  }
+}
