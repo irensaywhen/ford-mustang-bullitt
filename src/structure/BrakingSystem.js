@@ -1,9 +1,16 @@
 import React from 'react';
 
+import brakesKit from '../assets/img/braking/braking-kit.jpg';
+
 import Section from '../common/UI/Section';
+import Hero from '../common/UI/Hero';
+import HeroTitle from '../common/UI/HeroTitle';
+import SectionTitle from '../common/UI/SectionTitle';
 import CenteredParagraph from '../common/UI/CenteredParagraph';
 import BulletpointWithIcon from '../common/UI/BulletpointWithIcon';
 import FeaturesList from '../common/UI/FeaturesList/FeaturesList';
+
+import classes from '../assets/scss/pages/braking.module.scss';
 
 const faults = [
   {
@@ -84,10 +91,42 @@ const BrakingSystem = () => {
     ));
   return (
     <React.Fragment>
-      <Section>Braking system</Section>
+      <Hero
+        classNames={['is-halfheight', 'has-text-centered', classes.HeroImage]}
+      >
+        <div className='pb-3'>
+          <HeroTitle>Тормозная система</HeroTitle>
+        </div>
+        <h2 className='subtitle has-text-light has-text-weight-light pb-3'>
+          Состоит из{' '}
+          <span className='has-text-weight-semibold'>
+            рабочей тормозной системы
+          </span>{' '}
+          и{' '}
+          <span className='has-text-weight-semibold'>
+            стояночной тормозной системы
+          </span>
+          .
+        </h2>
+      </Hero>
+
       <Section>
         <div className='block'>
           <FeaturesList featuresList={brakesFeatures} />
+        </div>
+      </Section>
+
+      <Section>
+        <div className='columns'>
+          <div className='column is-6'>
+            <figure className='image'>
+              <img src={brakesKit}></img>
+            </figure>
+          </div>
+          <div className='column is-6'>
+            <SectionTitle>Рабочая тормозная система</SectionTitle>
+            Here's the main info (what consists of)
+          </div>
         </div>
       </Section>
       <Section>

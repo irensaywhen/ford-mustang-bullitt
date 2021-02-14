@@ -206,7 +206,7 @@ const SteeringSystem = () => {
         <div className='pb-3'>
           <HeroTitle>Система Рулевого Управления</HeroTitle>
         </div>
-        <h2 className='subtitle has-text-info-light has-text-weight-light pb-3'>
+        <h2 className='subtitle has-text-light has-text-weight-light pb-3'>
           Имеет <span className='has-text-weight-semibold'>реечный тип</span>{' '}
           и&nbsp;
           <span className='has-text-weight-semibold'>
