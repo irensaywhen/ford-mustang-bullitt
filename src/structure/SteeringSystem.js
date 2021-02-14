@@ -124,8 +124,6 @@ const steeringSystemCards = [
 const SteeringSystem = () => {
   const modalContext = useContext(ModalContext);
 
-  console.log(modalContext);
-
   // List of possible faults in the system
   const faultsList = faults
     .sort((fault1, fault2) => {
