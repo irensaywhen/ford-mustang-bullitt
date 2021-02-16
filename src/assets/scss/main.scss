@@ -1,9 +1,11 @@
 @charset "utf-8";
 
 @import 'utilities/variables';
-@import 'utilities/helper_classes';
 
 @import '../../../node_modules/bulma/bulma.sass';
+
+@import 'utilities/mixins';
+@import 'utilities/helper_classes';
 
 @import 'elements/image';
 @import 'elements/accordion';

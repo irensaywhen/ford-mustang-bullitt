@@ -139,7 +139,7 @@ const SteeringSystem = () => {
       <BulletpointWithIcon
         key={index}
         icon={<i className='fas fa-tools'></i>}
-        iconWrapperClasses={fault.critical ? 'has-text-danger' : ''}
+        iconWrapperClasses={fault.critical ? ['has-text-danger'] : ''}
       >
         <h3 className='title is-5 mb-2'>{fault.title}</h3>
         <p>{fault.description}</p>
@@ -169,9 +169,9 @@ const SteeringSystem = () => {
               <i class='far fa-times-circle'></i>
             )
           }
-          iconWrapperClasses={
-            listItem.type === 'pro' ? 'has-text-success' : 'has-text-danger'
-          }
+          iconWrapperClasses={[
+            listItem.type === 'pro' ? 'has-text-success' : 'has-text-danger',
+          ]}
         >
           <p className='has-text-left is-size-5'>{listItem.description}</p>
         </BulletpointWithIcon>

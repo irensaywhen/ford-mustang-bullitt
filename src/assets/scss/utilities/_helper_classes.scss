@@ -1,3 +1,20 @@
 .has-text-underline {
   text-decoration: underline !important;
 }
+
+// Reverse columns classes
+.columns-reverse-mobile {
+  flex-direction: row-reverse;
+}
+
+.columns-reverse-tablet {
+  @include screen-tablet {
+    flex-direction: row-reverse;
+  }
+}
+
+.columns-reverse-desktop {
+  @include screen-desktop {
+    flex-direction: row-reverse;
+  }
+}

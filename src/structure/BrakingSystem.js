@@ -11,6 +11,8 @@ import CenteredParagraph from '../common/UI/CenteredParagraph';
 import BulletpointWithIcon from '../common/UI/BulletpointWithIcon';
 import FeaturesList from '../common/UI/FeaturesList/FeaturesList';
 import Modal from '../common/UI/Modal';
+import H3 from '../common/UI/Titles/H3';
+import HalfWidthColumn from '../common/UI/HalfWidthColumn';
 
 import classes from '../assets/scss/pages/braking.module.scss';
 
@@ -34,6 +36,24 @@ const faults = [
     description:
       'Могут возникать при загрязнении тормозных механизмов, износа накладок тормозных колодок, неравномерного износа тормозных дисков или барабанов.',
     critical: false,
+  },
+  {
+    title: 'Тормозной путь более 12.2 метра, замедление более 6.8 м/с2 ',
+    description:
+      'Испытания проводятся на горизонтальном участке дороги с ровным, сухим, чистым цементированным или асфальтированным покрытием при начальной скорости 40 км/ч.',
+    critical: true,
+  },
+  {
+    title: 'Нарушена герметичность гидравлического тормозного привода',
+    description:
+      'Негерметичность трубок, шлангов или цилиндров может повлечь появление пузырьков воздуха в тормозной системе, что может привести к провалу педали при резком нажатии на педаль тормоза.',
+    critical: true,
+  },
+  {
+    title: 'Стояночная тормозная система не обеспечивает неподвижное состояние',
+    description:
+      'Испытания проводятся для легкового автомобиля в снаряженном состоянии на уклоне до 23% включительно.',
+    critical: true,
   },
 ];
 
@@ -73,15 +93,38 @@ const brakesFeatures = [
 ];
 
 const brakingSystemData = [
-  'Предназначена для уменьшения скорости и остановки',
-  'Состоит из тормозного привода и тормозных механизмов',
-  'Тормозную жидкость необходимо заливать в резервуар, расположенный под буквой D',
+  {
+    title: 'Тормозная система',
+    description:
+      'Состоит из рабочей и стоячей тормозных систем и предназначена как для уменьшения скорости и остановки(РТС), так и для удержания автомобиля на месте(СТС).',
+  },
+  {
+    title: 'Рабочая тормозная система',
+    description:
+      'Состоит из тормозного привода и тормозных механизмов колес. Привод служит для передачи усилия от педали на механизмы, которые с помощью сил трения останавливают автомобиль.',
+  },
+  {
+    title: 'Тормозной привод',
+    description:
+      'Состоит из педали тормоза, главного тормозного цилиндра, рабочих тормозных цилиндров, трубок и вакуумного усилителя.',
+  },
 ];
 
 const additionalBrakingSystemData = [
-  'Тормозной привод служит для передачи усилия от педали к тормозным механизмам',
-  'Оснащен вакуумным усилителем',
-  'Тормозные механизмы уменьшают скорость вращения колеса',
+  {
+    title: 'Тормозные механизмы',
+    description: 'Делятся на дисковые и барабанные (дисковые у Ford Bullitt).',
+  },
+  {
+    title: 'Стояночный тормоз',
+    description:
+      'Приводится в действие поднятием рычага стояночного тормоза. Имеет разные типа (в данной модели - электрический)',
+  },
+  {
+    title: 'Тормозная жидкость',
+    description:
+      'Является необходимой для функционирования тормозной системы. В данной модели заливается в бак под буквой D.',
+  },
 ];
 
 const BrakingSystem = () => {
@@ -136,34 +179,36 @@ const BrakingSystem = () => {
       <BulletpointWithIcon
         key={index}
         icon={<i className='fas fa-tools'></i>}
-        iconWrapperClasses={fault.critical ? 'has-text-danger' : ''}
+        iconWrapperClasses={fault.critical ? ['has-text-danger'] : ''}
       >
-        <h3 className='title is-5 mb-2'>{fault.title}</h3>
+        <H3>{fault.title}</H3>
         <p>{fault.description}</p>
       </BulletpointWithIcon>
     ));
 
-  const mainBrakingSystemData = brakingSystemData.map((title, index) => {
+  const mainBrakingSystemData = brakingSystemData.map((data, index) => {
     return (
       <BulletpointWithIcon
         key={index}
         icon={<i className='far fa-check-circle'></i>}
         iconWrapperClasses={['has-text-success']}
       >
-        <h3 className='title is-6 has-text-weight-normal'>{title}</h3>
+        <H3>{data.title}</H3>
+        <p>{data.description}</p>
       </BulletpointWithIcon>
     );
   });
 
   const mainBrakingSystemDataSecondPart = additionalBrakingSystemData.map(
-    (title, index) => {
+    (data, index) => {
       return (
         <BulletpointWithIcon
           key={index}
           icon={<i className='far fa-check-circle'></i>}
           iconWrapperClasses={['has-text-success']}
         >
-          <h3 className='title is-6 has-text-weight-normal'>{title}</h3>
+          <H3>{data.title}</H3>
+          <p>{data.description}</p>
         </BulletpointWithIcon>
       );
     }
@@ -200,13 +245,12 @@ const BrakingSystem = () => {
 
       <Section>
         <div className='columns'>
-          <div className='column is-6'>
+          <HalfWidthColumn>
             <figure className='image'>
               <img src={brakesKit} alt=''></img>
             </figure>
-          </div>
-          <div className='column is-6'>
-            <div className='block'></div>
+          </HalfWidthColumn>
+          <HalfWidthColumn>
             <div className='block pt-3'>{mainBrakingSystemData}</div>
             <div className='block pt-4 has-text-centered'>
               <button
@@ -216,11 +260,16 @@ const BrakingSystem = () => {
                 Как это работает?
               </button>
             </div>
-          </div>
+          </HalfWidthColumn>
         </div>
 
-        <div className='columns'>
-          <div className='column is-6'>
+        <div className='columns columns-reverse-tablet'>
+          <HalfWidthColumn>
+            <figure className='image'>
+              <img src={brakeFluidReservoir} alt=''></img>
+            </figure>
+          </HalfWidthColumn>
+          <HalfWidthColumn>
             <div className='block'></div>
             <div className='block pt-3'>{mainBrakingSystemDataSecondPart}</div>
             <div className='block pt-4 has-text-centered'>
@@ -231,12 +280,7 @@ const BrakingSystem = () => {
                 Что делает вакуумный усилитель?
               </button>
             </div>
-          </div>
-          <div className='column is-6'>
-            <figure className='image'>
-              <img src={brakeFluidReservoir} alt=''></img>
-            </figure>
-          </div>
+          </HalfWidthColumn>
         </div>
       </Section>
       <Section>
@@ -248,11 +292,13 @@ const BrakingSystem = () => {
 
         <div className='block has-text-centered pb-2'>
           <CenteredParagraph>
-            Знание основных неисправностей рулевого механизма, а также условий,
-            при которых запрещена эксплуатация транспортного средства{' '}
-            <strong className='has-text-danger'>критически важно</strong>.
-            <br></br>
-            Это убережет жизнь водителя и окружающих.
+            Знание неисправностей тормозной системы не только{' '}
+            <span className='has-text-weight-semibold'>убережет жизнь</span>
+            водителя и окружающих, но и поможет{' '}
+            <span className='has-text-weight-semibold'>
+              избежать больших затрат
+            </span>{' '}
+            на починку тормозных систем.
           </CenteredParagraph>
         </div>
 
