@@ -11,6 +11,7 @@ const routes = {
     body: '/body',
     steering: '/steering',
     braking: '/braking',
+    transmission: '/transmission',
   },
   about: '/about',
   contact: '/contact',

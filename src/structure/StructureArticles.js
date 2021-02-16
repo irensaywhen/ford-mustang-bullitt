@@ -4,6 +4,7 @@ import { Switch, Route, useRouteMatch, Link } from 'react-router-dom';
 import CarBody from './CarBody';
 import SteeringSystem from './SteeringSystem';
 import BrakingSystem from './BrakingSystem';
+import Transmission from './Transmission';
 import Section from '../common/UI/Section';
 
 import routes from '../routes';
@@ -22,6 +23,10 @@ const StructureArticles = () => {
         path={`${path}${routes.structure.braking}`}
         component={BrakingSystem}
       />
+      <Route
+        path={`${path}${routes.structure.transmission}`}
+        component={Transmission}
+      />
       <Route path={routes.structure.index}>
         <Section>
           <Link to={`${url}${routes.structure.body}`}>Car body Link</Link>
@@ -30,6 +35,9 @@ const StructureArticles = () => {
           </Link>
           <Link to={`${url}${routes.structure.braking}`}>
             Braking system link
+          </Link>
+          <Link to={`${url}${routes.structure.transmission}`}>
+            Transmission
           </Link>
           This is structure articles list
         </Section>
