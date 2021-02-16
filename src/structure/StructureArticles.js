@@ -4,7 +4,7 @@ import { Switch, Route, useRouteMatch, Link } from 'react-router-dom';
 import CarBody from './CarBody';
 import SteeringSystem from './SteeringSystem';
 import BrakingSystem from './BrakingSystem';
-import Transmission from './Transmission';
+import Transmission from './transmission/Transmission';
 import Section from '../common/UI/Section';
 
 import routes from '../routes';
