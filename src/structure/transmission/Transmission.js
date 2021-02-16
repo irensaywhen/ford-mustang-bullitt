@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect, useRouteMatch } from 'react-router-dom';
 
 import Section from '../../common/UI/Section';
 import Tabs from '../../common/UI/Tabs';
@@ -26,8 +27,11 @@ const parts = [
 ];
 
 const Transmission = () => {
+  const { path, url } = useRouteMatch();
+
   return (
     <React.Fragment>
+      <Redirect to={`${path}/${parts[0].tabLink}`} />
       <Section>Transmission</Section>
       <Section>
         <Tabs tabs={parts} />
