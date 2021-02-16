@@ -10,7 +10,11 @@ const ModalContextProvider = ({ children }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   // Show modal handler
-  const showModal = () => setIsModalVisible(true);
+  const showModal = () => {
+    if (!isModalVisible) {
+      setIsModalVisible(true);
+    }
+  };
 
   // Hide modal handler
   const hideModal = () => setIsModalVisible(false);

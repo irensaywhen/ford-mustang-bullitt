@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 
 import brakesKit from '../assets/img/braking/braking-kit.jpg';
+import brakeFluidReservoir from '../assets/img/braking/brake-fluid-reservoir.png';
 
 import Section from '../common/UI/Section';
 import Hero from '../common/UI/Hero';
@@ -9,8 +10,11 @@ import SectionTitle from '../common/UI/SectionTitle';
 import CenteredParagraph from '../common/UI/CenteredParagraph';
 import BulletpointWithIcon from '../common/UI/BulletpointWithIcon';
 import FeaturesList from '../common/UI/FeaturesList/FeaturesList';
+import Modal from '../common/UI/Modal';
 
 import classes from '../assets/scss/pages/braking.module.scss';
+
+import { ModalContext } from '../context/modal-context';
 
 const faults = [
   {
@@ -68,7 +72,56 @@ const brakesFeatures = [
   },
 ];
 
+const brakingSystemData = [
+  'Предназначена для уменьшения скорости и остановки',
+  'Состоит из тормозного привода и тормозных механизмов',
+  'Тормозную жидкость необходимо заливать в резервуар, расположенный под буквой D',
+];
+
+const additionalBrakingSystemData = [
+  'Тормозной привод служит для передачи усилия от педали к тормозным механизмам',
+  'Оснащен вакуумным усилителем',
+  'Тормозные механизмы уменьшают скорость вращения колеса',
+];
+
 const BrakingSystem = () => {
+  const modalContext = useContext(ModalContext);
+
+  const [currentVideoType, setCurrentVideoType] = useState('first');
+
+  const openModal = video => {
+    if (video === 'first' || video === 'second') {
+      setCurrentVideoType(video);
+    } else {
+      throw new Error('Wrong video type');
+    }
+
+    modalContext.showModal();
+  };
+
+  const modalContent =
+    currentVideoType === 'first' ? (
+      <iframe
+        title='Braking system part 1'
+        width='560'
+        height='315'
+        src='https://www.youtube.com/embed/MAuVDB-G-HQ'
+        frameborder='0'
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+        allowfullscreen
+      ></iframe>
+    ) : (
+      <iframe
+        title='Braking system part 2'
+        width='560'
+        height='315'
+        src='https://www.youtube.com/embed/bGKJOICWmFQ'
+        frameborder='0'
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+        allowfullscreen
+      ></iframe>
+    );
+
   const faultsList = faults
     .sort((fault1, fault2) => {
       if (fault1.critical) {
@@ -89,8 +142,37 @@ const BrakingSystem = () => {
         <p>{fault.description}</p>
       </BulletpointWithIcon>
     ));
+
+  const mainBrakingSystemData = brakingSystemData.map((title, index) => {
+    return (
+      <BulletpointWithIcon
+        key={index}
+        icon={<i className='far fa-check-circle'></i>}
+        iconWrapperClasses={['has-text-success']}
+      >
+        <h3 className='title is-6 has-text-weight-normal'>{title}</h3>
+      </BulletpointWithIcon>
+    );
+  });
+
+  const mainBrakingSystemDataSecondPart = additionalBrakingSystemData.map(
+    (title, index) => {
+      return (
+        <BulletpointWithIcon
+          key={index}
+          icon={<i className='far fa-check-circle'></i>}
+          iconWrapperClasses={['has-text-success']}
+        >
+          <h3 className='title is-6 has-text-weight-normal'>{title}</h3>
+        </BulletpointWithIcon>
+      );
+    }
+  );
   return (
     <React.Fragment>
+      <Modal hidePadding transparentBackground>
+        <div className='has-text-centered videoWrapper'>{modalContent}</div>
+      </Modal>
       <Hero
         classNames={['is-halfheight', 'has-text-centered', classes.HeroImage]}
       >
@@ -120,12 +202,40 @@ const BrakingSystem = () => {
         <div className='columns'>
           <div className='column is-6'>
             <figure className='image'>
-              <img src={brakesKit}></img>
+              <img src={brakesKit} alt=''></img>
             </figure>
           </div>
           <div className='column is-6'>
-            <SectionTitle>Рабочая тормозная система</SectionTitle>
-            Here's the main info (what consists of)
+            <div className='block'></div>
+            <div className='block pt-3'>{mainBrakingSystemData}</div>
+            <div className='block pt-4 has-text-centered'>
+              <button
+                className='button is-primary'
+                onClick={() => openModal('first')}
+              >
+                Как это работает?
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className='columns'>
+          <div className='column is-6'>
+            <div className='block'></div>
+            <div className='block pt-3'>{mainBrakingSystemDataSecondPart}</div>
+            <div className='block pt-4 has-text-centered'>
+              <button
+                className='button is-primary'
+                onClick={() => openModal('second')}
+              >
+                Что делает вакуумный усилитель?
+              </button>
+            </div>
+          </div>
+          <div className='column is-6'>
+            <figure className='image'>
+              <img src={brakeFluidReservoir} alt=''></img>
+            </figure>
           </div>
         </div>
       </Section>

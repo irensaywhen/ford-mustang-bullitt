@@ -3,10 +3,15 @@ import React from 'react';
 import classes from '../../assets/scss/components/icons.module.scss';
 
 const BulletpointWithIcon = props => {
-  const iconWrapperClasses =
-    typeof props.iconWrapperClasses === 'string'
-      ? props.iconWrapperClasses.split(' ')
-      : props.iconWrapperClasses;
+  let iconWrapperClasses = [];
+
+  if (props.iconWrapperClasses === 'string') {
+    iconWrapperClasses = props.iconWrapperClasses.split(' ');
+  } else if (props.iconWrapperClasses instanceof Array) {
+    iconWrapperClasses = props.iconWrapperClasses;
+  }
+
+  console.log(props.iconWrapperClasses);
   const classNames = [
     'column',
     'is-3-mobile',
@@ -18,7 +23,9 @@ const BulletpointWithIcon = props => {
   return (
     <div className='columns is-mobile'>
       <div className={classNames.join(' ')}>{props.icon}</div>
-      <div className='column is-9'>{props.children}</div>
+      <div className='column is-9 is-flex is-flex-direction-column is-justify-content-center'>
+        {props.children}
+      </div>
     </div>
   );
 };
