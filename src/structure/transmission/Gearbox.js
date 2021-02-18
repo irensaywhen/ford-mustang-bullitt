@@ -7,6 +7,8 @@ import Table from '../../common/UI/Table';
 import H3 from '../../common/UI/Titles/H3';
 import H4 from '../../common/UI/Titles/H4';
 
+import gearboxHandler from '../../assets/img/transmission/2019-Ford-Mustang-Bullitt-UK-Review-06.jpg';
+
 const definitions = [
   {
     header: 'Картер',
@@ -59,14 +61,28 @@ const gearboxSwitchingTbody = [
   ['5 - 6', '77 км/ч'],
 ];
 
-const assistiveClutchParts = [
-  'Педали',
-  'Главного цлиндра (передает усилие от педали на рабочий цилиндр)',
-  'Рабочего цилиндра (передает усилие на механизм сцепления)',
-  'Вилки выключения сцепления',
-  'Нажимного подшипника',
-  'Трубопроводов',
-];
+const gearRatios = {
+  tHead: [
+    <span className='has-text-weight-bold'>Передача</span>,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+  ],
+  tBody: [
+    [
+      <span className='has-text-weight-bold'>Отношение</span>,
+      '3.237',
+      '2.104',
+      '1.422',
+      '1',
+      '0.814',
+      '0.622',
+    ],
+  ],
+};
 
 const gearboxParts = [
   'Картера',
@@ -75,12 +91,6 @@ const gearboxParts = [
   'Синхронизаторов',
   'Механизма переключения передач с замковым и блокирующим устройствами',
   'Рычагами переключения',
-];
-
-const releaseClutchPedalSteps = [
-  'Приотпустить педаль, чтобы подвести ведомый диск к маховику до их легкого соприкосновения. Ведомый диск засчет сил трения начинает медленно вращаться.',
-  'Удержать педаль сцепления в фиксированном положении, чтобы ведущий диск начал вращаться со скоростью ведущего диска',
-  'Отпустить педаль сцепления. Оба диска вращаются с одинаковой скорость.',
 ];
 
 const faults = [
@@ -161,6 +171,20 @@ const Gearbox = () => {
           <span className='has-text-weight-semibold'>
             передаточное отношение
           </span>
+          <div className='columns pt-5 pb-3 pl-3'>
+            <div className='col'>
+              <Table
+                tHeaderCaption={
+                  <span className='has-text-weight-semibold'>
+                    Передаточные отношения
+                  </span>
+                }
+                theadRow={gearRatios.tHead}
+                tbodyRows={gearRatios.tBody}
+                hasTextLeft
+              />
+            </div>
+          </div>
         </p>
         <p className='pt-2'>
           Чем <span className='has-text-weight-semibold'>выше</span> передача,
@@ -181,31 +205,26 @@ const Gearbox = () => {
           больше <span className='has-text-weight-semibold'>24 км/ч</span>. Это
           может привести к повреждению сцепления.
         </p>
-        <Table
-          theadRow={gearboxSwitchingThead}
-          tbodyRows={gearboxSwitchingTbody}
-          tFooterCaption='Точные скорости для оптимального использования топлива'
-        />
-        Здесь нужно описать, какая скорость для чего нужна (возможно, в
-        табличке)
       </div>
-      <div className='block'>
-        <H4>
-          Отпускать педаль сцепления всегда нужно в <em>три</em> этапа:
-        </H4>
-        <OrderedList listItems={releaseClutchPedalSteps} />
+      <div className='block pt-3'>
+        <div className='columns'>
+          <div className='col pr-5 pl-3 is-flex is-align-items-center is-justify-content-center is-hidden-mobile'>
+            <figure className='image is-256x256'>
+              <img src={gearboxHandler} alt=''></img>
+            </figure>
+          </div>
+          <div className='col'>
+            <Table
+              theadRow={gearboxSwitchingThead}
+              tbodyRows={gearboxSwitchingTbody}
+              tFooterCaption='Точные скорости для оптимального использования топлива'
+            />
+          </div>
+        </div>
       </div>
-      <div className='block'>
-        <H4>Выключение сцепления.</H4>
-        <p>
-          Для выключения сцепления, необходимо{' '}
-          <span className='has-text-weight-semibold'>нажать</span> на педаль
-          сцепления. При этом передача крутящего момента прерывается. Нажимать
-          на педаль сцепления следует быстро, но не резко.
-        </p>
-      </div>
-      <div className='block'>
-        <H4>Основные неисправности коробки передач. Эксплуатация</H4>
+
+      <div className='block pt-5'>
+        <H4>Основные неисправности коробки передач. Эксплуатация.</H4>
         <p className='pb-5'>
           Как правило, неисправности в коробке передач связаны с грубым
           обращением с ней. <br></br>

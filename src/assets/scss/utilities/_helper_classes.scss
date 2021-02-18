@@ -18,3 +18,8 @@
     flex-direction: row-reverse;
   }
 }
+
+.image.is-256x256 {
+  width: 256px;
+  max-height: 256px;
+}

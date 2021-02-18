@@ -13,16 +13,29 @@ const Table = props => {
     </tr>
   ));
 
-  const tFooterCaption = props.tFooterCaption ? (
-    <tfoot>
-      <tr className='has-text-left is-size-7'>
-        <td colSpan={theadRowItems.length}>{props.tFooterCaption}</td>
-      </tr>
-    </tfoot>
+  const tHeaderCaption = props.tHeaderCaption ? (
+    <caption className='has-text-left pb-3'>{props.tHeaderCaption}</caption>
   ) : null;
 
+  const tFooterCaption = props.tFooterCaption ? (
+    <caption
+      className='is-size-7 has-text-left'
+      style={{ captionSide: 'bottom' }}
+    >
+      {props.tFooterCaption}
+    </caption>
+  ) : null;
+
+  console.log(props.hasTextLeft);
+
+  const tableClasses = [
+    'table is-striped is-hoverable is-fullwidth',
+    props.hasTextLeft ? 'has-text-left' : 'has-text-centered',
+  ];
+
   return (
-    <table className='table is-striped is-hoverable is-fullwidth has-text-centered'>
+    <table className={tableClasses.join(' ')}>
+      {tHeaderCaption}
       <thead>
         <tr>{theadRowItems}</tr>
       </thead>
