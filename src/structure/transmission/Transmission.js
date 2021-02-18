@@ -6,6 +6,7 @@ import Tabs from '../../common/UI/Tabs';
 
 import Clutch from './Clutch';
 import Gearbox from './Gearbox';
+import CardanJoint from './CardanJoint';
 import Differential from './Differential';
 
 const parts = [
@@ -23,6 +24,11 @@ const parts = [
     tabName: 'Дифференциал',
     tabLink: 'differential',
     component: Differential,
+  },
+  {
+    tabName: 'Карданная передача',
+    tabLink: 'cardan-joint',
+    component: CardanJoint,
   },
 ];
 

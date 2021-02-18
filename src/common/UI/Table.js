@@ -26,8 +26,6 @@ const Table = props => {
     </caption>
   ) : null;
 
-  console.log(props.hasTextLeft);
-
   const tableClasses = [
     'table is-striped is-hoverable is-fullwidth',
     props.hasTextLeft ? 'has-text-left' : 'has-text-centered',
