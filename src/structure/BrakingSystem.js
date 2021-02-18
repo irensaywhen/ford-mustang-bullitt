@@ -6,7 +6,6 @@ import brakeFluidReservoir from '../assets/img/braking/brake-fluid-reservoir.png
 import Section from '../common/UI/Section';
 import Hero from '../common/UI/Hero';
 import HeroTitle from '../common/UI/HeroTitle';
-import SectionTitle from '../common/UI/SectionTitle';
 import CenteredParagraph from '../common/UI/CenteredParagraph';
 import BulletpointWithIcon from '../common/UI/BulletpointWithIcon';
 import FeaturesList from '../common/UI/FeaturesList/FeaturesList';
