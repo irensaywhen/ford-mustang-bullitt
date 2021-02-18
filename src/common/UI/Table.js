@@ -12,12 +12,22 @@ const Table = props => {
       ))}
     </tr>
   ));
+
+  const tFooterCaption = props.tFooterCaption ? (
+    <tfoot>
+      <tr className='has-text-left is-size-7'>
+        <td colSpan={theadRowItems.length}>{props.tFooterCaption}</td>
+      </tr>
+    </tfoot>
+  ) : null;
+
   return (
     <table className='table is-striped is-hoverable is-fullwidth has-text-centered'>
       <thead>
         <tr>{theadRowItems}</tr>
       </thead>
       <tbody>{tbodyRows}</tbody>
+      {tFooterCaption}
     </table>
   );
 };
