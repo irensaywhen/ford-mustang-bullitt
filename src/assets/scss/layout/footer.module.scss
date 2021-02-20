@@ -1,0 +1,8 @@
+@import '../utilities//variables';
+
+.Footer {
+  strong,
+  a {
+    color: $footer-color;
+  }
+}
