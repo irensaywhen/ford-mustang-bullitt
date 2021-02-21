@@ -3,14 +3,20 @@ import React, { useState } from 'react';
 export const MobileMenuContext = React.createContext({
   isMobileMenuVisible: false,
   toggleMenuVisibility: () => {},
+  closeMenu: () => {},
 });
 
 const MobileMenuContextProvider = ({ children }) => {
   const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false);
 
   const toggleMenuVisibility = () => {
-    console.log('Toggling');
     setIsMobileMenuVisible(isMenuVisible => !isMenuVisible);
+  };
+
+  const closeMenu = () => {
+    if (isMobileMenuVisible) {
+      setIsMobileMenuVisible(false);
+    }
   };
 
   return (
@@ -18,6 +24,7 @@ const MobileMenuContextProvider = ({ children }) => {
       value={{
         isMobileMenuVisible,
         toggleMenuVisibility,
+        closeMenu,
       }}
     >
       {children}

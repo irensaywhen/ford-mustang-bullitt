@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Navigation from './Navigation/Navigation';
 import Footer from './Footer/Footer';
 
+import { MobileMenuContext } from '../../context/mobile-menu-context';
+
 const Layout = ({ children }) => {
+  const mobileMenuContext = useContext(MobileMenuContext);
   return (
     <React.Fragment>
-      <div className='content-wrapper'>
+      <div className='content-wrapper' onClick={mobileMenuContext.closeMenu}>
         <Navigation />
         {children}
       </div>
