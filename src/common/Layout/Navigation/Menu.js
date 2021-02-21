@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { MobileMenuContext } from '../../../context/mobile-menu-context';
 
 import routes from '../../../routes';
 
@@ -8,7 +10,9 @@ import NavbarDropdown from './NavbarDropdown';
 const Menu = ({ isMenuOpen }) => {
   const navbarMenuClasses = ['navbar-menu'];
 
-  if (isMenuOpen) {
+  const mobileMenuContext = useContext(MobileMenuContext);
+
+  if (mobileMenuContext.isMobileMenuVisible) {
     navbarMenuClasses.push('is-active');
   }
   return (

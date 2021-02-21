@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+
+import { MobileMenuContext } from '../../../context/mobile-menu-context';
 
 import routes from '../../../routes';
 
-const NavbarBrand = ({ toggleMenuHandler }) => {
+const NavbarBrand = () => {
+  const mobileMenuContext = useContext(MobileMenuContext);
+
   return (
     <div className='navbar-brand'>
       <Link to={routes.home} className='navbar-item'>
@@ -15,7 +19,7 @@ const NavbarBrand = ({ toggleMenuHandler }) => {
         className='navbar-burger'
         aria-label='menu'
         aria-expanded='false'
-        onClick={toggleMenuHandler}
+        onClick={mobileMenuContext.toggleMenuVisibility}
       >
         <span aria-hidden='true'></span>
         <span aria-hidden='true'></span>
