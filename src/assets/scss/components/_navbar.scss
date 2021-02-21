@@ -1,0 +1,37 @@
+// The main container
+.navbar {
+  background-color: transparent;
+  // @include until-desktop {
+  //
+  // }
+
+  .navbar-brand {
+    background-color: $navbar-background-color;
+    position: relative;
+    z-index: 5;
+  }
+}
+
+// Navbar menu
+.navbar-menu {
+  @include until-desktop {
+    @include ease-out;
+
+    display: block;
+    transform: translate3d(0, -120%, 0);
+
+    &.is-active {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
+// Navbar item
+.navbar-item {
+  &.is-active {
+    border-bottom: none;
+    @include screen-desktop {
+      border-bottom: 1px solid $info-light;
+    }
+  }
+}

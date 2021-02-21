@@ -1,3 +1,4 @@
+@import '../../../../node_modules/bulma/sass/utilities/derived-variables.sass';
 // maybe you should customize it a bit differently
 // by replacing primary color
 // Work a bit on color scheme
@@ -13,8 +14,13 @@ $black: #000;
 
 $link: $info-dark;
 
+// Navbar
 $navbar-background-color: $primary-dark;
-$navbar-item-color: $info-light;
+$navbar-item-color: $info-light !important;
+$navbar-item-active-color: $info-light;
+// hover
+$navbar-item-hover-color: #fff !important;
+$navbar-item-hover-background-color: $primary-dark !important;
 
 $section-padding: 5rem 1.5rem;
 $section-padding-desktop: 6rem 3rem;

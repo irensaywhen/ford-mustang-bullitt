@@ -1,27 +1,51 @@
+/* media queries */
 @mixin screen-mobile {
   @content;
 }
 
+// Starting from tablet
 @mixin screen-tablet {
   @media (min-width: $tablet) {
     @content;
   }
 }
 
+// Starting from desktop
 @mixin screen-desktop {
   @media (min-width: $desktop) {
     @content;
   }
 }
 
+// Starting from widescreen
 @mixin screen-widescreen {
   @media (min-width: $widescreen) {
     @content;
   }
 }
 
+// Starting from fullhd
 @mixin screen-fullhd {
   @media (min-width: $fullhd) {
     @content;
   }
+}
+
+@mixin until-tablet {
+  @media (max-width: $tablet) {
+    @content;
+  }
+}
+
+// From mobile to desktop
+@mixin until-desktop {
+  @media (max-width: $desktop) {
+    @content;
+  }
+}
+
+/* transforms */
+
+@mixin ease-out {
+  transition: all 0.5s ease-out;
 }
