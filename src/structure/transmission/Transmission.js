@@ -13,22 +13,22 @@ const parts = [
   {
     tabName: 'Сцепление',
     tabLink: 'clutch',
-    component: Clutch,
+    Component: Clutch,
   },
   {
     tabName: 'Коробка Передач',
     tabLink: 'gearbox',
-    component: Gearbox,
+    Component: Gearbox,
   },
   {
     tabName: 'Дифференциал',
     tabLink: 'differential',
-    component: Differential,
+    Component: Differential,
   },
   {
     tabName: 'Карданная передача',
     tabLink: 'cardan-joint',
-    component: CardanJoint,
+    Component: CardanJoint,
   },
 ];
 
