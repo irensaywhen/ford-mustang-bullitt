@@ -1,9 +1,8 @@
 // The main container
 .navbar {
-  background-color: transparent;
-  // @include until-desktop {
-  //
-  // }
+  @include until-desktop {
+    background-color: transparent;
+  }
 
   .navbar-brand {
     background-color: $navbar-background-color;
@@ -28,10 +27,18 @@
 
 // Navbar item
 .navbar-item {
-  &.is-active {
-    border-bottom: none;
-    @include screen-desktop {
-      border-bottom: 1px solid $info-light;
+  @include screen-desktop {
+    @include ease-out;
+    border-bottom: 2px solid $info-light;
+    clip-path: polygon(
+      calc(0% + 2px) calc(0% + 2px),
+      /* top left */ calc(100% - 2px) calc(0% + 2px),
+      /* top right */ calc(100% - 2px) calc(100% - 2px),
+      /* bottom right */ calc(0% + 2px) calc(100% - 2px) /* bottom left */
+    );
+
+    &.is-active {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
   }
 }
