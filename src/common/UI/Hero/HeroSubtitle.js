@@ -1,0 +1,17 @@
+import React from 'react';
+
+const HeroSubtitle = ({ children }) => {
+  return (
+    <div className='container'>
+      <div className='columns is-justify-content-center'>
+        <div className='column is-7'>
+          <h2 className='subtitle has-text-light has-text-weight-light'>
+            {children}
+          </h2>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default HeroSubtitle;

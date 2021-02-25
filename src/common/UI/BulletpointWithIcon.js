@@ -11,7 +11,6 @@ const BulletpointWithIcon = props => {
     iconWrapperClasses = props.iconWrapperClasses;
   }
 
-  console.log(props.iconWrapperClasses);
   const classNames = [
     'column',
     'is-3-mobile',
