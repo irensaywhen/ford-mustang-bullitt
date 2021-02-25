@@ -6,6 +6,7 @@ import BulletpointWithIcon from '../../common/UI/BulletpointWithIcon';
 import Table from '../../common/UI/Table';
 import H3 from '../../common/UI/Titles/H3';
 import H4 from '../../common/UI/Titles/H4';
+import TextSemibold from '../../common/UI/Text/TextSemibold';
 
 import gearboxHandler from '../../assets/img/transmission/2019-Ford-Mustang-Bullitt-UK-Review-06.jpg';
 
@@ -134,17 +135,13 @@ const Gearbox = () => {
         <H3>Коробка передач</H3>
         <p>
           Предназначена для изменения по{' '}
-          <span className='has-text-weight-semibold'>
-            величине и направлению
-          </span>{' '}
-          крутящего момента и передачи его от двигателя на ведущие колеса.
-          <br></br>
-          <br></br>
-          Состоит из:
+          <TextSemibold>величине и направлению</TextSemibold> крутящего момента
+          и передачи его от двигателя на ведущие колеса.
         </p>
-        <p className='pt-2'>
-          <OrderedList listItems={gearboxParts} />
-        </p>
+      </div>
+      <div className='block'>
+        <H4 className='mb-2'>Состоит из</H4>
+        <OrderedList listItems={gearboxParts} />
       </div>
       <div className='block'>
         <H4>Принцип работы</H4>
@@ -152,32 +149,22 @@ const Gearbox = () => {
           Возможность иметь разные скорости вращения ведущих колес при
           практически постоянной скорости вращения, обеспеченной двигателем
           внутреннего сгорания, происходит из-за переключения между шестернями,
-          имеющими{' '}
-          <span className='has-text-weight-semibold'>разный диаметр</span>.
-          <br></br>
-          <span className='has-text-weight-semibold'></span>
-          <span className='has-text-weight-semibold'>Угловая скорость</span>
-          вращения шестерни одинаковая и{' '}
-          <span className='has-text-weight-semibold'>не</span> зависит от
-          <span className='has-text-weight-semibold'>радиуса</span>, в то время
-          как <span className='has-text-weight-semibold'>линейная</span>
-          (тангенсальная) скорость{' '}
-          <span className='has-text-weight-semibold'>зависит</span> от{' '}
-          <span className='has-text-weight-semibold'>радиуса</span>, что
-          позволяет обеспечить разные линейные скорости разными диаметрами
-          (следовательно, разными количествами зубцов).<br></br>
+          имеющими <TextSemibold>разный диаметр</TextSemibold>.<br></br>
+          <TextSemibold>Угловая скорость</TextSemibold>
+          вращения шестерни одинаковая и <TextSemibold>не</TextSemibold> зависит
+          от <TextSemibold>радиуса</TextSemibold>, в то время как{' '}
+          <TextSemibold>линейная</TextSemibold>
+          (тангенсальная) скорость <TextSemibold>зависит</TextSemibold> от{' '}
+          <TextSemibold>радиуса</TextSemibold>, что позволяет обеспечить разные
+          линейные скорости разными диаметрами (следовательно, разными
+          количествами зубцов).<br></br>
           Переключая передачи, мы меняем соприкасающиеся шестерни, изменяя тем
-          самым{' '}
-          <span className='has-text-weight-semibold'>
-            передаточное отношение
-          </span>
+          самым <TextSemibold>передаточное отношение</TextSemibold>
           <div className='columns pt-5 pb-3 pl-3'>
             <div className='col'>
               <Table
                 tHeaderCaption={
-                  <span className='has-text-weight-semibold'>
-                    Передаточные отношения
-                  </span>
+                  <TextSemibold>Передаточные отношения</TextSemibold>
                 }
                 theadRow={gearRatios.tHead}
                 tbodyRows={gearRatios.tBody}
@@ -187,23 +174,20 @@ const Gearbox = () => {
           </div>
         </p>
         <p className='pt-2'>
-          Чем <span className='has-text-weight-semibold'>выше</span> передача,
-          тем двигателю{' '}
-          <span className='has-text-weight-semibold'>тяжелее</span> крутить
-          колеса, но тем машина{' '}
-          <span className='has-text-weight-semibold'>быстрее</span>. <br></br>
-          Чем передача <span className='has-text-weight-semibold'>ниже</span>,
-          тем двигателю <span className='has-text-weight-semibold'>легче</span>{' '}
-          крутить колеса, но тем машина{' '}
-          <span className='has-text-weight-semibold'>медленнее</span>.
+          Чем <TextSemibold>выше</TextSemibold> передача, тем двигателю{' '}
+          <TextSemibold>тяжелее</TextSemibold> крутить колеса, но тем машина{' '}
+          <TextSemibold>быстрее</TextSemibold>. <br></br>
+          Чем передача <TextSemibold>ниже</TextSemibold>, тем двигателю{' '}
+          <TextSemibold>легче</TextSemibold> крутить колеса, но тем машина{' '}
+          <TextSemibold>медленнее</TextSemibold>.
         </p>
       </div>
       <div className='block'>
         <H4>6-ти скоростная коробка передач</H4>
         <p>
           Не рекомендуется переключаться на 1 передачу когда скорость автомобиля
-          больше <span className='has-text-weight-semibold'>24 км/ч</span>. Это
-          может привести к повреждению сцепления.
+          больше <TextSemibold>24 км/ч</TextSemibold>. Это может привести к
+          повреждению сцепления.
         </p>
       </div>
       <div className='block pt-3'>
@@ -229,16 +213,11 @@ const Gearbox = () => {
           Как правило, неисправности в коробке передач связаны с грубым
           обращением с ней. <br></br>
           Рычаг переключения должен переводиться{' '}
-          <span className='has-text-weight-semibold'>плавным </span>
-          движением, с{' '}
-          <span className='has-text-weight-semibold'>микропаузами</span> в
-          нейтральном положении, чтобы успели сработать синхронизаторы.{' '}
-          <br></br>
+          <TextSemibold>плавным </TextSemibold>
+          движением, с <TextSemibold>микропаузами</TextSemibold> в нейтральном
+          положении, чтобы успели сработать синхронизаторы. <br></br>
           Также, при эксплуатации коробки передач необходимо тщательно{' '}
-          <span className='has-text-weight-semibold'>
-            следить за уровнем масла
-          </span>{' '}
-          в картере.
+          <TextSemibold>следить за уровнем масла</TextSemibold> в картере.
         </p>
         {faultsList}
       </div>
