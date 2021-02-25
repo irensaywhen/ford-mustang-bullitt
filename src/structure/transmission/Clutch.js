@@ -5,6 +5,7 @@ import OrderedList from '../../common/UI/OrderedList';
 import BulletpointWithIcon from '../../common/UI/BulletpointWithIcon';
 import H3 from '../../common/UI/Titles/H3';
 import H4 from '../../common/UI/Titles/H4';
+import TextSemibold from '../../common/UI/Text/TextSemibold';
 
 const definitions = [
   {
@@ -87,8 +88,8 @@ const Clutch = () => {
           Чтобы переключение передач происходило плавно, нужно кратковременно
           прекратить передачу крутящего момента с двигателя на коробку передач,
           отделив двигатель от трансмиссии. Сцепление состоит из{' '}
-          <span className='has-text-weight-semibold'>привода</span> и{' '}
-          <span className='has-text-weight-semibold'>механизма сцепления</span>.
+          <TextSemibold>привода</TextSemibold> и{' '}
+          <TextSemibold>механизма сцепления</TextSemibold>.
         </p>
       </div>
       <div className='block'>
@@ -96,45 +97,36 @@ const Clutch = () => {
         <p>
           Модель имеет гидравлический привод сцепления. Тормозная система и
           гидропривод сцепления используют одну и ту же жидкость{' '}
-          <strong className='has-text-weight-semibold'>
-            DOT 4 Low Viscosity High Perfomance
-          </strong>
-          <br></br>
-          <br></br>
-          Гидропривод состоит из:
+          <TextSemibold>DOT 4 Low Viscosity High Perfomance</TextSemibold>
         </p>
-        <p className='pt-2'>
-          <OrderedList listItems={assistiveClutchParts} />
-        </p>
+      </div>
+      <div className='block'>
+        <H4 className='mb-2'>Гидропривод состоит из:</H4>
+        <OrderedList listItems={assistiveClutchParts} />
         <p className='pt-2'>
           Гидропривод сцепления работает по принципу передачи давления от педали
           сцепления через жидкость на механизм сцепления. <br></br>
           При отпускании педали сцепления засчет{' '}
-          <span className='has-text-weight-semibold'>
-            возвратных пружин
-          </span>{' '}
-          все детали возвращаются в исходное положение.
+          <TextSemibold>возвратных пружин</TextSemibold> все детали возвращаются
+          в исходное положение.
         </p>
       </div>
       <div className='block'>
         <H4>Механизм сцепления</H4>
         <p>
           Позволяет кратковременно разъединить двигатель и коробку передач, а
-          затем соединить их. <br></br>
-          <br></br>Состоит из:
+          затем соединить их.
         </p>
-        <p className='pt-2'>
-          <OrderedList listItems={clutchParts} />
-        </p>
-        <p className='pt-2'>
-          Когда сцепление{' '}
-          <span className='has-text-weight-semibold'>включено</span>, механизм
+      </div>
+      <div className='block'>
+        <H4 className='mb-2'>Состоит из:</H4>
+        <OrderedList listItems={clutchParts} />
+        <p className='pt-4'>
+          Когда сцепление <TextSemibold>включено</TextSemibold>, механизм
           сцепления вращается вместе с двигателем. <br></br>
-          Когда сцепление{' '}
-          <span className='has-text-weight-semibold'>выключено</span>, механизм
+          Когда сцепление <TextSemibold>выключено</TextSemibold>, механизм
           сцепления отсоединен от двигателя. <br></br> Для того, чтобы начать
-          движение, нужно{' '}
-          <span className='has-text-weight-semibold'>включить</span> сцепление.
+          движение, нужно <TextSemibold>включить</TextSemibold> сцепление.
         </p>
       </div>
       <div className='block'>
@@ -147,13 +139,13 @@ const Clutch = () => {
         <H4>Выключение сцепления.</H4>
         <p>
           Для выключения сцепления, необходимо{' '}
-          <span className='has-text-weight-semibold'>нажать</span> на педаль
-          сцепления. При этом передача крутящего момента прерывается. Нажимать
-          на педаль сцепления следует быстро, но не резко.
+          <TextSemibold>нажать</TextSemibold> на педаль сцепления. При этом
+          передача крутящего момента прерывается. Нажимать на педаль сцепления
+          следует быстро, но не резко.
         </p>
       </div>
       <div className='block'>
-        <H4>Основные неисправности сцепления. Эксплуатация</H4>
+        <H4>Основные неисправности сцепления. Эксплуатация.</H4>
         <p className='pb-5'>
           Для того, чтобы машина служила,{' '}
           <span className='has-text-weight-semibold has-text-danger'>
