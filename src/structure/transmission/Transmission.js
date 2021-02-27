@@ -3,7 +3,7 @@ import { Redirect, useRouteMatch } from 'react-router-dom';
 
 import Section from '../../common/UI/Section';
 import Tabs from '../../common/UI/Tabs';
-import Modal from '../common/UI/Modal';
+import Modal from '../../common/UI/Modal';
 
 import Clutch from './Clutch';
 import Gearbox from './Gearbox';
@@ -16,7 +16,7 @@ import HeroSubtitle from '../../common/UI/Hero/HeroSubtitle';
 
 import classes from '../../assets/scss/pages/braking.module.scss';
 
-import { ModalContext } from '../context/modal-context';
+import { ModalContext } from '../../context/modal-context';
 
 const parts = [
   {

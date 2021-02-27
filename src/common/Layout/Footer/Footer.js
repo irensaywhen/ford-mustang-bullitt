@@ -17,19 +17,19 @@ const Footer = () => {
         <div className='columns is-justify-content-center'>
           <div className='col'>
             <p className='is-size-6'>
-              <i class='far fa-copyright'></i> all rights reserved
+              <i className='far fa-copyright'></i> all rights reserved
             </p>
           </div>
         </div>
         <div className='columns is-justify-content-center'>
           <div className='col px-1'>
             <a href='https://twitter.com/IrenSayWhen'>
-              <i class='fab fa-twitter'></i>
+              <i className='fab fa-twitter'></i>
             </a>
           </div>
           <div className='col px-1'>
             <a href='https://vk.com/irensaywhen'>
-              <i class='fab fa-vk'></i>
+              <i className='fab fa-vk'></i>
             </a>
           </div>
         </div>

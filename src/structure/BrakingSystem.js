@@ -129,6 +129,8 @@ const additionalBrakingSystemData = [
 const BrakingSystem = () => {
   const modalContext = useContext(ModalContext);
 
+  console.log(modalContext);
+
   const [currentVideoType, setCurrentVideoType] = useState('first');
 
   const openModal = video => {

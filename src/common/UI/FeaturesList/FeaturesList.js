@@ -3,8 +3,8 @@ import Feature from './Feature';
 
 const FeaturesList = ({ featuresList }) => {
   const features = featuresList.map((feature, index) => (
-    <div className='column'>
-      <Feature key={index} {...feature} />
+    <div className='column' key={index}>
+      <Feature {...feature} />
     </div>
   ));
   return <div className='columns'>{features}</div>;
