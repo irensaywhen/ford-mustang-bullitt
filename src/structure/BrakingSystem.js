@@ -131,40 +131,43 @@ const BrakingSystem = () => {
 
   console.log(modalContext);
 
-  const [currentVideoType, setCurrentVideoType] = useState('first');
-
-  const openModal = video => {
-    if (video === 'first' || video === 'second') {
-      setCurrentVideoType(video);
-    } else {
-      throw new Error('Wrong video type');
+  const openModal = videoType => {
+    // Set modal content based on the provided video type
+    switch (videoType) {
+      case 'first':
+        modalContext.setModalContent(() => (
+          <iframe
+            title='Braking system part 1'
+            width='560'
+            height='315'
+            src='https://www.youtube.com/embed/MAuVDB-G-HQ'
+            frameborder='0'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+            allowfullscreen
+          ></iframe>
+        ));
+        break;
+      case 'second':
+        modalContext.setModalContent(() => (
+          <iframe
+            title='Braking system part 2'
+            width='560'
+            height='315'
+            src='https://www.youtube.com/embed/bGKJOICWmFQ'
+            frameborder='0'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+            allowfullscreen
+          ></iframe>
+        ));
+        break;
+      default:
+        throw new Error('Wrong video type');
+        break;
     }
 
+    // Open modal
     modalContext.showModal();
   };
-
-  const modalContent =
-    currentVideoType === 'first' ? (
-      <iframe
-        title='Braking system part 1'
-        width='560'
-        height='315'
-        src='https://www.youtube.com/embed/MAuVDB-G-HQ'
-        frameborder='0'
-        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-        allowfullscreen
-      ></iframe>
-    ) : (
-      <iframe
-        title='Braking system part 2'
-        width='560'
-        height='315'
-        src='https://www.youtube.com/embed/bGKJOICWmFQ'
-        frameborder='0'
-        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-        allowfullscreen
-      ></iframe>
-    );
 
   const faultsList = faults
     .sort((fault1, fault2) => {
@@ -217,7 +220,9 @@ const BrakingSystem = () => {
   return (
     <React.Fragment>
       <Modal hidePadding transparentBackground>
-        <div className='has-text-centered videoWrapper'>{modalContent}</div>
+        <div className='has-text-centered videoWrapper'>
+          {modalContext.modalContent}
+        </div>
       </Modal>
       <Hero
         classNames={['is-halfheight', 'has-text-centered', classes.HeroImage]}

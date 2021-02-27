@@ -19,11 +19,6 @@ const ModalContextProvider = ({ children }) => {
     }
   };
 
-  // Set modal content handler
-  const setModalContentHandler = Component => {
-    setModalContent(Component);
-  };
-
   // Hide modal handler
   const hideModal = () => setIsModalVisible(false);
 
@@ -34,7 +29,7 @@ const ModalContextProvider = ({ children }) => {
         showModal,
         hideModal,
         modalContent,
-        setModalContentHandler,
+        setModalContent,
       }}
     >
       {children}
