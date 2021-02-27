@@ -76,6 +76,7 @@ const Clutch = () => {
     modalContext.setModalContent(() => (
       <iframe
         title='clutch'
+        className='has-ratio'
         width='560'
         height='315'
         src='https://www.youtube.com/embed/BgZaz5b4JRk'

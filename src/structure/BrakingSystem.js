@@ -13,6 +13,7 @@ import Modal from '../common/UI/Modal';
 import H3 from '../common/UI/Titles/H3';
 import HalfWidthColumn from '../common/UI/HalfWidthColumn';
 import PrimaryButton from '../common/UI/Buttons/PrimaryButton';
+import ResponsiveVideoWrapper from '../common/UI/ResponsiveVideoWrapper';
 
 import classes from '../assets/scss/pages/braking.module.scss';
 
@@ -139,6 +140,7 @@ const BrakingSystem = () => {
         modalContext.setModalContent(() => (
           <iframe
             title='Braking system part 1'
+            className='has-ratio'
             width='560'
             height='315'
             src='https://www.youtube.com/embed/MAuVDB-G-HQ'
@@ -152,6 +154,7 @@ const BrakingSystem = () => {
         modalContext.setModalContent(() => (
           <iframe
             title='Braking system part 2'
+            className='has-ratio'
             width='560'
             height='315'
             src='https://www.youtube.com/embed/bGKJOICWmFQ'
@@ -221,9 +224,9 @@ const BrakingSystem = () => {
   return (
     <React.Fragment>
       <Modal hidePadding transparentBackground>
-        <div className='has-text-centered videoWrapper'>
+        <ResponsiveVideoWrapper>
           {modalContext.modalContent}
-        </div>
+        </ResponsiveVideoWrapper>
       </Modal>
       <Hero
         classNames={['is-halfheight', 'has-text-centered', classes.HeroImage]}

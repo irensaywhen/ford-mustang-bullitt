@@ -128,6 +128,7 @@ const Gearbox = () => {
     modalContext.setModalContent(() => (
       <iframe
         title='gearbox'
+        className='has-ratio'
         width='560'
         height='315'
         src='https://www.youtube.com/embed/Bb7leiitIo4'

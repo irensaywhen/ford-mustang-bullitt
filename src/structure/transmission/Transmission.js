@@ -14,6 +14,8 @@ import Hero from '../../common/UI/Hero/Hero';
 import HeroTitle from '../../common/UI/Hero/HeroTitle';
 import HeroSubtitle from '../../common/UI/Hero/HeroSubtitle';
 
+import ResponsiveVideoWrapper from '../../common/UI/ResponsiveVideoWrapper';
+
 import classes from '../../assets/scss/pages/braking.module.scss';
 
 import { ModalContext } from '../../context/modal-context';
@@ -49,9 +51,9 @@ const Transmission = () => {
   return (
     <React.Fragment>
       <Modal hidePadding transparentBackground>
-        <div className='has-text-centered videoWrapper'>
+        <ResponsiveVideoWrapper>
           {modalContext.modalContent}
-        </div>
+        </ResponsiveVideoWrapper>
       </Modal>
       <Hero
         classNames={['is-halfheight', 'has-text-centered', classes.HeroImage]}

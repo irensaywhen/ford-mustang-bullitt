@@ -33,6 +33,7 @@ const Differential = () => {
     modalContext.setModalContent(() => (
       <iframe
         title='differential'
+        className='has-ratio'
         width='560'
         height='315'
         src='https://www.youtube.com/embed/3mz1BpIE-Ec'

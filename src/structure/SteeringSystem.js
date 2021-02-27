@@ -10,6 +10,8 @@ import FeaturesList from '../common/UI/FeaturesList/FeaturesList';
 import CenteredParagraph from '../common/UI/CenteredParagraph';
 import Modal from '../common/UI/Modal';
 
+import ResponsiveVideoWrapper from '../common/UI/ResponsiveVideoWrapper';
+
 import classes from '../assets/scss/pages/steering.module.scss';
 
 import { ModalContext } from '../context/modal-context';
@@ -187,9 +189,10 @@ const SteeringSystem = () => {
   return (
     <React.Fragment>
       <Modal hidePadding transparentBackground>
-        <div className='has-text-centered videoWrapper'>
+        <ResponsiveVideoWrapper>
           <iframe
             title='Принцип работы рулевого управления'
+            className='has-ratio'
             width='560'
             height='315'
             src='https://www.youtube.com/embed/em1O8mz7sF0'
@@ -197,7 +200,7 @@ const SteeringSystem = () => {
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
             allowfullscreen
           ></iframe>
-        </div>
+        </ResponsiveVideoWrapper>
       </Modal>
 
       <Hero
