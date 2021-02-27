@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import Accordion from '../../common/UI/Accordion/Accordion';
 import OrderedList from '../../common/UI/OrderedList';
@@ -6,6 +6,9 @@ import BulletpointWithIcon from '../../common/UI/BulletpointWithIcon';
 import H3 from '../../common/UI/Titles/H3';
 import H4 from '../../common/UI/Titles/H4';
 import TextSemibold from '../../common/UI/Text/TextSemibold';
+import PrimaryButton from '../../common/UI/Buttons/PrimaryButton';
+
+import { ModalContext } from '../../context/modal-context';
 
 const definitions = [
   {
@@ -66,6 +69,25 @@ const faults = [
 ];
 
 const Clutch = () => {
+  const modalContext = useContext(ModalContext);
+
+  const openModal = () => {
+    // Set video content
+    modalContext.setModalContent(() => (
+      <iframe
+        title='clutch'
+        width='560'
+        height='315'
+        src='https://www.youtube.com/embed/BgZaz5b4JRk'
+        frameborder='0'
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+        allowfullscreen
+      ></iframe>
+    ));
+
+    modalContext.showModal();
+  };
+
   const faultsList = faults.map((fault, index) => (
     <BulletpointWithIcon
       key={index}
@@ -91,6 +113,11 @@ const Clutch = () => {
           <TextSemibold>привода</TextSemibold> и{' '}
           <TextSemibold>механизма сцепления</TextSemibold>.
         </p>
+      </div>
+      <div className='block'>
+        <PrimaryButton onClick={openModal}>
+          Как работает сцепление?
+        </PrimaryButton>
       </div>
       <div className='block'>
         <H4>Привод выключения сцепления</H4>

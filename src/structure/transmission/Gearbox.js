@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import Accordion from '../../common/UI/Accordion/Accordion';
 import OrderedList from '../../common/UI/OrderedList';
@@ -7,6 +7,9 @@ import Table from '../../common/UI/Table';
 import H3 from '../../common/UI/Titles/H3';
 import H4 from '../../common/UI/Titles/H4';
 import TextSemibold from '../../common/UI/Text/TextSemibold';
+import PrimaryButton from '../../common/UI/Buttons/PrimaryButton';
+
+import { ModalContext } from '../../context/modal-context';
 
 import gearboxHandler from '../../assets/img/transmission/2019-Ford-Mustang-Bullitt-UK-Review-06.jpg';
 
@@ -118,6 +121,25 @@ const faults = [
 ];
 
 const Gearbox = () => {
+  const modalContext = useContext(ModalContext);
+
+  const openModal = () => {
+    // Set video content
+    modalContext.setModalContent(() => (
+      <iframe
+        title='gearbox'
+        width='560'
+        height='315'
+        src='https://www.youtube.com/embed/Bb7leiitIo4'
+        frameborder='0'
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+        allowfullscreen
+      ></iframe>
+    ));
+
+    modalContext.showModal();
+  };
+
   const faultsList = faults.map((fault, index) => (
     <BulletpointWithIcon
       key={index}
@@ -181,6 +203,11 @@ const Gearbox = () => {
           <TextSemibold>легче</TextSemibold> крутить колеса, но тем машина{' '}
           <TextSemibold>медленнее</TextSemibold>.
         </p>
+      </div>
+      <div className='block'>
+        <PrimaryButton onClick={openModal}>
+          Узнать подробнее о принципе работы
+        </PrimaryButton>
       </div>
       <div className='block'>
         <H4>6-ти скоростная коробка передач</H4>

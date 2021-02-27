@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import OrderedList from '../../common/UI/OrderedList';
 import BulletpointWithIcon from '../../common/UI/BulletpointWithIcon';
 import H3 from '../../common/UI/Titles/H3';
 import H4 from '../../common/UI/Titles/H4';
 import TextSemibold from '../../common/UI/Text/TextSemibold';
+
+import PrimaryButton from '../../common/UI/Buttons/PrimaryButton';
+
+import { ModalContext } from '../../context/modal-context';
 
 const mainJointParts = ['Ведущей шестерни', 'Ведомой шестерни'];
 
@@ -22,6 +26,25 @@ const faults = [
 ];
 
 const Differential = () => {
+  const modalContext = useContext(ModalContext);
+
+  const openModal = () => {
+    // Set video content
+    modalContext.setModalContent(() => (
+      <iframe
+        title='differential'
+        width='560'
+        height='315'
+        src='https://www.youtube.com/embed/3mz1BpIE-Ec'
+        frameborder='0'
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+        allowfullscreen
+      ></iframe>
+    ));
+
+    modalContext.showModal();
+  };
+
   const faultsList = faults.map((fault, index) => (
     <BulletpointWithIcon
       key={index}
@@ -63,6 +86,11 @@ const Differential = () => {
           момента под углом, а дифференциал позволяет распределять крутящий
           момент в определенной пропорции, избавляя от заносов.
         </p>
+      </div>
+      <div className='block'>
+        <PrimaryButton onClick={openModal}>
+          Узнать подробнее о принципе работы
+        </PrimaryButton>
       </div>
 
       <div className='block pt-5'>

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Redirect, useRouteMatch } from 'react-router-dom';
 
 import Section from '../../common/UI/Section';
@@ -41,80 +41,10 @@ const parts = [
   },
 ];
 
-const videoNames = {
-  clutch: 'clutch',
-  gearbox: 'gearbox',
-  differential: 'differential',
-};
-
 const Transmission = () => {
   const { path } = useRouteMatch();
 
   const modalContext = useContext(ModalContext);
-  const [modalVideo, setModalVideo] = useState(null);
-
-  // Start utilizing context API to set the current video type and open modal within
-  // child conponents
-  const openModal = video => {
-    if (
-      video === videoNames.clutch ||
-      video === videoNames.gearbox ||
-      videoNames.differential
-    ) {
-      setModalVideo(video);
-    } else {
-      throw new Error('Wrong video type');
-    }
-
-    modalContext.showModal();
-  };
-
-  let modalContent;
-
-  switch (modalVideo) {
-    case videoNames.clutch:
-      modalContent = (
-        <iframe
-          title='clutch'
-          width='560'
-          height='315'
-          src='https://www.youtube.com/embed/BgZaz5b4JRk'
-          frameborder='0'
-          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-          allowfullscreen
-        ></iframe>
-      );
-      break;
-    case videoNames.gearbox:
-      modalContent = (
-        <iframe
-          title='gearbox'
-          width='560'
-          height='315'
-          src='https://www.youtube.com/embed/Bb7leiitIo4'
-          frameborder='0'
-          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-          allowfullscreen
-        ></iframe>
-      );
-      break;
-    case videoNames.differential:
-      modalContent = (
-        <iframe
-          title='differential'
-          width='560'
-          height='315'
-          src='https://www.youtube.com/embed/3mz1BpIE-Ec'
-          frameborder='0'
-          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-          allowfullscreen
-        ></iframe>
-      );
-      break;
-    default:
-      modalContent = null;
-      break;
-  }
 
   return (
     <React.Fragment>
@@ -139,7 +69,7 @@ const Transmission = () => {
       <Redirect to={`${path}/${parts[0].tabLink}`} />
       <Section>
         <div className='columns is-justify-content-center'>
-          <div className='column is-12-mobile is-8-tablet'>
+          <div className='column is-12-mobile is-10-tablet is-8-desktop'>
             <Tabs tabs={parts} />
           </div>
         </div>
