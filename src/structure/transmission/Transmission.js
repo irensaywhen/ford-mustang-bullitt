@@ -44,7 +44,6 @@ const parts = [
 const videoNames = {
   clutch: 'clutch',
   gearbox: 'gearbox',
-  cardanJoint: 'cardanJoint',
   differential: 'differential',
 };
 

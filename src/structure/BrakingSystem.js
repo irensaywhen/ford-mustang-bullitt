@@ -12,6 +12,7 @@ import FeaturesList from '../common/UI/FeaturesList/FeaturesList';
 import Modal from '../common/UI/Modal';
 import H3 from '../common/UI/Titles/H3';
 import HalfWidthColumn from '../common/UI/HalfWidthColumn';
+import PrimaryButton from '../common/UI/Buttons/PrimaryButton';
 
 import classes from '../assets/scss/pages/braking.module.scss';
 
@@ -259,12 +260,9 @@ const BrakingSystem = () => {
           <HalfWidthColumn>
             <div className='block pt-3'>{mainBrakingSystemData}</div>
             <div className='block pt-4 has-text-centered'>
-              <button
-                className='button is-primary'
-                onClick={() => openModal('first')}
-              >
+              <PrimaryButton onClick={() => openModal('first')}>
                 Как это работает?
-              </button>
+              </PrimaryButton>
             </div>
           </HalfWidthColumn>
         </div>
@@ -279,12 +277,9 @@ const BrakingSystem = () => {
             <div className='block'></div>
             <div className='block pt-3'>{mainBrakingSystemDataSecondPart}</div>
             <div className='block pt-4 has-text-centered'>
-              <button
-                className='button is-primary'
-                onClick={() => openModal('second')}
-              >
+              <PrimaryButton onClick={() => openModal('second')}>
                 Что делает вакуумный усилитель?
-              </button>
+              </PrimaryButton>
             </div>
           </HalfWidthColumn>
         </div>
