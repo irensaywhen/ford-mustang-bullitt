@@ -120,7 +120,9 @@ const Transmission = () => {
   return (
     <React.Fragment>
       <Modal hidePadding transparentBackground>
-        <div className='has-text-centered videoWrapper'>{modalContent}</div>
+        <div className='has-text-centered videoWrapper'>
+          {modalContext.modalContent}
+        </div>
       </Modal>
       <Hero
         classNames={['is-halfheight', 'has-text-centered', classes.HeroImage]}
@@ -137,7 +139,11 @@ const Transmission = () => {
       </Hero>
       <Redirect to={`${path}/${parts[0].tabLink}`} />
       <Section>
-        <Tabs tabs={parts} />
+        <div className='columns is-justify-content-center'>
+          <div className='column is-12-mobile is-8-tablet'>
+            <Tabs tabs={parts} />
+          </div>
+        </div>
       </Section>
     </React.Fragment>
   );
