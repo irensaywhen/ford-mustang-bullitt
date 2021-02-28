@@ -12,6 +12,7 @@ const routes = {
     steering: '/steering',
     braking: '/braking',
     transmission: '/transmission',
+    engine: '/engine',
   },
   about: '/about',
   contact: '/contact',

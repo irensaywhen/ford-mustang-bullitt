@@ -40,7 +40,7 @@ const History = () => {
         </div>
 
         <div className='columns'>
-          <div className='column'>
+          <div className='column is-12 is-6-desktop'>
             <ResponsiveVideoWrapper>
               <iframe
                 title='Chase part 1'
@@ -55,7 +55,7 @@ const History = () => {
             </ResponsiveVideoWrapper>
           </div>
 
-          <div className='column'>
+          <div className='column is-12 is-6-desktop'>
             <ResponsiveVideoWrapper>
               <iframe
                 title='Chase part 2'

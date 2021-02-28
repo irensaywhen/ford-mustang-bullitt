@@ -5,6 +5,7 @@ import CarBody from './CarBody';
 import SteeringSystem from './SteeringSystem';
 import BrakingSystem from './BrakingSystem';
 import Transmission from './transmission/Transmission';
+import Engine from './engine/Engine';
 import Section from '../common/UI/Section';
 
 import routes from '../routes';
@@ -27,6 +28,7 @@ const StructureArticles = () => {
         path={`${path}${routes.structure.transmission}`}
         component={Transmission}
       />
+      <Route path={`${path}${routes.structure.engine}`} component={Engine} />
       <Route path={routes.structure.index}>
         <Section>
           <Link to={`${url}${routes.structure.body}`}>Car body Link</Link>
@@ -39,6 +41,7 @@ const StructureArticles = () => {
           <Link to={`${url}${routes.structure.transmission}`}>
             Transmission
           </Link>
+          <Link to={`${url}${routes.structure.engine}`}>Engine</Link>
           This is structure articles list
         </Section>
       </Route>
