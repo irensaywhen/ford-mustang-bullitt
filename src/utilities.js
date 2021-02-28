@@ -13,5 +13,11 @@ export const mergeClasses = ({ defaultClasses, extraClasses }) => {
   const defaultClassesList = transformClassesIntoArray(defaultClasses);
   const extraClassesList = transformClassesIntoArray(extraClasses);
 
-  return [...defaultClassesList, ...extraClassesList].join(' ');
+  if (defaultClassesList && extraClassesList) {
+    return [...defaultClassesList, ...extraClassesList].join(' ');
+  } else if (defaultClassesList) {
+    return defaultClassesList.join(' ');
+  } else if (extraClassesList) {
+    return extraClassesList.join(' ');
+  }
 };

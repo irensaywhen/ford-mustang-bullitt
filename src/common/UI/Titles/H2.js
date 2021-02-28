@@ -7,7 +7,6 @@ const H2 = props => {
     extraClasses: props.className,
   });
 
-  console.log(classes);
   return (
     <h2 {...props} className={classes}>
       {props.children}
