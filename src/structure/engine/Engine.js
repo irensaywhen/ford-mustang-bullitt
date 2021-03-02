@@ -8,6 +8,9 @@ import Table from '../../common/UI/Table';
 
 // Tab components
 import Fuel from './Fuel';
+import Emission from './Emission';
+import OBDSystem from './OBDSystem';
+import Ignition from './Ignition';
 
 // Hero
 import Hero from '../../common/UI/Hero/Hero';
@@ -31,8 +34,18 @@ const parts = [
   },
   {
     tabName: 'Выброс отработанного топлива',
-    tabLink: 'exhaust',
-    Component: Fuel,
+    tabLink: 'emission',
+    Component: Emission,
+  },
+  {
+    tabName: 'OBD-II',
+    tabLink: '/obd-system',
+    Component: OBDSystem,
+  },
+  {
+    tabName: 'Система зажигания',
+    tabLink: '/ignition',
+    Component: Ignition,
   },
 ];
 

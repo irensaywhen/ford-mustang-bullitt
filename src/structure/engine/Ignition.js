@@ -13,19 +13,36 @@ import PrimaryButton from '../../common/UI/Buttons/PrimaryButton';
 
 import { ModalContext } from '../../context/modal-context';
 
-const mainJointParts = ['Ведущей шестерни', 'Ведомой шестерни'];
+const parts = [
+  'Выпускного клапана',
+  'Выпускного канала',
+  'Приемной трубы глушителя',
+  'Дополнительного глушителя',
+  'Основного глушителя',
+  'Соединительных хомутов',
+];
 
-const faults = [
+const warnings = [
   {
-    title: 'Шум при движении на большой скорости',
     description:
-      'Возникает из-за износа шестерен, их неправильной регулеровке, или в случае отсутствия масла в картере главной передачи.',
+      'Не водить машину по сухой траве (и похожим покрытиям). Система выбросов имеет высокие температуры. Такое вождение может стать причиной пожара.',
   },
   {
-    title: 'Подтекание масла',
-    description:
-      'Может быть через сальники, неплотные соединения, в случае залипания сапуна.',
+    description: 'Не чинить систему выброса газов до ее полного остужения.',
   },
+  {
+    description:
+      'Если запах отработанных газов присуствует в кабине, необходимо немедленно предоставить машину в сервис на осмотр.',
+  },
+];
+
+const catalyticConverterMaintainance = [
+  'Использовать только рекомендованное топливо',
+  'Не оставаться без топлива',
+  'Не выключать зажигание в процессе движения',
+  'Не разогревать двигатель более 10 секунд',
+  'Do not run the engine with a spark plug lead disconnected.',
+  'Do not push-start or tow-start your vehicle. Use booster cables. See Jump Starting the Vehicle (page 207).',
 ];
 
 const definitions = [
@@ -78,7 +95,7 @@ const definitions = [
   },
 ];
 
-const Fuel = () => {
+const Ignition = () => {
   const modalContext = useContext(ModalContext);
 
   const openModal = () => {
@@ -99,78 +116,66 @@ const Fuel = () => {
     modalContext.showModal();
   };
 
-  const faultsList = faults.map((fault, index) => (
+  const warningsList = warnings.map((warning, index) => (
     <BulletpointWithIcon
       key={index}
-      icon={<i className='fas fa-tools'></i>}
-      iconWrapperClasses={['is-size-3', 'is-1']}
+      icon={<i className='fas fa-exclamation-triangle'></i>}
+      iconWrapperClasses={['is-size-1', 'is-1', 'has-text-warning']}
     >
-      <h5 className='is-5 has-text-weight-bold'>{fault.title}</h5>
-      <p>{fault.description}</p>
+      <p>{warning.description}</p>
     </BulletpointWithIcon>
   ));
+
+  const catalyticMaintainanceList = catalyticConverterMaintainance.map(
+    (precaution, index) => (
+      <BulletpointWithIcon
+        key={index}
+        icon={<i className='fas fa-exclamation-triangle'></i>}
+        iconWrapperClasses={['is-size-1', 'is-1', 'has-text-warning']}
+      >
+        <p>{precaution}</p>
+      </BulletpointWithIcon>
+    )
+  );
 
   return (
     <React.Fragment>
       <div className='block'>
-        <H3>Система питания</H3>
+        <H3>Система выброса отработанных газов</H3>
         <p>
-          Предназначена для хранения, очистки и подачи топлива, очистки водуха,
-          приготовления горючей смеси и подачи ее в цилиндры двигателя. На
-          различных режимах работы двигателя количество и качество горючей смеси
-          должно быть различным. Это также обеспечивается системой питания.
+          Предназначена для отвода отработавших газов от цилиндра двигателя, а
+          также для уменьшения шума при их выбросе в атмосферу.
         </p>
-        Опиши здесь карбюратор (немного) и приступи к описанию того, как
-        заправлять топливо и тд (то что в мануале)
-      </div>
-      <div className='block'>
-        <H4>Карбюратор</H4>
-        <p>
-          Это один из самых сложных устройств автомобиля.<br></br>
-          Усправление карбюратором происходит через{' '}
-          <TextSemibold>педаль газа</TextSemibold>. Когда водитель давит на газ,
-          он управляет <TextSemibold>дроссельной заслонкой</TextSemibold>. По
-          умолчанию, она закрыта. При нажатии на педаль газа, она начинает
-          открываться. При отпускании педали газа, она возвращается в исходное
-          положение посредством возвратных пружин. Открытие заслонки увеличивает
-          поток воздуха, проходящий через карбюратор. При этом больше
-          расходуется и топлива. Если совсем убрать ногу с педали газа, то
-          заслонка полностью закрывается. При этом подача воздуха не
-          прекращается полностью (иначе бы машина заглохла). <br></br>В
-          карбюраторе имеется <TextSemibold>канал холостого хода</TextSemibold>,
-          по которому воздух может попасть под дроссельную заслонку. По пути
-          воздух всасывает бензин из топливного канала и, смешиваясь с ним,
-          превращается в горючую смесь.<br></br>
-          На холостом ходу коленчатый вал вращается со скоростью примерно{' '}
-          <TextSemibold>800 - 900 об/мин</TextSemibold>.
-        </p>
-      </div>
-      <div className='block'>
-        <H4>Топливо</H4>
-        <p></p>
       </div>
       <div className='block'>
         <H4 className='mb-2'>Состоит из</H4>
-        <OrderedList listItems={mainJointParts} />
+        <OrderedList listItems={parts} />
       </div>
       <div className='block'>
-        <H3>Дифференциал</H3>
         <p>
-          Предназначен для распределения крутящего момента между полуосями
-          ведущих колес при повороте автомобиля и при движении по неровностям
-          дороги. Это позволяет колесам вращаться с разной угловой скоростью и
-          проходить неодинаковый путь бес проскальзывания относительно покрытия
-          дороги.
+          При повреждении основного или дополнительного глушителя, потери
+          плотности соединений, повреждении прокладок может возникнуть{' '}
+          <TextSemibold>повышенный уровень шума выхлопных газов</TextSemibold>.
         </p>
       </div>
       <div className='block'>
-        <H4>Главная передача и дифференциал</H4>
         <p>
-          Работают вместе. Главная передача способствует передаче крутящего
-          момента под углом, а дифференциал позволяет распределять крутящий
-          момент в определенной пропорции, избавляя от заносов.
+          Модель имеет катализатор, позволяющий уменьшить вред выхлопных газов.
+          Для того, чтобы увеличить срок службы катализатора, нужно
+          придерживаться следующего:
         </p>
       </div>
+      <div className='block'>{catalyticMaintainanceList}</div>
+
+      <div className='block'>
+        <H4>Предупреждения и безопасность</H4>
+      </div>
+      <div className='columns'>
+        <div className='column is-10-tablet is-offset-1-tablet is-8-desktop is-offset-2-desktop'>
+          <div className='block pt-5'>{warningsList}</div>
+        </div>
+      </div>
+
       <div className='block'>
         <PrimaryButton onClick={openModal}>
           Узнать подробнее о принципе работы
@@ -189,7 +194,7 @@ const Fuel = () => {
           <TextSemibold>сапун</TextSemibold>, чтобы избежать повышения давления
           и частого вытекания масла.
         </p>
-        {faultsList}
+        {/*faultsList*/}
       </div>
       <div className='block pt-4'>
         <Accordion items={definitions}></Accordion>
@@ -198,4 +203,4 @@ const Fuel = () => {
   );
 };
 
-export default Fuel;
+export default Ignition;
