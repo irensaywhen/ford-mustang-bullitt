@@ -1,8 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import OrderedList from '../../common/UI/OrderedList';
-import Accordion from '../../common/UI/Accordion/Accordion';
-import BulletpointWithIcon from '../../common/UI/BulletpointWithIcon';
 
 // Text
 import H3 from '../../common/UI/Titles/H3';
