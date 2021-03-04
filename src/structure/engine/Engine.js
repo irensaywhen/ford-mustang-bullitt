@@ -12,6 +12,7 @@ import Emission from './Emission';
 import OBDSystem from './OBDSystem';
 import Ignition from './Ignition';
 import Cooling from './Cooling';
+import Lubrication from './Lubrication';
 
 // Hero
 import Hero from '../../common/UI/Hero/Hero';
@@ -52,6 +53,11 @@ const parts = [
     tabName: 'Система охлаждения',
     tabLink: '/cooling',
     Component: Cooling,
+  },
+  {
+    tabName: 'Система смазки',
+    tabLink: '/lubrication',
+    Component: Lubrication,
   },
 ];
 
