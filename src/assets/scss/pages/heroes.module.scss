@@ -1,0 +1,21 @@
+@import '../utilities//variables';
+
+// General styles for hero images
+.HeroImage {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: $primary-dark;
+}
+
+// Car Body Hero Image
+.CarBodyImage {
+  background-position: center -200px;
+  background-image: linear-gradient(
+      to bottom,
+      rgba($primary-dark, 0.8),
+      rgba($primary-dark, 0.5)
+    ),
+    url('../../img/body/hero.jpg');
+}

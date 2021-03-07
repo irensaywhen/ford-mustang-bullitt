@@ -1,14 +1,14 @@
 import React from 'react';
+import { mergeClasses } from '../../../utilities';
 
 const Hero = props => {
-  const classes =
-    typeof props.classNames === 'string'
-      ? props.classNames.split(' ')
-      : props.classNames;
+  const classes = mergeClasses({
+    defaultClasses: 'hero',
+    extraClasses: props.className,
+  });
 
-  const heroClasses = ['hero', ...classes];
   return (
-    <section className={heroClasses.join(' ')}>
+    <section className={classes}>
       <div className='hero-body'>
         <div className='container'>{props.children}</div>
       </div>

@@ -6,15 +6,6 @@ import Tabs from '../../common/UI/Tabs';
 
 import Table from '../../common/UI/Table';
 
-// Tab components
-import FuelSystem from './FuelSystem';
-import Fuel from './Fuel';
-import Emission from './Emission';
-import OBDSystem from './OBDSystem';
-import Ignition from './Ignition';
-import Cooling from './Cooling';
-import Lubrication from './Lubrication';
-
 // Hero
 import Hero from '../../common/UI/Hero/Hero';
 import HeroTitle from '../../common/UI/Hero/HeroTitle';
@@ -29,43 +20,43 @@ import classes from '../../assets/scss/pages/braking.module.scss';
 
 import { ModalContext } from '../../context/modal-context';
 
-const parts = [
-  {
-    tabName: 'Система питания',
-    tabLink: 'fuel-system',
-    Component: FuelSystem,
-  },
-  {
-    tabName: 'Топливо',
-    tabLink: 'fuel',
-    Component: Fuel,
-  },
-  {
-    tabName: 'Выброс отработанного топлива',
-    tabLink: 'emission',
-    Component: Emission,
-  },
-  {
-    tabName: 'OBD-II',
-    tabLink: '/obd-system',
-    Component: OBDSystem,
-  },
-  {
-    tabName: 'Система зажигания',
-    tabLink: '/ignition',
-    Component: Ignition,
-  },
-  {
-    tabName: 'Система охлаждения',
-    tabLink: '/cooling',
-    Component: Cooling,
-  },
-  {
-    tabName: 'Система смазки',
-    tabLink: '/lubrication',
-    Component: Lubrication,
-  },
-];
+// const parts = [
+//   {
+//     tabName: 'Система питания',
+//     tabLink: 'fuel-system',
+//     Component: FuelSystem,
+//   },
+//   {
+//     tabName: 'Топливо',
+//     tabLink: 'fuel',
+//     Component: Fuel,
+//   },
+//   {
+//     tabName: 'Выброс отработанного топлива',
+//     tabLink: 'emission',
+//     Component: Emission,
+//   },
+//   {
+//     tabName: 'OBD-II',
+//     tabLink: '/obd-system',
+//     Component: OBDSystem,
+//   },
+//   {
+//     tabName: 'Система зажигания',
+//     tabLink: '/ignition',
+//     Component: Ignition,
+//   },
+//   {
+//     tabName: 'Система охлаждения',
+//     tabLink: '/cooling',
+//     Component: Cooling,
+//   },
+//   {
+//     tabName: 'Система смазки',
+//     tabLink: '/lubrication',
+//     Component: Lubrication,
+//   },
+// ];
 
 const fielEfficiencyAutonomy = {
   tBody: [
@@ -94,7 +85,7 @@ const basicCharacteristics = {
   ],
 };
 
-const Transmission = () => {
+const Chasis = () => {
   const { path } = useRouteMatch();
   return (
     <React.Fragment>
@@ -111,7 +102,7 @@ const Transmission = () => {
           </HeroSubtitle>
         </div>
       </Hero>
-      <Redirect to={`${path}/${parts[0].tabLink}`} />
+      {/*<Redirect to={`${path}/${parts[0].tabLink}`} />
       <Section>
         {
           <div className='columns is-justify-content-center'>
@@ -131,9 +122,9 @@ const Transmission = () => {
             <Table tbodyRows={basicCharacteristics.tBody} />
           </div>
         </div>
-      </Section>
+      </Section>*/}
     </React.Fragment>
   );
 };
 
-export default Transmission;
+export default Chasis;

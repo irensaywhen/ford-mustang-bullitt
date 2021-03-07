@@ -1,4 +1,5 @@
 import React from 'react';
+import { mergeClasses } from '../../../utilities';
 
 const HeroSubtitle = ({ children }) => {
   return (
