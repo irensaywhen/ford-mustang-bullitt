@@ -19,3 +19,14 @@
     ),
     url('../../img/body/hero.jpg');
 }
+
+// Image for the main chasis page
+.ChasisImage {
+  background-position: center -200px;
+  background-image: linear-gradient(
+      to bottom,
+      rgba($primary-dark, 0.8),
+      rgba($primary-dark, 0.5)
+    ),
+    url('../../img/body/hero.jpg');
+}

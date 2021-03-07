@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Redirect, useRouteMatch } from 'react-router-dom';
 
+import Suspension from './Suspension';
+
 import Section from '../../common/UI/Section';
 import Tabs from '../../common/UI/Tabs';
 
@@ -16,47 +18,17 @@ import H2 from '../../common/UI/Titles/H2';
 import H3 from '../../common/UI/Titles/H3';
 import TextSemibold from '../../common/UI/Text/TextSemibold';
 
-import classes from '../../assets/scss/pages/braking.module.scss';
+import classes from '../../assets/scss/pages/heroes.module.scss';
 
 import { ModalContext } from '../../context/modal-context';
 
-// const parts = [
-//   {
-//     tabName: 'Система питания',
-//     tabLink: 'fuel-system',
-//     Component: FuelSystem,
-//   },
-//   {
-//     tabName: 'Топливо',
-//     tabLink: 'fuel',
-//     Component: Fuel,
-//   },
-//   {
-//     tabName: 'Выброс отработанного топлива',
-//     tabLink: 'emission',
-//     Component: Emission,
-//   },
-//   {
-//     tabName: 'OBD-II',
-//     tabLink: '/obd-system',
-//     Component: OBDSystem,
-//   },
-//   {
-//     tabName: 'Система зажигания',
-//     tabLink: '/ignition',
-//     Component: Ignition,
-//   },
-//   {
-//     tabName: 'Система охлаждения',
-//     tabLink: '/cooling',
-//     Component: Cooling,
-//   },
-//   {
-//     tabName: 'Система смазки',
-//     tabLink: '/lubrication',
-//     Component: Lubrication,
-//   },
-// ];
+const parts = [
+  {
+    tabName: 'Подвеска',
+    tabLink: 'suspension',
+    Component: Suspension,
+  },
+];
 
 const fielEfficiencyAutonomy = {
   tBody: [
@@ -90,27 +62,33 @@ const Chasis = () => {
   return (
     <React.Fragment>
       <Hero
-        classNames={['is-halfheight', 'has-text-centered', classes.HeroImage]}
+        className={[
+          'is-halfheight',
+          'has-text-centered',
+          classes.HeroImage,
+          classes.CarBodyImage,
+        ].join(' ')}
       >
         <div className='block'>
-          <HeroTitle>Двигатель</HeroTitle>
+          <HeroTitle>Ходовая часть</HeroTitle>
         </div>
         <div className='block'>
           <HeroSubtitle>
-            Предназначена для изменения скоростей при неизменной скорости,
-            создаваемой двигателем.
+            Предназначена для перемещения автомобиля по дороге с определенным
+            уровнем комфорта, без тряски и вибраций. Механизмы и детали
+            холодовой части связывают колеса с кузовом и гасят его колебания.
+            <br></br>
+            Состоит из передней и задней подвесок колес, колес и шин.
           </HeroSubtitle>
         </div>
       </Hero>
-      {/*<Redirect to={`${path}/${parts[0].tabLink}`} />
+      <Redirect to={`${path}/${parts[0].tabLink}`} />
       <Section>
-        {
-          <div className='columns is-justify-content-center'>
-            <div className='column is-12-mobile is-10-tablet is-8-desktop'>
-              <Tabs tabs={parts} />
-            </div>
+        <div className='columns is-justify-content-center'>
+          <div className='column is-12-mobile is-10-tablet is-8-desktop'>
+            <Tabs tabs={parts} />
           </div>
-        }
+        </div>
         <H2 className='has-text-centered pb-4'>Общие характеристики</H2>
         <div className='columns is-justify-content-center'>
           <div className='column'>
@@ -122,7 +100,7 @@ const Chasis = () => {
             <Table tbodyRows={basicCharacteristics.tBody} />
           </div>
         </div>
-      </Section>*/}
+      </Section>
     </React.Fragment>
   );
 };
