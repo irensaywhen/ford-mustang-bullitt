@@ -4,7 +4,6 @@ import OrderedList from '../../common/UI/OrderedList';
 import UnorderedList from '../../common/UI/UnorderedList';
 import Accordion from '../../common/UI/Accordion/Accordion';
 import BulletpointWithIcon from '../../common/UI/BulletpointWithIcon';
-import Card from '../../common/UI/cards/Card';
 import Table from '../../common/UI/Table';
 
 // Text
@@ -18,22 +17,6 @@ import PrimaryButton from '../../common/UI/Buttons/PrimaryButton';
 import { ModalContext } from '../../context/modal-context';
 
 import tireInfo from '../../assets/img/chasis/tire.jpg';
-
-const faults = [
-  {
-    title: 'Подтекание охлаждающей жидкости',
-    description: 'Может происходить из различных элементов охлаждающей системы',
-  },
-  {
-    title: 'Заклинивание термостата',
-    description:
-      'Это может приводить как к перегреву, так и к недогреву охлаждающей жидкости, в зависимости от положения, в котором его заклинит.',
-  },
-  {
-    title: 'Хруст в водяном насосе',
-    description: 'Может возникать засчет износа подшипников в нем.',
-  },
-];
 
 const speedIndexTableData = {
   tBody: [
@@ -114,79 +97,19 @@ const wheelsAndTiresParts = ['Диска  ободом', 'Шины'];
 
 const tireParts = ['Каркаса', 'Протектора', 'Боковин', 'Бортов'];
 
-const coolantComparisonData = [
-  {
-    title: 'Антифриз или тосол',
-    prosAndCons: [
-      {
-        type: 'pro',
-        description: 'Не вызывает коррозию',
-      },
-      {
-        type: 'pro',
-        description: 'Замерзает при очень низких температурах',
-      },
-      {
-        type: 'pro',
-        description:
-          'Не расширяется при замерзании и не может из-за этого разрушить жидкость',
-      },
-      {
-        type: 'con',
-        description: 'Цена',
-      },
-    ],
-  },
-  {
-    title: 'Вода',
-    prosAndCons: [
-      {
-        type: 'pro',
-        description: 'Цена',
-      },
-
-      {
-        type: 'con',
-        description: 'Вызывает коррозию элементов охлаждения',
-      },
-      {
-        type: 'con',
-        description: 'При замерзании может разрушить двигатель',
-      },
-    ],
-  },
-];
-
-const warnings = [
+const replacementWarnings = [
   {
     description:
-      'Не использовать охлаждающую жидкость в качестве очистителя для лобового стекла.',
+      'При замене шин использовать только шины с такими же характеристиками (как на маркировке). Использование неправильных шин может повлиять на точность системы мониторинга давления.',
   },
   {
     description:
-      'Не снимать крышку с резервуара с охлаюждающей жидкостью до полного остужения двигателя. Подождать примерно 10 минут.',
+      'Рекомендуется заменять шины одновременно на двух передних колесах, или на двух задних колесах.',
   },
   {
     description:
-      'Не наливать охлаждающую жидкость выше максимального допустимого уровня.',
+      'Рекомендуется заменять шины одновременно на двух передних колесах, или на двух задних колесах.',
   },
-  {
-    description:
-      'Не смешивать разные охлаждающие жидкости. Использовать Orange Prediluted Antifreeze/Coolant VC-3DIL-B. Если есть необходимость подлить охлаждающую жидкость, но нет необходимой, разбавить в соотношении 50/50 с водой.',
-  },
-  {
-    description:
-      'Не снимать крышку с резервуара с охлаюждающей жидкостью до полного остужения двигателя. Подождать примерно 10 минут.',
-  },
-];
-
-const mantainanceTips = [
-  'Контролировать уровень охлаждающей жидкости.',
-  'Если есть необходимость подливать больше литра охлаждающей жидкости в месяц, возможно, имеются серьезные потери жидкости.',
-  'Охлаждающая жидкость может поменять цвет с оранжевой на розовую или красную. Если жидкость однородная, смена цвета допустима.',
-  'В крайнем случае можно долить воду и доехать до сервиса.',
-  'Не допускать перегрева двигателя.',
-  'У жидкости есть срок службы. Ее необходимо менять.',
 ];
 
 const tiresQuality = [
@@ -266,11 +189,10 @@ const WheelsAndTires = () => {
     // Set video content
     modalContext.setModalContent(() => (
       <iframe
-        title='How cooling system work'
+        title='Tires and wheels'
         width='560'
         height='315'
-        className='has-ratio'
-        src='https://www.youtube.com/embed/w9b8fN6PgHg'
+        src='https://www.youtube.com/embed/SNCroT0v8cE'
         frameborder='0'
         allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
         allowfullscreen
@@ -280,18 +202,8 @@ const WheelsAndTires = () => {
     modalContext.showModal();
   };
 
-  const faultsList = faults.map((fault, index) => (
-    <BulletpointWithIcon
-      key={index}
-      icon={<i className='fas fa-tools'></i>}
-      iconWrapperClasses={['is-1']}
-    >
-      <h5 className='is-5 has-text-weight-bold'>{fault.title}</h5>
-      <p>{fault.description}</p>
-    </BulletpointWithIcon>
-  ));
-
-  const warningsList = warnings.map((warning, index) => (
+  // Tires replacement warnings
+  const remplacementWarningsList = replacementWarnings.map((warning, index) => (
     <BulletpointWithIcon
       key={index}
       icon={<i className='fas fa-exclamation-triangle'></i>}
@@ -300,45 +212,6 @@ const WheelsAndTires = () => {
       <p>{warning.description}</p>
     </BulletpointWithIcon>
   ));
-
-  // Power steering comparison cards
-  const powerSteeringCards = coolantComparisonData.map((card, index) => {
-    // Pros and cons of this type of steering
-    const prosAndCons = card.prosAndCons
-      .sort((item1, item2) => {
-        if (item1.type === 'con') {
-          return 1;
-        } else if (item1.type === 'con' && item2.type === 'con') {
-          return 0;
-        }
-
-        return -1;
-      })
-      .map((listItem, index) => (
-        <BulletpointWithIcon
-          key={index}
-          icon={
-            listItem.type === 'pro' ? (
-              <i class='far fa-check-circle'></i>
-            ) : (
-              <i class='far fa-times-circle'></i>
-            )
-          }
-          iconWrapperClasses={[
-            listItem.type === 'pro' ? 'has-text-success' : 'has-text-danger',
-          ]}
-        >
-          <p className='has-text-left is-size-5'>{listItem.description}</p>
-        </BulletpointWithIcon>
-      ));
-    return (
-      <div key={index} className='column is-6'>
-        <Card title={<h3 className='title is-5'>{card.title}</h3>}>
-          {prosAndCons}
-        </Card>
-      </div>
-    );
-  });
 
   return (
     <React.Fragment>
@@ -351,6 +224,12 @@ const WheelsAndTires = () => {
           неровностей дороги. <br></br>
           От шин заисият возможность разгона и торможения, управляемость и
           устойчивость, плавность хода и безопасность автомобиля.
+        </p>
+        <p className='pt-2'>
+          Резина - <TextSemibold>летняя</TextSemibold>. <br></br>
+          Маркировка передних шин: <TextSemibold>P255/40R 19</TextSemibold>
+          <br></br>
+          Маркировка задних шин: <TextSemibold>P275/40R 19</TextSemibold>
         </p>
       </div>
       <div className='block'>
@@ -399,6 +278,11 @@ const WheelsAndTires = () => {
         </p>
       </div>
       <div className='block'>
+        <PrimaryButton onClick={openModal}>
+          Узнать подробнее об общем устройстве шин
+        </PrimaryButton>
+      </div>
+      <div className='block'>
         <H3>Маркировка шин</H3>
       </div>
       <div className='block'>
@@ -436,60 +320,61 @@ const WheelsAndTires = () => {
         <UnorderedList listItems={tiresData} />
       </div>
       <div className='block'>
-        <PrimaryButton onClick={openModal}>
-          Узнать подробнее о принципе работы
-        </PrimaryButton>
+        <H3>Замена шин</H3>
+        <div className='block'>{remplacementWarningsList}</div>
       </div>
 
       <div className='block'>
-        <div className='columns is-justify-content-center'>
-          {powerSteeringCards}
-        </div>
-      </div>
-
-      <div className='block'>
-        <H4>Эксплуатация</H4>
-        <p>
-          Рекомендуется использовать только жидкость{' '}
-          <TextSemibold>
-            Orange Prediluted Antifreeze/Coolant VC-3DIL-B
-          </TextSemibold>
-          . Цвет жидкости -{' '}
-          <TextSemibold className='has-text-warning'>оранжевый</TextSemibold>.
-          При эксплуатации может становиться{' '}
-          <TextSemibold className='has-text-danger'>розовым</TextSemibold> или{' '}
-          <TextSemibold className='has-text-danger-dark'>
-            красноватым
-          </TextSemibold>
-          .
+        <H3>Летняя резина</H3>
+        <p className='pt-2'>
+          Летняя резина предоставляет улучшенное сцепление с дорогой на мокром и
+          сухом покрытиях и не имеет <TextSemibold>M + S</TextSemibold>{' '}
+          маркировки на боковой поверхности.<br></br>
+          Не рекомендуется использовать летнюю резину, когда температура
+          опускается ниже <TextSemibold>7 градусов цельсия</TextSemibold> или на
+          снегу со льдом.
+        </p>
+        <p className='pt-2'>
+          Хранить летнюю резину нужно в помещении при температуре выше{' '}
+          <TextSemibold>-7 градусов</TextSemibold>. Материалы, используемые в
+          летней резине теряют эластичность бли более низких температурах, что
+          может приводить к возникновению трещин. <br></br>
+          Если летняя резина была подвержена более низким температурам, ее нужно
+          прогревать при минимальной температуре{' '}
+          <TextSemibold>5 градусов</TextSemibold> на протяжении 24 часов перед
+          установкой.
+        </p>
+        <p className='pt-2'>
+          Нельзя хранить резину рядом с обогревателями помещений или направлять
+          горячий воздух на нее. <br></br> Если шина хранилась перед установкой,
+          ее необходимо проверить на предмет дефектов.
         </p>
       </div>
       <div className='block'>
-        <p className='pb-2'>Необходимо соблюдать следующие меры:</p>
-        <OrderedList listItems={mantainanceTips} />
-      </div>
-      <div className='block'>{warningsList}</div>
-      <div className='block'>
-        <H4>Fail-safe mode</H4>
-        <p>
-          Этот режим предназначен для экстренного движения в случае
-          неисправности системы охлаждения. Если температура двигателя выходит
-          за рамки допустимой, двигатель автоматически переключается в данный
-          режим.<br></br>
-          При этом выключается система кондиционирования салона, а также
-          возможности двигателя уменьшаются. При длительном вождении в таком
-          режиме, двигатель может автоматически выключиться. <br></br>
-          При этом, когда двигатель остынет, его можно будет включить и
-          некоторое время продолжать движение в том же режиме.<br></br>
-          Этот режим предназначен только для того, чтобы доехать до сервиса, где
-          можно будет устранить неисправности системы охлаждения.
+        <H3>Зимняя резина</H3>
+        <p className='pt-2'>
+          Можно использовать как универсальную, так и зимнюю резину. При этом
+          характеристики должны совпадать с изначально представленными. Хранить
+          зимнюю резину рекомендуется при температуре{' '}
+          <TextSemibold>10 - 25 градусов</TextSemibold> в сухом затемненном
+          помещении.
         </p>
       </div>
 
-      <div className='block pt-5'>
-        <H4 className='pb-3'>Основные неисправности системы охлаждения</H4>
-        {faultsList}
+      <div className='block'>
+        <H3>Поломки на дорогах</H3>
+        <p className='pt-2'>
+          Независимо от аккуратности вождения, прокол шины может случиться
+          всегда. <br></br>В случае прокола шины на дороге, необходимо уехать с
+          оживленного движения в безопасное место. Это может сильнее повредить
+          шину, но наша безопасность важнее. <br></br>
+          Если почувствовалась внезапная вибрация во время поездки, необходимо
+          немедленно снизить скорость и выехать с дороги. <br></br>
+          После выезда с дороги необходимо осмотреть шины на предмет прокола и,
+          в случае наличия такого, заменить шину.
+        </p>
       </div>
+
       <div className='block pt-4'>
         <Accordion items={definitions}></Accordion>
       </div>
