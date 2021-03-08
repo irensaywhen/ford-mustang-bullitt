@@ -38,6 +38,9 @@ const Table = props => {
     extraClasses: props.className,
   });
 
+  console.log('Table classes', classes);
+  console.log(props);
+
   return (
     <table className={classes}>
       {tHeaderCaption}

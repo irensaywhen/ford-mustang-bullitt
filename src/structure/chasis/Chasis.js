@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Redirect, useRouteMatch } from 'react-router-dom';
 
 import Suspension from './Suspension';
+import WheelsAndTires from './WheelsAndTires';
 
 import Section from '../../common/UI/Section';
 import Tabs from '../../common/UI/Tabs';
@@ -27,6 +28,11 @@ const parts = [
     tabName: 'Подвеска',
     tabLink: 'suspension',
     Component: Suspension,
+  },
+  {
+    tabName: 'Колеса и шины',
+    tabLink: 'wheels-and-tires',
+    Component: WheelsAndTires,
   },
 ];
 

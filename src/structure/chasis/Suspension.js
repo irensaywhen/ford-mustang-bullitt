@@ -8,9 +8,6 @@ import H3 from '../../common/UI/Titles/H3';
 import H4 from '../../common/UI/Titles/H4';
 import TextSemibold from '../../common/UI/Text/TextSemibold';
 
-// Wrappers
-import DefinitionsWrapper from '../../common/UI/Wrappers/DefinitionsWrapper';
-
 import PrimaryButton from '../../common/UI/Buttons/PrimaryButton';
 
 import { ModalContext } from '../../context/modal-context';
