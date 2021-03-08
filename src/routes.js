@@ -14,6 +14,7 @@ const routes = {
     transmission: '/transmission',
     engine: '/engine',
     chasis: '/chasis',
+    electronics: '/electronic-systems',
   },
   about: '/about',
   contact: '/contact',
