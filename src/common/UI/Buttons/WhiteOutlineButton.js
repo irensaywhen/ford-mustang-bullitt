@@ -1,9 +1,9 @@
 import React from 'react';
 import { mergeClasses } from '../../../utilities';
 
-const PrimaryButton = props => {
+const WhiteOutlineButton = props => {
   const classes = mergeClasses({
-    defaultClasses: 'button is-primary',
+    defaultClasses: 'button is-white is-outlined',
     extraClasses: props.className,
   });
   return (
@@ -13,4 +13,4 @@ const PrimaryButton = props => {
   );
 };
 
-export default PrimaryButton;
+export default WhiteOutlineButton;

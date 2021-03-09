@@ -3,8 +3,10 @@ import { Redirect, useRouteMatch } from 'react-router-dom';
 
 import Section from '../../common/UI/Section';
 import Tabs from '../../common/UI/Tabs';
-
+import WhiteOutlineButton from '../../common/UI/Buttons/WhiteOutlineButton';
 import Table from '../../common/UI/Table';
+import Modal from '../../common/UI/Modal';
+import ResponsiveVideoWrapper from '../../common/UI/ResponsiveVideoWrapper';
 
 // Tab components
 import Battery from './Battery';
@@ -71,8 +73,32 @@ const fusesTable = {
 
 const ElectronicSystems = () => {
   const { path } = useRouteMatch();
+  const modalContext = useContext(ModalContext);
+
+  const openModal = () => {
+    // Set video content
+    modalContext.setModalContent(() => (
+      <iframe
+        className='has-ratio'
+        title='Has electronics work in car'
+        width='560'
+        height='315'
+        src='https://www.youtube.com/embed/piX-MwO3xrI'
+        frameborder='0'
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+        allowfullscreen
+      ></iframe>
+    ));
+
+    modalContext.showModal();
+  };
   return (
     <React.Fragment>
+      <Modal hidePadding transparentBackground>
+        <ResponsiveVideoWrapper>
+          {modalContext.modalContent}
+        </ResponsiveVideoWrapper>
+      </Modal>
       <Hero
         className={[
           'is-halfheight',
@@ -87,7 +113,10 @@ const ElectronicSystems = () => {
         <div className='block'>
           <HeroSubtitle>
             Включает в себя <TextSemibold>источники</TextSemibold> и{' '}
-            <TextSemibold>потребители</TextSemibold> тока.
+            <TextSemibold>потребители</TextSemibold> тока.<br></br>
+            <WhiteOutlineButton className='mt-4' onClick={openModal}>
+              Как устроено электрооборудование?
+            </WhiteOutlineButton>
           </HeroSubtitle>
         </div>
       </Hero>

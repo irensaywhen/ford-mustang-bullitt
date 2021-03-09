@@ -1,14 +1,16 @@
 import React from 'react';
 import { mergeClasses } from '../../../utilities';
 
-const HeroSubtitle = ({ children }) => {
+const HeroSubtitle = props => {
+  const classes = mergeClasses({
+    defaultClasses: 'subtitle has-text-light has-text-weight-light',
+    extraClasses: props.className,
+  });
   return (
     <div className='container'>
       <div className='columns is-justify-content-center'>
         <div className='column is-7'>
-          <h2 className='subtitle has-text-light has-text-weight-light'>
-            {children}
-          </h2>
+          <h2 className={classes}>{props.children}</h2>
         </div>
       </div>
     </div>
