@@ -9,6 +9,7 @@ import Table from '../../common/UI/Table';
 // Tab components
 import Battery from './Battery';
 import Generator from './Generator';
+import StartingEngine from './StartingEngine';
 
 // Hero
 import Hero from '../../common/UI/Hero/Hero';
@@ -19,6 +20,7 @@ import HeroSubtitle from '../../common/UI/Hero/HeroSubtitle';
 import H2 from '../../common/UI/Titles/H2';
 import H3 from '../../common/UI/Titles/H3';
 import TextSemibold from '../../common/UI/Text/TextSemibold';
+import CenteredParagraphLg from '../../common/UI/Paragraphs/CenteredParagraphLg';
 
 import classes from '../../assets/scss/pages/heroes.module.scss';
 
@@ -34,6 +36,14 @@ const supplyParts = [
     tabName: 'Генератор',
     tabLink: 'generator',
     Component: Generator,
+  },
+];
+
+const consumersParts = [
+  {
+    tabName: 'Система пуска двигателя',
+    tabLink: 'starting-engine',
+    Component: StartingEngine,
   },
 ];
 
@@ -88,17 +98,37 @@ const ElectronicSystems = () => {
       </Hero>
       {<Redirect to={`${path}/${supplyParts[0].tabLink}`} />}
       <Section>
-        <H2 className='has-text-centered'>Источники тока</H2>
-        <p className='pt-2'>
-          К источникам тока относятся{' '}
-          <TextSemibold>аккумуляторная батарея</TextSemibold> и{' '}
-          <TextSemibold>генератор</TextSemibold>.
-        </p>
-        <div className='columns is-justify-content-center'>
-          <div className='column is-12-mobile is-10-tablet is-8-desktop'>
-            <Tabs tabs={supplyParts} />
+        <div className='block'>
+          <H2 className='has-text-centered'>Источники тока</H2>
+          <CenteredParagraphLg className='pt-2'>
+            К источникам тока относятся{' '}
+            <TextSemibold>аккумуляторная батарея</TextSemibold> и{' '}
+            <TextSemibold>генератор</TextSemibold>.
+          </CenteredParagraphLg>
+          <div className='columns is-justify-content-center'>
+            <div className='column is-12-mobile is-10-tablet is-8-desktop'>
+              <Tabs tabs={supplyParts} />
+            </div>
           </div>
         </div>
+
+        <div className='block'>
+          <H2 className='has-text-centered'>Потребители тока</H2>
+          <CenteredParagraphLg className='pt-2'>
+            К потребителям тока относятся системы:{' '}
+            <TextSemibold>зажигания</TextSemibold>,{' '}
+            <TextSemibold>пуска двигателя</TextSemibold>,{' '}
+            <TextSemibold>освещения и сигнализации</TextSemibold>,{' '}
+            <TextSemibold>контрольно-измерительные приборы</TextSemibold>,{' '}
+            <TextSemibold>дополнительное оборудование</TextSemibold>.
+          </CenteredParagraphLg>
+          <div className='columns is-justify-content-center'>
+            <div className='column is-12-mobile is-10-tablet is-8-desktop'>
+              <Tabs tabs={consumersParts} />
+            </div>
+          </div>
+        </div>
+
         <H2 className='has-text-centered pb-4'>Общие характеристики</H2>
         <div className='columns is-justify-content-center'>
           <div className='column'>
