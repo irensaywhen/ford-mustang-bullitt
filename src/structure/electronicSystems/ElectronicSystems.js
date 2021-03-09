@@ -144,7 +144,19 @@ const ElectronicSystems = () => {
             <TextSemibold>пуска двигателя</TextSemibold>,{' '}
             <TextSemibold>освещения и сигнализации</TextSemibold>,{' '}
             <TextSemibold>контрольно-измерительные приборы</TextSemibold>,{' '}
-            <TextSemibold>дополнительное оборудование</TextSemibold>.
+            <TextSemibold>дополнительное оборудование</TextSemibold>. Автомобили
+            могут иметь большое количество различного дополнительного
+            оборудования. Главное из этого -{' '}
+            <TextSemibold>отопитель салона</TextSemibold>,{' '}
+            <TextSemibold>омыватель и очиститель лобового стекла</TextSemibold>,{' '}
+            <TextSemibold>омыватель и очиститель фар</TextSemibold>,{' '}
+            <TextSemibold>омыватель и очиститель заднего стекла</TextSemibold>,{' '}
+            <TextSemibold>
+              устройство подогрева стекол, зеркал, сидений
+            </TextSemibold>
+            , <TextSemibold>электроусилитель рулевого колеса</TextSemibold>. К
+            дополнительному электрооборудованию можно отнести различную
+            косметику - аудиосистему, бортовой компьютер.
           </CenteredParagraphLg>
           <div className='columns is-justify-content-center'>
             <div className='column is-12-mobile is-10-tablet is-8-desktop'>
