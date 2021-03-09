@@ -10,6 +10,7 @@ import Table from '../../common/UI/Table';
 import Battery from './Battery';
 import Generator from './Generator';
 import StartingEngine from './StartingEngine';
+import Lights from './Lights';
 
 // Hero
 import Hero from '../../common/UI/Hero/Hero';
@@ -44,6 +45,11 @@ const consumersParts = [
     tabName: 'Система пуска двигателя',
     tabLink: 'starting-engine',
     Component: StartingEngine,
+  },
+  {
+    tabName: 'Система освещения',
+    tabLink: 'lights',
+    Component: Lights,
   },
 ];
 
