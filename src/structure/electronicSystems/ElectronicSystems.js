@@ -8,6 +8,7 @@ import Table from '../../common/UI/Table';
 
 // Tab components
 import Battery from './Battery';
+import Generator from './Generator';
 
 // Hero
 import Hero from '../../common/UI/Hero/Hero';
@@ -28,6 +29,11 @@ const supplyParts = [
     tabName: 'Аккумуляторная батарея',
     tabLink: 'battery',
     Component: Battery,
+  },
+  {
+    tabName: 'Генератор',
+    tabLink: 'generator',
+    Component: Generator,
   },
 ];
 
