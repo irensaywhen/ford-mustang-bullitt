@@ -15,6 +15,7 @@ import PassiveSafety from './PassiveSafety';
 import StabilityControl from './StabilityControl';
 import ParkingAids from './ParkingAids';
 import CruiseControl from './CruiseControl';
+import ABS from './ABS';
 
 // Hero
 import Hero from '../../common/UI/Hero/Hero';
@@ -49,6 +50,11 @@ const activeSafetySystem = [
     tabName: 'Круиз контроль',
     tabLink: 'cruise-control',
     Component: CruiseControl,
+  },
+  {
+    tabName: 'ABS',
+    tabLink: 'abs',
+    Component: ABS,
   },
 ];
 
