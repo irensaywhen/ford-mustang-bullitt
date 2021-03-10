@@ -8,14 +8,14 @@ import Table from '../../common/UI/Table';
 import Modal from '../../common/UI/Modal';
 import ResponsiveVideoWrapper from '../../common/UI/ResponsiveVideoWrapper';
 
-// Tab components
-import PassiveSafety from './PassiveSafety';
-
 // Active safety
 import StabilityControl from './StabilityControl';
 import ParkingAids from './ParkingAids';
 import CruiseControl from './CruiseControl';
 import ABS from './ABS';
+
+// Passive safety
+import Seatbelts from './Seatbelts';
 
 // Hero
 import Hero from '../../common/UI/Hero/Hero';
@@ -58,11 +58,11 @@ const activeSafetySystem = [
   },
 ];
 
-const consumersParts = [
+const passiveSafetySystem = [
   {
-    tabName: 'Система пуска двигателя',
-    tabLink: 'starting-engine',
-    Component: PassiveSafety,
+    tabName: 'Ремни безопасности',
+    tabLink: 'seatbelts',
+    Component: Seatbelts,
   },
 ];
 
@@ -148,7 +148,7 @@ const Safety = () => {
           </CenteredParagraphLg>
           <div className='columns is-justify-content-center'>
             <div className='column is-12-mobile is-10-tablet is-8-desktop'>
-              <Tabs tabs={consumersParts} />
+              <Tabs tabs={passiveSafetySystem} />
             </div>
           </div>
         </div>
