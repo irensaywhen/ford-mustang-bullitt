@@ -14,6 +14,7 @@ import PassiveSafety from './PassiveSafety';
 // Active safety
 import StabilityControl from './StabilityControl';
 import ParkingAids from './ParkingAids';
+import CruiseControl from './CruiseControl';
 
 // Hero
 import Hero from '../../common/UI/Hero/Hero';
@@ -43,6 +44,11 @@ const activeSafetySystem = [
     tabName: 'Помощь при парковке',
     tabLink: 'parking-aids',
     Component: ParkingAids,
+  },
+  {
+    tabName: 'Круиз контроль',
+    tabLink: 'cruise-control',
+    Component: CruiseControl,
   },
 ];
 

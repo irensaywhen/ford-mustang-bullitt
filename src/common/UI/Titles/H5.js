@@ -4,7 +4,7 @@ import { mergeClasses } from '../../../utilities';
 
 const H5 = props => {
   const classes = mergeClasses({
-    defaultClasses: 'title is-6',
+    defaultClasses: 'title is-5',
     extraClasses: props.className,
   });
   return (
