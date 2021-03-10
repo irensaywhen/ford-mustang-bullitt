@@ -15,6 +15,7 @@ const routes = {
     engine: '/engine',
     chasis: '/chasis',
     electronics: '/electronic-systems',
+    safety: '/safety',
   },
   about: '/about',
   contact: '/contact',

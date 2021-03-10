@@ -11,7 +11,36 @@ import esp from '../../../assets/img/icons/dacia-duster-esp-warning-light.gif';
 import tyrePressure from '../../../assets/img/icons/dacia-duster-tyre-loss-warning-light.gif';
 import tractionControlOff from '../../../assets/img/icons/stability-control-off.jpg';
 
+import UnorderedList from '../../../common/UI/UnorderedList';
+// Added later
+import ets from '../../../assets/img/icons/ets.png';
+import etsOff from '../../../assets/img/icons/ets-off.png';
+
+const ETSSystem = {
+  etc: {
+    img: ets,
+    listItems: [
+      'Кратковременно загорается при включении двигателя',
+      'Мигает, когда система активна',
+      'Горит постоянно, в случае поломки в системе',
+    ],
+  },
+  etcOff: {
+    img: etsOff,
+    listItems: [
+      'Кратковременно загорается при включении двигателя',
+      'Горит при отключении пробуксовочной системы',
+      'Горит при выборе альтернативного мода',
+    ],
+  },
+};
+
 const nonCriticalWaningLights = [
+  {
+    name: 'ETS',
+    description: <UnorderedList listItems={ETSSystem.etc.listItems} />,
+    img: ETSSystem.etc.img,
+  },
   {
     name: 'Электроника',
     description:
