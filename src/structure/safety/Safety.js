@@ -13,6 +13,7 @@ import PassiveSafety from './PassiveSafety';
 
 // Active safety
 import StabilityControl from './StabilityControl';
+import ParkingAids from './ParkingAids';
 
 // Hero
 import Hero from '../../common/UI/Hero/Hero';
@@ -37,6 +38,11 @@ const activeSafetySystem = [
     tabName: 'Stability Control',
     tabLink: 'stability-control',
     Component: StabilityControl,
+  },
+  {
+    tabName: 'Помощь при парковке',
+    tabLink: 'parking-aids',
+    Component: ParkingAids,
   },
 ];
 
