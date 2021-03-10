@@ -12,8 +12,7 @@ import ResponsiveVideoWrapper from '../../common/UI/ResponsiveVideoWrapper';
 import PassiveSafety from './PassiveSafety';
 
 // Active safety
-import ESP from './ESP';
-import ETP from './ETP';
+import StabilityControl from './StabilityControl';
 
 // Hero
 import Hero from '../../common/UI/Hero/Hero';
@@ -35,14 +34,9 @@ import { ModalContext } from '../../context/modal-context';
 
 const activeSafetySystem = [
   {
-    tabName: 'ESP',
-    tabLink: 'esp',
-    Component: ESP,
-  },
-  {
-    tabName: 'ETP',
-    tabLink: 'etp',
-    Component: ETP,
+    tabName: 'Stability Control',
+    tabLink: 'stability-control',
+    Component: StabilityControl,
   },
 ];
 
