@@ -16,6 +16,7 @@ import ABS from './ABS';
 
 // Passive safety
 import Seatbelts from './Seatbelts';
+import SupplementaryRestraintSystem from './SupplementaryRestraintSystem';
 
 // Hero
 import Hero from '../../common/UI/Hero/Hero';
@@ -63,6 +64,11 @@ const passiveSafetySystem = [
     tabName: 'Ремни безопасности',
     tabLink: 'seatbelts',
     Component: Seatbelts,
+  },
+  {
+    tabName: 'Подушки безопасности',
+    tabLink: 'supplementary-restraint-system',
+    Component: SupplementaryRestraintSystem,
   },
 ];
 
