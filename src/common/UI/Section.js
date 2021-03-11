@@ -1,17 +1,12 @@
 import React from 'react';
+import withMergeClasses from '../hoc/withMergeClasses';
 
-const Section = ({ className, children }) => {
-  const defaultClasses = ['section'];
-
-  const classes = className
-    ? [...defaultClasses, ...className.split(' ')]
-    : defaultClasses;
-
+const Section = props => {
   return (
-    <section className={classes.join(' ')}>
-      <div className='container'>{children}</div>
+    <section {...props}>
+      <div className='container'>{props.children}</div>
     </section>
   );
 };
 
-export default Section;
+export default withMergeClasses(Section, 'section');
