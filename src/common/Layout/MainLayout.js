@@ -4,7 +4,7 @@ import Footer from './Footer/Footer';
 
 import { MobileMenuContext } from '../../context/mobile-menu-context';
 
-const Layout = ({ children }) => {
+const MainLayout = ({ children }) => {
   const mobileMenuContext = useContext(MobileMenuContext);
   return (
     <React.Fragment>
@@ -17,4 +17,4 @@ const Layout = ({ children }) => {
   );
 };
 
-export default Layout;
+export default MainLayout;

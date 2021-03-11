@@ -18,10 +18,10 @@ const Menu = ({ isMenuOpen }) => {
   return (
     <div className={navbarMenuClasses.join(' ')}>
       <div className='navbar-end'>
-        <NavbarItem url={routes.home}>Home</NavbarItem>
+        <NavbarItem url={routes.home}>Главная</NavbarItem>
 
         <NavbarDropdown drodownTitle='Articles' itemsPageUrl={routes.articles}>
-          <NavbarItem url={routes.history}>Car history</NavbarItem>
+          <NavbarItem url={routes.history}>История</NavbarItem>
         </NavbarDropdown>
 
         <NavbarDropdown

@@ -1,6 +1,24 @@
+import Home from './home/Home';
+import History from './history/History';
+import About from './about/About';
+
 const routes = {
   home: '/',
   history: '/articles/history',
+  main: {
+    home: {
+      path: '/',
+      Component: Home,
+    },
+    history: {
+      path: '/history',
+      Component: History,
+    },
+    about: {
+      path: '/about',
+      Component: About,
+    },
+  },
   dashboard: {
     index: '/dashboard',
     warningLights: '/dashboard/warning-lights',

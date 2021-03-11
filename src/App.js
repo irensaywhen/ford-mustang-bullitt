@@ -1,4 +1,4 @@
-import Layout from './common/Layout/Layout';
+import Layout from './common/Layout/MainLayout';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 
 import ModalContextProvider from './context/modal-context';
@@ -28,6 +28,17 @@ const transition = {
 };
 
 function App() {
+  const mainPages = Object.values(routes.main).map((routeData, index) => {
+    return (
+      <RouterWrapper
+        key={index}
+        path={routeData.path}
+        exact
+        component={routeData.Component}
+        Layout={Layout}
+      />
+    );
+  });
   return (
     <Router>
       <ModalContextProvider>
@@ -53,12 +64,7 @@ function App() {
             />
             <Route path={routes.home} exact component={Home} />
           </Layout>*/}
-          <RouterWrapper
-            path={routes.home}
-            exact
-            component={Home}
-            Layout={Layout}
-          />
+          {mainPages}
         </MobileMenuContextProvider>
       </ModalContextProvider>
     </Router>
