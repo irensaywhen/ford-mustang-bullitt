@@ -13,7 +13,6 @@ import HeroSubtitle from '../common/UI/Hero/HeroSubtitle';
 // Text
 import H2 from '../common/UI/Titles/H2';
 import EmphasizedPagargraph from '../common/UI/Paragraphs/EmphasizedPagargraph';
-import CenteredParagraphLg from '../common/UI/Paragraphs/CenteredParagraphLg';
 
 // Other UI elements
 import Section from '../common/UI/Section';

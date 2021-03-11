@@ -4,6 +4,7 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import ModalContextProvider from './context/modal-context';
 import MobileMenuContextProvider from './context/mobile-menu-context';
 
+import RouterWrapper from './common/hoc/RouterWrapper';
 import routes from './routes';
 import Home from './home/Home';
 import History from './history/History';
@@ -31,9 +32,7 @@ function App() {
     <Router>
       <ModalContextProvider>
         <MobileMenuContextProvider>
-          <Layout>
-            {/*<Switch>*/}
-            <Route path={routes.contact} component={Contact} />
+          {/*<Layout>
             <Route path={routes.about} component={About} />
             <Route path={routes.dashboard.mainGauges} component={MainGauges} />
             <Route
@@ -53,8 +52,13 @@ function App() {
               runOnMount
             />
             <Route path={routes.home} exact component={Home} />
-            {/*</Switch>*/}
-          </Layout>
+          </Layout>*/}
+          <RouterWrapper
+            path={routes.home}
+            exact
+            component={Home}
+            Layout={Layout}
+          />
         </MobileMenuContextProvider>
       </ModalContextProvider>
     </Router>
