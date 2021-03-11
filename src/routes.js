@@ -1,6 +1,7 @@
 import Home from './home/Home';
 import History from './history/History';
 import About from './about/About';
+import StructureHome from './structure/StructureHome';
 
 const routes = {
   home: '/',
@@ -8,14 +9,17 @@ const routes = {
   main: {
     home: {
       path: '/',
+      name: 'Главная',
       Component: Home,
     },
     history: {
       path: '/history',
+      name: 'История',
       Component: History,
     },
     about: {
       path: '/about',
+      name: 'О проекте',
       Component: About,
     },
   },
@@ -25,7 +29,11 @@ const routes = {
     mainGauges: '/dashboard/main-gauges',
   },
   structure: {
-    index: '/structure',
+    index: {
+      path: '/structure',
+      name: 'Устройство',
+      Component: StructureHome,
+    },
     body: '/body',
     steering: '/steering',
     braking: '/braking',

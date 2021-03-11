@@ -5,9 +5,8 @@ import { MobileMenuContext } from '../../../context/mobile-menu-context';
 import routes from '../../../routes';
 
 import NavbarItem from './NavbarItem';
-import NavbarDropdown from './NavbarDropdown';
 
-const Menu = ({ isMenuOpen }) => {
+const Menu = () => {
   const navbarMenuClasses = ['navbar-menu'];
 
   const mobileMenuContext = useContext(MobileMenuContext);
@@ -15,29 +14,19 @@ const Menu = ({ isMenuOpen }) => {
   if (mobileMenuContext.isMobileMenuVisible) {
     navbarMenuClasses.push('is-active');
   }
+
+  const navItems = Object.values(routes.main).map((routeData, index) => (
+    <NavbarItem key={index} url={routeData.path}>
+      {routeData.name}
+    </NavbarItem>
+  ));
   return (
     <div className={navbarMenuClasses.join(' ')}>
       <div className='navbar-end'>
-        <NavbarItem url={routes.home}>Главная</NavbarItem>
-
-        <NavbarDropdown drodownTitle='Articles' itemsPageUrl={routes.articles}>
-          <NavbarItem url={routes.history}>История</NavbarItem>
-        </NavbarDropdown>
-
-        <NavbarDropdown
-          drodownTitle='Dashboard'
-          itemsPageUrl={routes.dashboard.index}
-        >
-          <NavbarItem url={routes.dashboard.mainGauges}>Main gauges</NavbarItem>
-          <NavbarItem url={routes.dashboard.warningLights}>
-            Warning lights
-          </NavbarItem>
-        </NavbarDropdown>
-
-        <NavbarItem url={routes.structure.index}>Устройство</NavbarItem>
-
-        <NavbarItem url={routes.about}>About</NavbarItem>
-        <NavbarItem url={routes.contact}>Contact</NavbarItem>
+        {navItems}
+        <NavbarItem url={routes.structure.index.path}>
+          {routes.structure.index.name}
+        </NavbarItem>
       </div>
     </div>
   );

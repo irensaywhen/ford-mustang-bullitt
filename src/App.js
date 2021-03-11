@@ -14,7 +14,7 @@ import WarningLights from './dashboard/WarningLights';
 import About from './about/About';
 import Contact from './contact/Contact';
 import Articles from './articles/Articles';
-import StructureArticles from './structure/StructureArticles';
+import StructureArticles from './structure/StructureHome';
 
 const mapStyles = styles => ({
   transform: `translateX(${styles.offset}%)`,
