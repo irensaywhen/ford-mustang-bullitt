@@ -9,8 +9,12 @@ const DocumentationLayout = props => {
     <React.Fragment>
       <ContentWrapper>
         <Navigation />
-        <DocumentationMenu />
-        {props.children}
+        <div className='columns content-inner'>
+          <div className='column is-3 is-2-desktop menu-wrapper is-active'>
+            <DocumentationMenu />
+          </div>
+          <div className='column is-12 is-10-desktop'>{props.children}</div>
+        </div>
       </ContentWrapper>
       <Footer />
     </React.Fragment>

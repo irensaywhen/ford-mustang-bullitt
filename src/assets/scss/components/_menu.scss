@@ -1,0 +1,62 @@
+.menu-wrapper {
+  height: 100%;
+
+  .menu {
+    box-sizing: border-box;
+    padding: 1.5rem 0.75rem;
+    background: $white-bis;
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    .menu-btn {
+      @include ease-out;
+      position: absolute;
+      z-index: 3;
+      right: 0.5rem;
+      top: 0.75rem;
+      cursor: pointer;
+
+      .btn-line {
+        @include ease-out;
+        width: 28px;
+        height: 2px;
+        margin: 0 0 5px 0;
+        background: $primary-light;
+      }
+
+      &.close {
+        transform: rotate(180deg);
+
+        .btn-line {
+          //Line 1 - Rotate
+          &:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+          }
+
+          //Line 2 - Hide
+          &:nth-child(2) {
+            opacity: 0;
+          }
+
+          //Line 3 - Rotate
+          &:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+          }
+        }
+      }
+    }
+  }
+
+  @include until-desktop {
+    position: absolute;
+    min-width: 295px;
+    max-width: 100%;
+    z-index: 10;
+    transform: translate3d(-230px, 0, 0);
+
+    &.is-active {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}

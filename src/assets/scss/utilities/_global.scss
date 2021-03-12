@@ -12,6 +12,10 @@ body,
   height: 100%;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-size: 1.25rem;
 }
@@ -23,6 +27,13 @@ body {
 
 .content-wrapper {
   flex: 1 0 auto;
+  padding-top: $navbar-height;
+
+  .content-inner {
+    height: 100%;
+    margin-bottom: 0;
+    position: relative;
+  }
 }
 .footer {
   flex-shrink: 0;
