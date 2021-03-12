@@ -1,4 +1,5 @@
-import Layout from './common/Layout/MainLayout';
+import MainLayout from './common/Layout/MainLayout';
+import DocumentationLayout from './common/Layout/DocumentationLayout';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 
 import ModalContextProvider from './context/modal-context';
@@ -14,7 +15,7 @@ import WarningLights from './dashboard/WarningLights';
 import About from './about/About';
 import Contact from './contact/Contact';
 import Articles from './articles/Articles';
-import StructureArticles from './structure/StructureHome';
+import StructureHome from './structure/StructureHome';
 
 const mapStyles = styles => ({
   transform: `translateX(${styles.offset}%)`,
@@ -33,9 +34,9 @@ function App() {
       <RouterWrapper
         key={index}
         path={routeData.path}
-        exact
         component={routeData.Component}
-        Layout={Layout}
+        Layout={routeData.Layout}
+        exact={routeData.exact}
       />
     );
   });

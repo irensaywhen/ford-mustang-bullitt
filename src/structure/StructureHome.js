@@ -17,57 +17,30 @@ import routes from '../routes';
 const StructureArticles = () => {
   const { path, url } = useRouteMatch();
 
+  const documentationRoutes = Object.values(
+    routes.documentation
+  ).map((routeData, index) => (
+    <Route
+      key={index}
+      path={`${path}${routeData.path}`}
+      component={routeData.Component}
+    />
+  ));
+
+  const documentationLinks = Object.values(
+    routes.documentation
+  ).map((routeData, index) => (
+    <Link to={`${url}${routeData.path}`}>{routeData.name}</Link>
+  ));
   return (
-    <Switch>
-      <Route path={`${path}${routes.structure.body}`} component={CarBody} />
-      <Route
-        path={`${path}${routes.structure.steering}`}
-        component={SteeringSystem}
-      />
-      <Route
-        path={`${path}${routes.structure.braking}`}
-        component={BrakingSystem}
-      />
-      <Route
-        path={`${path}${routes.structure.transmission}`}
-        component={Transmission}
-      />
-      <Route path={`${path}${routes.structure.chasis}`} component={Chasis} />
-      <Route path={`${path}${routes.structure.engine}`} component={Engine} />
-      <Route
-        path={`${path}${routes.structure.electronics}`}
-        component={ElectronicSystems}
-      />
-      <Route
-        path={`${path}${routes.dashboard.warningLights}`}
-        component={WarningLights}
-      />
-      <Route path={`${path}${routes.structure.safety}`} component={Safety} />
-      <Route path={routes.structure.index}>
-        <Section>
-          <Link to={`${url}${routes.structure.electronics}`}>
-            Electronic Systems
-          </Link>
-          <Link to={`${url}${routes.dashboard.warningLights}`}>
-            Warning Lights
-          </Link>
-          <Link to={`${url}${routes.structure.safety}`}>Safety</Link>
-          <Link to={`${url}${routes.structure.body}`}>Car body Link</Link>
-          <Link to={`${url}${routes.structure.steering}`}>
-            Steering system link
-          </Link>
-          <Link to={`${url}${routes.structure.chasis}`}>Chasis</Link>
-          <Link to={`${url}${routes.structure.braking}`}>
-            Braking system link
-          </Link>
-          <Link to={`${url}${routes.structure.transmission}`}>
-            Transmission
-          </Link>
-          <Link to={`${url}${routes.structure.engine}`}>Engine</Link>
-          This is structure articles list
-        </Section>
-      </Route>
-    </Switch>
+    <React.Fragment>
+      <Switch>
+        {documentationRoutes}
+        <Route path={routes.main.documentation.path}>
+          <Section>{documentationLinks}</Section>
+        </Route>
+      </Switch>
+    </React.Fragment>
   );
 };
 

@@ -22,12 +22,7 @@ const Menu = () => {
   ));
   return (
     <div className={navbarMenuClasses.join(' ')}>
-      <div className='navbar-end'>
-        {navItems}
-        <NavbarItem url={routes.structure.index.path}>
-          {routes.structure.index.name}
-        </NavbarItem>
-      </div>
+      <div className='navbar-end'>{navItems}</div>
     </div>
   );
 };
