@@ -19,6 +19,16 @@
     url('../../img/home/hero.jpg');
 }
 
+// History page hero image
+.HistoryImage {
+  background-image: linear-gradient(
+      to bottom,
+      rgba($primary-dark, 0.8),
+      rgba($primary-dark, 0.5)
+    ),
+    url('../../img/steveMcQueen-Bullitt.jpg');
+}
+
 // Car Body Hero Image
 .CarBodyImage {
   background-position: center -200px;

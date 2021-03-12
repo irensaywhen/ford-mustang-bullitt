@@ -27,7 +27,7 @@ import classes from '../assets/scss/pages/heroes.module.scss';
 
 const Home = () => {
   return (
-    <div>
+    <React.Fragment>
       <Hero
         className={[
           'is-fullheight',
@@ -36,14 +36,14 @@ const Home = () => {
           classes.HomeImage,
         ].join(' ')}
       >
-        <div className='block'>
+        <Block>
           <HeroTitle className='is-1 pb-4'>Ford Mustang Bullitt</HeroTitle>
-        </div>
-        <div className='block'>
+        </Block>
+        <Block>
           <HeroSubtitle className='is-4'>
             Cпецверсия в честь пятидесятилетия Буллита.
           </HeroSubtitle>
-        </div>
+        </Block>
       </Hero>
       <Section>
         <H2 className='is-size-3 has-text-centered pb-6'>
@@ -74,7 +74,7 @@ const Home = () => {
           </div>
         </Block>
       </Section>
-    </div>
+    </React.Fragment>
   );
 };
 
