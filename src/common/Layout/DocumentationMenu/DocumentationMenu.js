@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MenuLabel from './MenuLabel';
 import MenuList from './MenuList';
 
 const DocumentationMenu = () => {
+  const [docsMenuVisible, setDocsMenuVisible] = useState(false);
+
+  const toggleDocsMenuVisibility = () => {
+    setDocsMenuVisible(isMenuVisible => !isMenuVisible);
+  };
+
+  const menuClasses = ['menu'];
+
+  if (docsMenuVisible) {
+    menuClasses.push('is-active');
+  }
   return (
-    <aside class='menu is-active'>
-      <div class='menu-btn'>
-        <div class='btn-line'></div>
-        <div class='btn-line'></div>
-        <div class='btn-line'></div>
+    <aside className={menuClasses.join(' ')}>
+      <div className='menu-btn' onClick={toggleDocsMenuVisibility}>
+        <div className='btn-line'></div>
+        <div className='btn-line'></div>
+        <div className='btn-line'></div>
       </div>
       <MenuLabel>General</MenuLabel>
       <MenuList />
