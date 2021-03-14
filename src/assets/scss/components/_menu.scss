@@ -1,5 +1,6 @@
 .menu-wrapper {
   height: 100%;
+  position: relative;
 
   .menu {
     box-sizing: border-box;
@@ -7,7 +8,15 @@
     background: $white-bis;
     height: 100%;
     width: 100%;
-    position: relative;
+    position: absolute;
+    min-width: 295px;
+    max-width: 100%;
+    z-index: 10;
+    transform: translate3d(-230px, 0, 0);
+
+    &.is-active {
+      transform: translate3d(0, 0, 0);
+    }
 
     .menu-btn {
       @include ease-out;
@@ -48,15 +57,15 @@
     }
   }
 
-  @include until-desktop {
-    position: absolute;
-    min-width: 295px;
-    max-width: 100%;
-    z-index: 10;
-    transform: translate3d(-230px, 0, 0);
-
-    &.is-active {
-      transform: translate3d(0, 0, 0);
-    }
-  }
+  // @include until-desktop {
+  //   position: absolute;
+  //   min-width: 295px;
+  //   max-width: 100%;
+  //   z-index: 10;
+  //   transform: translate3d(-230px, 0, 0);
+  //
+  //   &.is-active {
+  //     transform: translate3d(0, 0, 0);
+  //   }
+  // }
 }

@@ -1,21 +1,10 @@
-import MainLayout from './common/Layout/MainLayout';
-import DocumentationLayout from './common/Layout/DocumentationLayout';
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import ModalContextProvider from './context/modal-context';
 import MobileMenuContextProvider from './context/mobile-menu-context';
 
 import RouterWrapper from './common/hoc/RouterWrapper';
 import routes from './routes';
-import Home from './home/Home';
-import History from './history/History';
-import Dashboard from './dashboard/Dashboard';
-import MainGauges from './dashboard/MainGauges';
-import WarningLights from './dashboard/WarningLights';
-import About from './about/About';
-import Contact from './contact/Contact';
-import Articles from './articles/Articles';
-import StructureHome from './structure/StructureHome';
 
 const mapStyles = styles => ({
   transform: `translateX(${styles.offset}%)`,

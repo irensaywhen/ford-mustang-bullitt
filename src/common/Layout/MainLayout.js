@@ -4,6 +4,7 @@ import Footer from './Footer/Footer';
 import ContentWrapper from '../UI/Wrappers/ContentWrapper';
 
 const MainLayout = ({ children }) => {
+  console.log('Rendering main layout');
   return (
     <React.Fragment>
       <ContentWrapper>
