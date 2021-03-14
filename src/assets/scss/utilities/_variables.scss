@@ -1,5 +1,3 @@
-@import '../../../../node_modules/bulma/sass/utilities/derived-variables.sass';
-
 $primary: #121518;
 $primary-dark: #000912;
 $primary-light: #888a8c;
@@ -7,11 +5,11 @@ $info: #251e1b;
 $info-dark: #170801;
 $info-light: #d8d4d1;
 
-@debug $primary;
-
 $black: #000;
 
 $link: $info-dark;
+
+@import '../../../../node_modules/bulma/sass/utilities/derived-variables.sass';
 
 // Navbar
 $navbar-background-color: $primary-dark;
