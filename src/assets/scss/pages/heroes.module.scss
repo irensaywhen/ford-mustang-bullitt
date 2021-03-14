@@ -40,6 +40,16 @@
     url('../../img/body/hero.jpg');
 }
 
+// Steering image
+.SteeringImage {
+  background-image: linear-gradient(
+      to bottom,
+      rgba($primary-dark, 0.8),
+      rgba($primary-dark, 0.5)
+    ),
+    url('../../img/steering/2019-steeda-mustang-bullitt-mcqueen-auction-73.jpg');
+}
+
 // Image for the main chasis page
 .ChasisImage {
   background-position: center -200px;

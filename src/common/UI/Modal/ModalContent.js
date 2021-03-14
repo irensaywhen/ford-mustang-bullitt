@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
-import { CSSTransition } from 'react-transition-group';
 
 import { ModalContext } from '../../context/modal-context';
 
-const Modal = ({ children, hidePadding, transparentBackground }) => {
+const ModalContent = ({ children, hidePadding, transparentBackground }) => {
   const modalContext = useContext(ModalContext);
 
   const modalContentClasses = [
@@ -25,4 +24,4 @@ const Modal = ({ children, hidePadding, transparentBackground }) => {
   ) : null;
 };
 
-export default Modal;
+export default ModalContent;

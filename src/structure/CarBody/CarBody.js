@@ -27,7 +27,7 @@ import carBodyParts from '../../assets/img/body/bodyParts.jpg';
 // data
 import faults from './data/faults';
 import { size, otherCharacteristics } from './data/characteristics';
-import definitions from './data/defintions';
+import definitions from './data/definitions';
 
 const CarBody = () => {
   const modalContext = useContext(ModalContext);
@@ -51,16 +51,16 @@ const CarBody = () => {
           classes.CarBodyImage,
         ].join(' ')}
       >
-        <div className='block'>
+        <Block>
           <HeroTitle>Кузов</HeroTitle>
-        </div>
-        <div className='block'>
+        </Block>
+        <Block>
           <HeroSubtitle>
             Является основным несущем элементом автомобиля. Служит для крепления
             к нему двигателя, трансмиссии, ходовой части, механизмов управления,
             а также для размещения пассмажиров и грузов.
           </HeroSubtitle>
-        </div>
+        </Block>
       </Hero>
       <Section>
         <Block>

@@ -10,7 +10,7 @@ import About from './about/About';
 // Structure
 import StructureHome from './structure/StructureHome';
 import CarBody from './structure/CarBody/CarBody';
-import SteeringSystem from './structure/SteeringSystem';
+import SteeringSystem from './structure/SteeringSystem/SteeringSystem';
 import BrakingSystem from './structure/BrakingSystem';
 import Transmission from './structure/transmission/Transmission';
 import Engine from './structure/engine/Engine';
