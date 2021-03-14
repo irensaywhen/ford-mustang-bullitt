@@ -4,12 +4,12 @@ import { ModalContext } from '../../context/modal-context';
 import Section from '../../common/UI/Section';
 import Accordion from '../../common/UI/Accordion/Accordion';
 import Table from '../../common/UI/Table';
-import BulletpointWithIcon from '../../common/UI/BulletpointWithIcon';
 import FaultsList from '../../common/UI/FaultsList';
 import PrimaryButton from '../../common/UI/Buttons/PrimaryButton';
 import Figure from '../../common/UI/Figure/Figure';
 import Block from '../../common/UI/Wrappers/Block';
 import Modal from '../../common/UI/Modal';
+import NarrowContentWrapper from '../../common/UI/Wrappers/NarrowContentWrapper';
 
 // Hero
 import Hero from '../../common/UI/Hero/Hero';
@@ -98,21 +98,16 @@ const CarBody = () => {
           которым должен удовлетворять кузов. В противном случае его
           эксплуатация запрещается.
         </CenteredParagraphLg>
-        <div className='columns'>
-          <div className='column is-10-tablet is-offset-1-tablet is-8-desktop is-offset-2-desktop'>
-            <div className='block pt-5'>
-              <FaultsList faults={faults} />
-            </div>
-          </div>
-        </div>
+        <NarrowContentWrapper>
+          <FaultsList faults={faults} />
+        </NarrowContentWrapper>
       </Section>
       <Section>
         <H2 className='has-text-centered'>Термины</H2>
-        <div className='columns is-justify-content-center pt-4'>
-          <div className='column is-12 is-10-tablet is-9-desktop'>
-            <Accordion items={definitions}></Accordion>
-          </div>
-        </div>
+
+        <NarrowContentWrapper>
+          <Accordion items={definitions}></Accordion>
+        </NarrowContentWrapper>
       </Section>
     </React.Fragment>
   );
