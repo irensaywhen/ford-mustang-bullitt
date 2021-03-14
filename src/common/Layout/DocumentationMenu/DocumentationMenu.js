@@ -4,8 +4,8 @@ import MenuList from './MenuList';
 
 const DocumentationMenu = () => {
   return (
-    <aside class='menu'>
-      <div class='menu-btn close'>
+    <aside class='menu is-active'>
+      <div class='menu-btn'>
         <div class='btn-line'></div>
         <div class='btn-line'></div>
         <div class='btn-line'></div>
