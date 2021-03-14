@@ -104,7 +104,6 @@ const CarBody = () => {
       </Section>
       <Section>
         <H2 className='has-text-centered'>Термины</H2>
-
         <NarrowContentWrapper>
           <Accordion items={definitions}></Accordion>
         </NarrowContentWrapper>
