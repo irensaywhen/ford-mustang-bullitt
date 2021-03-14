@@ -44,6 +44,16 @@ body {
   z-index: 10;
 }
 
+.section {
+  &:last-of-type {
+    padding-bottom: 5rem;
+
+    @include screen-desktop {
+      padding-bottom: 6rem;
+    }
+  }
+}
+
 a {
   @include ease-out;
 }
