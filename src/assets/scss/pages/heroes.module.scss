@@ -59,6 +59,15 @@
     url('../../img/braking/hero.jpg');
 }
 
+.TransmissionImage {
+  background-image: linear-gradient(
+      to bottom,
+      rgba($primary-dark, 0.8),
+      rgba($primary-dark, 0.5)
+    ),
+    url('../../img/transmission/hero.jpg');
+}
+
 // Image for the main chasis page
 .ChasisImage {
   background-position: center -200px;

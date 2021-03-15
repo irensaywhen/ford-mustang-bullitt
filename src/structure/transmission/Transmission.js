@@ -4,11 +4,8 @@ import { Redirect, useRouteMatch } from 'react-router-dom';
 import Section from '../../common/UI/Section';
 import Tabs from '../../common/UI/Tabs';
 import Modal from '../../common/UI/Modal';
-
-import Clutch from './Clutch';
-import Gearbox from './Gearbox';
-import CardanJoint from './CardanJoint';
-import Differential from './Differential';
+import Block from '../../common/UI/Wrappers/Block';
+import NarrowContentWrapper from '../../common/UI/Wrappers/NarrowContentWrapper';
 
 import Hero from '../../common/UI/Hero/Hero';
 import HeroTitle from '../../common/UI/Hero/HeroTitle';
@@ -16,32 +13,12 @@ import HeroSubtitle from '../../common/UI/Hero/HeroSubtitle';
 
 import ResponsiveVideoWrapper from '../../common/UI/ResponsiveVideoWrapper';
 
-import classes from '../../assets/scss/pages/braking.module.scss';
+import classes from '../../assets/scss/pages/heroes.module.scss';
 
 import { ModalContext } from '../../context/modal-context';
 
-const parts = [
-  {
-    tabName: 'Сцепление',
-    tabLink: 'clutch',
-    Component: Clutch,
-  },
-  {
-    tabName: 'Коробка Передач',
-    tabLink: 'gearbox',
-    Component: Gearbox,
-  },
-  {
-    tabName: 'Главная передача и Дифференциал',
-    tabLink: 'differential',
-    Component: Differential,
-  },
-  {
-    tabName: 'Карданная передача',
-    tabLink: 'cardan-joint',
-    Component: CardanJoint,
-  },
-];
+// data
+import { parts } from './data/transmission';
 
 const Transmission = () => {
   const { path } = useRouteMatch();
@@ -56,25 +33,28 @@ const Transmission = () => {
         </ResponsiveVideoWrapper>
       </Modal>
       <Hero
-        classNames={['is-halfheight', 'has-text-centered', classes.HeroImage]}
+        className={[
+          'is-halfheight',
+          'has-text-centered',
+          classes.HeroImage,
+          classes.TransmissionImage,
+        ].join(' ')}
       >
-        <div className='block'>
+        <Block>
           <HeroTitle>Трансмиссия</HeroTitle>
-        </div>
-        <div className='block'>
+        </Block>
+        <Block>
           <HeroSubtitle>
             Предназначена для изменения скоростей при неизменной скорости,
             создаваемой двигателем.
           </HeroSubtitle>
-        </div>
+        </Block>
       </Hero>
       <Redirect to={`${path}/${parts[0].tabLink}`} />
       <Section>
-        <div className='columns is-justify-content-center'>
-          <div className='column is-12-mobile is-10-tablet is-8-desktop'>
-            <Tabs tabs={parts} />
-          </div>
-        </div>
+        <NarrowContentWrapper>
+          <Tabs tabs={parts} />
+        </NarrowContentWrapper>
       </Section>
     </React.Fragment>
   );
