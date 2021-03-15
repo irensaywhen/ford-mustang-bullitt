@@ -87,14 +87,18 @@ const SteeringSystem = () => {
       </Section>
 
       <Hero
-        classNames={['is-halfheight', 'has-text-centered', classes.ProsAndCons]}
+        className={[
+          'is-halfheight',
+          'has-text-centered',
+          classes.ProsAndCons,
+        ].join(' ')}
       >
-        <div className='container'>
-          <div className='pb-6'>Сравнение усилителей рулевого управления</div>
+        <HeroTitle className='has-text-centered pb-6'>
+          Сравнение усилителей рулевого управления
+        </HeroTitle>
 
-          <div className='columns is-justify-content-center'>
-            <ComparisonCards cardsData={steeringSystemCards} />
-          </div>
+        <div className='columns is-justify-content-center'>
+          <ComparisonCards cardsData={steeringSystemCards} />
         </div>
       </Hero>
 
