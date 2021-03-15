@@ -11,7 +11,7 @@ import About from './about/About';
 import StructureHome from './structure/StructureHome';
 import CarBody from './structure/CarBody/CarBody';
 import SteeringSystem from './structure/SteeringSystem/SteeringSystem';
-import BrakingSystem from './structure/BrakingSystem';
+import BrakingSystem from './structure/BrakingSystem/BrakingSystem';
 import Transmission from './structure/transmission/Transmission';
 import Engine from './structure/engine/Engine';
 import Chasis from './structure/chasis/Chasis';
