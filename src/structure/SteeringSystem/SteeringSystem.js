@@ -1,8 +1,6 @@
 import React, { useContext } from 'react';
 
 import Section from '../../common/UI/Section';
-import BulletpointWithIcon from '../../common/UI/BulletpointWithIcon';
-import Card from '../../common/UI/cards/Card';
 import ComparisonCards from '../../common/UI/cards/ComparisonCards';
 import FeaturesList from '../../common/UI/FeaturesList/FeaturesList';
 import CenteredParagraph from '../../common/UI/CenteredParagraph';
@@ -36,44 +34,6 @@ import { powerSteeringFeaturs, steeringSystemCards } from './data/features';
 const SteeringSystem = () => {
   const modalContext = useContext(ModalContext);
 
-  // Power steering comparison cards
-  const powerSteeringCards = steeringSystemCards.map((card, index) => {
-    // Pros and cons of this type of steering
-    const prosAndCons = card.prosAndCons
-      .sort((item1, item2) => {
-        if (item1.type === 'con') {
-          return 1;
-        } else if (item1.type === 'con' && item2.type === 'con') {
-          return 0;
-        }
-
-        return -1;
-      })
-      .map((listItem, index) => (
-        <BulletpointWithIcon
-          key={index}
-          icon={
-            listItem.type === 'pro' ? (
-              <i class='far fa-check-circle'></i>
-            ) : (
-              <i class='far fa-times-circle'></i>
-            )
-          }
-          iconWrapperClasses={[
-            listItem.type === 'pro' ? 'has-text-success' : 'has-text-danger',
-          ]}
-        >
-          <p className='has-text-left is-size-5'>{listItem.description}</p>
-        </BulletpointWithIcon>
-      ));
-    return (
-      <div key={index} className='column is-5-tablet is-4-desktop'>
-        <Card title={<h3 className='title is-5'>{card.title}</h3>}>
-          {prosAndCons}
-        </Card>
-      </div>
-    );
-  });
   return (
     <React.Fragment>
       <Modal hidePadding transparentBackground>
@@ -97,8 +57,7 @@ const SteeringSystem = () => {
         </Block>
         <Block>
           <HeroSubtitle>
-            Имеет <TextSemibold>реечный тип</TextSemibold> и&nbsp;
-            <TextSemibold>электроусилитель</TextSemibold> рулевого колеса
+            Имеет реечный тип и электроусилитель рулевого колеса
           </HeroSubtitle>
         </Block>
         <Block>
