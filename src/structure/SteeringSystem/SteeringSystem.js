@@ -3,12 +3,14 @@ import React, { useContext } from 'react';
 import Section from '../../common/UI/Section';
 import BulletpointWithIcon from '../../common/UI/BulletpointWithIcon';
 import Card from '../../common/UI/cards/Card';
+import ComparisonCards from '../../common/UI/cards/ComparisonCards';
 import FeaturesList from '../../common/UI/FeaturesList/FeaturesList';
 import CenteredParagraph from '../../common/UI/CenteredParagraph';
 import Modal from '../../common/UI/Modal';
 import FaultsList from '../../common/UI/FaultsList';
 import NarrowContentWrapper from '../../common/UI/Wrappers/NarrowContentWrapper';
 import Block from '../../common/UI/Wrappers/Block';
+import VideoIframe from '../../common/UI/VideoIframe';
 
 import WhiteOutlineButton from '../../common/UI/Buttons/WhiteOutlineButton';
 
@@ -76,16 +78,10 @@ const SteeringSystem = () => {
     <React.Fragment>
       <Modal hidePadding transparentBackground>
         <ResponsiveVideoWrapper>
-          <iframe
+          <VideoIframe
             title='Принцип работы рулевого управления'
-            className='has-ratio'
-            width='560'
-            height='315'
             src='https://www.youtube.com/embed/em1O8mz7sF0'
-            frameborder='0'
-            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-            allowfullscreen
-          ></iframe>
+          ></VideoIframe>
         </ResponsiveVideoWrapper>
       </Modal>
       <Hero
@@ -112,24 +108,22 @@ const SteeringSystem = () => {
         </Block>
       </Hero>
       <Section>
-        <div className='block'>
+        <Block>
           <h2 className='title is-3 has-text-centered mb-3'>
             Электроусилитель рулевого колеса
           </h2>
           <div className='pb-5'>
             <CenteredParagraph>
               Впервые был использован компанией{' '}
-              <span className='has-text-weight-semibold'>Ford</span> в 2011 году
-              для моделей{' '}
-              <span className='has-text-weight-semibold'>Ford Mustang GT</span>.
-              Необходим для уменьшения усилия, необходимого для управления
-              автомобилем.
+              <TextSemibold>Ford</TextSemibold> в 2011 году для моделей{' '}
+              <TextSemibold>Ford Mustang GT</TextSemibold>. Необходим для
+              уменьшения усилия, необходимого для управления автомобилем.
             </CenteredParagraph>
           </div>
-        </div>
-        <div className='block'>
+        </Block>
+        <Block>
           <FeaturesList featuresList={powerSteeringFeaturs} />
-        </div>
+        </Block>
       </Section>
 
       <Hero
@@ -139,19 +133,19 @@ const SteeringSystem = () => {
           <div className='pb-6'>Сравнение усилителей рулевого управления</div>
 
           <div className='columns is-justify-content-center'>
-            {powerSteeringCards}
+            <ComparisonCards cardsData={steeringSystemCards} />
           </div>
         </div>
       </Hero>
 
       <Section>
-        <div className='block'>
+        <Block>
           <h2 className='title is-3 has-text-centered'>
             Основные неисправности рулевого управления
           </h2>
-        </div>
+        </Block>
 
-        <div className='block has-text-centered pb-2'>
+        <Block className='has-text-centered pb-2'>
           <CenteredParagraph>
             Знание основных неисправностей рулевого механизма, а также условий,
             при которых запрещена эксплуатация транспортного средства{' '}
@@ -159,7 +153,7 @@ const SteeringSystem = () => {
             <br></br>
             Это убережет жизнь водителя и окружающих.
           </CenteredParagraph>
-        </div>
+        </Block>
         <NarrowContentWrapper>
           <FaultsList faults={faults} />
         </NarrowContentWrapper>
