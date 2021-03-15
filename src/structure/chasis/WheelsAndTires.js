@@ -3,8 +3,9 @@ import React, { useContext } from 'react';
 import OrderedList from '../../common/UI/OrderedList';
 import UnorderedList from '../../common/UI/UnorderedList';
 import Accordion from '../../common/UI/Accordion/Accordion';
-import BulletpointWithIcon from '../../common/UI/BulletpointWithIcon';
-import Table from '../../common/UI/Table';
+import Figure from '../../common/UI/Figure/Figure';
+import VideoIframe from '../../common/UI/VideoIframe';
+import WarningsList from '../../common/UI/WarningsList';
 
 // Text
 import H2 from '../../common/UI/Titles/H3';
@@ -13,174 +14,20 @@ import H4 from '../../common/UI/Titles/H4';
 import TextSemibold from '../../common/UI/Text/TextSemibold';
 
 import PrimaryButton from '../../common/UI/Buttons/PrimaryButton';
+import Block from '../../common/UI/Wrappers/Block';
 
 import { ModalContext } from '../../context/modal-context';
 
 import tireInfo from '../../assets/img/chasis/tire.jpg';
 
-const speedIndexTableData = {
-  tBody: [
-    [
-      <TextSemibold>Маркировка</TextSemibold>,
-      'M',
-      'N',
-      'Q',
-      'R',
-      'S',
-      'T',
-      'U',
-      'H',
-      'V',
-      'W',
-      'Y',
-    ],
-    [
-      <TextSemibold>Max. Скорость, км/ч</TextSemibold>,
-      '130',
-      '140',
-      '159',
-      '171',
-      '180',
-      '190',
-      '200',
-      '210',
-      '240',
-      '270',
-      '290',
-    ],
-  ],
-};
-
-const definitions = [
-  {
-    header: 'Диск с ободом',
-    body:
-      'С приваренным к нему ободом крепится к ступице колеса или к полуоси заднего моста с помощью конических болтов и гаек. ',
-  },
-  {
-    header: 'Камерная шина',
-    body:
-      'Имеет в себе резиновую камеру, которая заполняется воздухом. Шина без камеры называется покрышкой.',
-  },
-  {
-    header: 'Бескамерная шина',
-    body:
-      'Плотно прилегает к ободу и накачивается непосредственно. Диск дял бескамерной шины отличается наличием уплотняющих бортиков на ободе.',
-  },
-  {
-    header: 'Покрышка',
-    body: 'Состоим из каркаса, протектора, боковин и бортов.',
-  },
-  {
-    header: 'Каркас шины',
-    body:
-      'Явояеися ноаверй часитью покрышки, ее силовой основой. Он выполняется из нескольких слоев специальной ткани - корда.',
-  },
-  {
-    header: 'Протектор шины',
-    body:
-      'Это толстый слой резины с определенным рисунком, расположенный на наружней поверхности покрышки. Он непосредственно соприкасается с поверхностью дороги.',
-  },
-  {
-    header: 'Патрубки и шланги',
-    body:
-      'Служат для соединения рубашки охлаждения с термостатом, насосом, радиатором и расширительным бачком.',
-  },
-  {
-    header: 'Отопитель салона',
-    body:
-      'Горячая охлаждающая жидкость проходит через радиатор отопителя и нагревает воздух в салоне.',
-  },
-];
-
-const wheelsAndTiresParts = ['Диска  ободом', 'Шины'];
-
-const tireParts = ['Каркаса', 'Протектора', 'Боковин', 'Бортов'];
-
-const replacementWarnings = [
-  {
-    description:
-      'При замене шин использовать только шины с такими же характеристиками (как на маркировке). Использование неправильных шин может повлиять на точность системы мониторинга давления.',
-  },
-  {
-    description:
-      'Рекомендуется заменять шины одновременно на двух передних колесах, или на двух задних колесах.',
-  },
-  {
-    description:
-      'Рекомендуется заменять шины одновременно на двух передних колесах, или на двух задних колесах.',
-  },
-];
-
-const tiresQuality = [
-  <p className='pt-2'>
-    <TextSemibold>Treadwear</TextSemibold> - сравнительный показатель качества
-    шины
-  </p>,
-  <p className='pt-2'>
-    <TextSemibold>Traction АА, A, B, C</TextSemibold> - показывает способность
-    останавливаться на мокрых участках.
-  </p>,
-  <p className='pt-2'>
-    <TextSemibold>Temperature A, B, C</TextSemibold> - показывает способность
-    резины сопротивляться температурам.
-  </p>,
-];
-
-const tiresData = [
-  <p className='pt-2'>
-    A. <TextSemibold>P</TextSemibold> - может быть представлен. Говорит о том,
-    что данная шина предназначена для легковых автомобилей.
-  </p>,
-  <p className='pt-2'>
-    B. <TextSemibold>215</TextSemibold> - ширина профиля шины в миллиметрах
-  </p>,
-  <p className='pt-2'>
-    C. <TextSemibold>65</TextSemibold> - сотношение высоты профиля к ее ширине в
-    процентах
-  </p>,
-  <p className='pt-2'>
-    D. <TextSemibold>R</TextSemibold> - указывает на то что данная шина -
-    радиальная.
-  </p>,
-  <p className='pt-2'>
-    E. <TextSemibold>15</TextSemibold> - посадочный диаметр шины в дюймах
-  </p>,
-  <p className='pt-2'>
-    F. <TextSemibold>95</TextSemibold> - индекс нагрузки - связан с количеством
-    груза, который может выдержать шина.
-  </p>,
-  <div className='pt-2'>
-    <p className='pb-2'>
-      G. <TextSemibold>Уровень скорости</TextSemibold> - индекс, показывающий
-      максимальную скорость, которую данные шины могут выдержать на протяжении
-      длительного времени.
-    </p>
-    <Table tbodyRows={speedIndexTableData.tBody} className='my-4' />
-  </div>,
-  <p className='pt-2'>
-    H. <TextSemibold>TIN (Tire Identification Number)</TextSemibold> -
-    показывает, что шина соответствует всем стандартам. По данному номеру можно
-    вычислить, где и когда была сделана шина.
-  </p>,
-  <p className='pt-2'>
-    I. <TextSemibold>M+S или M/S</TextSemibold> - грязь и снег <br></br>
-    <TextSemibold>AT - All Terrain</TextSemibold> - любые покрытия <br></br>
-    <TextSemibold>AS - All Season</TextSemibold> - любый сезон
-  </p>,
-  <p className='pt-2'>
-    J. <TextSemibold>Материал каркаса, его композиция</TextSemibold> -
-    характеристика материала и слоев корда.
-  </p>,
-  <p className='pt-2'>
-    K. <TextSemibold>Максимальная нагрузка</TextSemibold> - Максимальное
-    количество килограмм, которое может выдержать шина.
-  </p>,
-  <p className='pt-2'>L. Показатели качества, описанные выше.</p>,
-  <p className='pt-2'>
-    M. Максимально допустимое давление. Как правило выше рекомендованного.{' '}
-  </p>,
-];
+import {
+  tiresData,
+  tiresQuality,
+  replacementWarnings,
+  tireParts,
+  wheelsAndTiresParts,
+  definitions,
+} from './data/wheelsAndTires';
 
 const WheelsAndTires = () => {
   const modalContext = useContext(ModalContext);
@@ -188,34 +35,18 @@ const WheelsAndTires = () => {
   const openModal = () => {
     // Set video content
     modalContext.setModalContent(() => (
-      <iframe
+      <VideoIframe
         title='Tires and wheels'
-        width='560'
-        height='315'
         src='https://www.youtube.com/embed/SNCroT0v8cE'
-        frameborder='0'
-        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-        allowfullscreen
-      ></iframe>
+      ></VideoIframe>
     ));
 
     modalContext.showModal();
   };
 
-  // Tires replacement warnings
-  const remplacementWarningsList = replacementWarnings.map((warning, index) => (
-    <BulletpointWithIcon
-      key={index}
-      icon={<i className='fas fa-exclamation-triangle'></i>}
-      iconWrapperClasses={['is-size-1', 'is-1', 'has-text-warning']}
-    >
-      <p>{warning.description}</p>
-    </BulletpointWithIcon>
-  ));
-
   return (
     <React.Fragment>
-      <div className='block'>
+      <Block>
         <H2>Колеса и шины</H2>
         <p className='pt-2'>
           <TextSemibold>Колеса</TextSemibold> принимают крутящий момент от
@@ -231,8 +62,8 @@ const WheelsAndTires = () => {
           <br></br>
           Маркировка задних шин: <TextSemibold>P275/40R 19</TextSemibold>
         </p>
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
         <H3>Состоит из:</H3>
         <OrderedList listItems={wheelsAndTiresParts} />
         <p className='pt-2'>
@@ -240,8 +71,8 @@ const WheelsAndTires = () => {
           Если же шина <TextSemibold>бескамерная</TextSemibold>, то для нее
           нужны специальные диски с уплотнителем на ободе.
         </p>
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
         <H3>Покрышка состоит из:</H3>
         <OrderedList listItems={tireParts} />
         <p className='pt-2'>
@@ -255,8 +86,8 @@ const WheelsAndTires = () => {
           должны вращаться только в определенном направлении и подходят либо
           только для левой стороны, либо только для правой.
         </p>
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
         <H3>Расположение нитей корда</H3>
         <OrderedList listItems={tireParts} />
         <p className='pt-2'>
@@ -276,16 +107,14 @@ const WheelsAndTires = () => {
           качению. Они более эластичны, чем диагональные, из-за чего поездка
           может быть более комфортной. Однако они менее прочные в боковинах.
         </p>
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
         <PrimaryButton onClick={openModal}>
           Узнать подробнее об общем устройстве шин
         </PrimaryButton>
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
         <H3>Маркировка шин</H3>
-      </div>
-      <div className='block'>
         <H4 className='pt-4'>Качество шин</H4>
         <p>
           Маркировка, характеризующее качество, может быть найдена на боковой
@@ -296,8 +125,8 @@ const WheelsAndTires = () => {
           Данные характеристики не применимы к зимним шинам.
         </p>
         <OrderedList listItems={tiresQuality} />
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
         <div className='columns'>
           <div className='column'>
             <H4 className='pt-4'>Общие характеристики шин</H4>
@@ -312,19 +141,20 @@ const WheelsAndTires = () => {
             </p>
           </div>
           <div className='column'>
-            <figure className='image'>
-              <img src={tireInfo} alt=''></img>
-            </figure>
+            <Figure img={{ src: tireInfo }} />
           </div>
         </div>
         <UnorderedList listItems={tiresData} />
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
         <H3>Замена шин</H3>
-        <div className='block'>{remplacementWarningsList}</div>
-      </div>
 
-      <div className='block'>
+        <Block>
+          <WarningsList warnings={replacementWarnings} />
+        </Block>
+      </Block>
+
+      <Block>
         <H3>Летняя резина</H3>
         <p className='pt-2'>
           Летняя резина предоставляет улучшенное сцепление с дорогой на мокром и
@@ -349,8 +179,8 @@ const WheelsAndTires = () => {
           горячий воздух на нее. <br></br> Если шина хранилась перед установкой,
           ее необходимо проверить на предмет дефектов.
         </p>
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
         <H3>Зимняя резина</H3>
         <p className='pt-2'>
           Можно использовать как универсальную, так и зимнюю резину. При этом
@@ -359,9 +189,9 @@ const WheelsAndTires = () => {
           <TextSemibold>10 - 25 градусов</TextSemibold> в сухом затемненном
           помещении.
         </p>
-      </div>
+      </Block>
 
-      <div className='block'>
+      <Block>
         <H3>Поломки на дорогах</H3>
         <p className='pt-2'>
           Независимо от аккуратности вождения, прокол шины может случиться
@@ -373,11 +203,11 @@ const WheelsAndTires = () => {
           После выезда с дороги необходимо осмотреть шины на предмет прокола и,
           в случае наличия такого, заменить шину.
         </p>
-      </div>
+      </Block>
 
-      <div className='block pt-4'>
+      <Block>
         <Accordion items={definitions}></Accordion>
-      </div>
+      </Block>
     </React.Fragment>
   );
 };
