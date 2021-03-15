@@ -1,18 +1,20 @@
+import checked from '../../../assets/img/steering/checked.png';
+
 export const powerSteeringFeaturs = [
   {
     text:
-      'Требует меньше поддержки по сравнению с гидроусилителем, так как все контрлируется электрическими системами.',
-    image: 'https://bulma.io/images/placeholders/128x128.png',
+      'Требует меньше поддержки по сравнению с гидроусилителем, так как все контролируется электрическими системами.',
+    image: checked,
   },
   {
     text:
       'Рулевое колесо отзывчиво реагирует на малейшие движения, из-за чего управление чувствуется легче, а руль - более поддатливым.',
-    image: 'https://bulma.io/images/placeholders/128x128.png',
+    image: checked,
   },
   {
     text:
       'Идеально рассчитывает необходимую для поворота силу в зависимости от скорости автомобиля, угла поворота и скорости вращения рулевого колеса.',
-    image: 'https://bulma.io/images/placeholders/128x128.png',
+    image: checked,
   },
 ];
 

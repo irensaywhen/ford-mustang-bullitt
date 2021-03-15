@@ -4,7 +4,6 @@ import Card from './Card';
 
 const ComparisonCards = props => {
   const cards = props.cardsData.map((card, index) => {
-    // Pros and cons of this type of steering
     const prosAndCons = card.prosAndCons
       .sort((item1, item2) => {
         if (item1.type === 'con') {

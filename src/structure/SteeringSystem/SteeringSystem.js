@@ -19,6 +19,7 @@ import HeroSubtitle from '../../common/UI/Hero/HeroSubtitle';
 
 // Text
 import TextSemibold from '../../common/UI/Text/TextSemibold';
+import H2 from '../../common/UI/Titles/H2';
 
 import ResponsiveVideoWrapper from '../../common/UI/ResponsiveVideoWrapper';
 
@@ -68,17 +69,17 @@ const SteeringSystem = () => {
       </Hero>
       <Section>
         <Block>
-          <h2 className='title is-3 has-text-centered mb-3'>
+          <H2 className='has-text-centered'>
             Электроусилитель рулевого колеса
-          </h2>
-          <div className='pb-5'>
-            <CenteredParagraph>
-              Впервые был использован компанией{' '}
-              <TextSemibold>Ford</TextSemibold> в 2011 году для моделей{' '}
-              <TextSemibold>Ford Mustang GT</TextSemibold>. Необходим для
-              уменьшения усилия, необходимого для управления автомобилем.
-            </CenteredParagraph>
-          </div>
+          </H2>
+        </Block>
+        <Block className='pb-5'>
+          <CenteredParagraph>
+            Впервые был использован компанией <TextSemibold>Ford</TextSemibold>{' '}
+            в 2011 году для моделей <TextSemibold>Ford Mustang GT</TextSemibold>
+            . Необходим для уменьшения усилия, необходимого для управления
+            автомобилем.
+          </CenteredParagraph>
         </Block>
         <Block>
           <FeaturesList featuresList={powerSteeringFeaturs} />
