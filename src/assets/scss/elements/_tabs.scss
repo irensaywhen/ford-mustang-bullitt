@@ -1,3 +1,11 @@
+.tabs {
+  ul {
+    border-bottom-color: transparent;
+    flex-wrap: wrap;
+    flex-shrink: unset;
+  }
+}
+
 .tab-content {
   // position: absolute;
 }

@@ -43,6 +43,7 @@ const Tabs = ({ tabs }) => {
       <div className='tabs'>
         <ul>{tabsList}</ul>
       </div>
+
       <div className='is-relative'>{tabsContent}</div>
     </React.Fragment>
   );
