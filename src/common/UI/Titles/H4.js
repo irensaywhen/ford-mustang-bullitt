@@ -1,16 +1,8 @@
 import React from 'react';
+import withMergeClasses from '../../hoc/withMergeClasses';
 
-import { transformClassesIntoArray } from '../../../utilities';
-
-const H4 = ({ children, className }) => {
-  const extraClasses = transformClassesIntoArray(className);
-
-  let classes = ['title', 'is-5'];
-
-  if (extraClasses instanceof Array) {
-    classes = [...classes, ...extraClasses];
-  }
-  return <h4 className={classes.join(' ')}>{children}</h4>;
+const H4 = props => {
+  return <h4 {...props}>{props.children}</h4>;
 };
 
-export default H4;
+export default withMergeClasses(H4, 'title is-5 mb-3');
