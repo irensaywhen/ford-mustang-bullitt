@@ -1,11 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Redirect, useRouteMatch } from 'react-router-dom';
 
 import Section from '../../common/UI/Section';
 import Tabs from '../../common/UI/Tabs';
-import WhiteOutlineButton from '../../common/UI/Buttons/WhiteOutlineButton';
-import Modal from '../../common/UI/Modal';
-import ResponsiveVideoWrapper from '../../common/UI/ResponsiveVideoWrapper';
 import Block from '../../common/UI/Wrappers/Block';
 import NarrowContentWrapper from '../../common/UI/Wrappers/NarrowContentWrapper';
 
@@ -16,45 +13,18 @@ import HeroSubtitle from '../../common/UI/Hero/HeroSubtitle';
 
 // Text
 import H2 from '../../common/UI/Titles/H2';
-import H3 from '../../common/UI/Titles/H3';
 import TextSemibold from '../../common/UI/Text/TextSemibold';
 import CenteredParagraphLg from '../../common/UI/Paragraphs/CenteredParagraphLg';
 
 import classes from '../../assets/scss/pages/heroes.module.scss';
-
-import { ModalContext } from '../../context/modal-context';
 
 // data
 import { activeSafetySystem, passiveSafetySystem } from './data/safety';
 
 const Safety = () => {
   const { path } = useRouteMatch();
-  const modalContext = useContext(ModalContext);
-
-  const openModal = () => {
-    // Set video content
-    modalContext.setModalContent(() => (
-      <iframe
-        className='has-ratio'
-        title='Has electronics work in car'
-        width='560'
-        height='315'
-        src='https://www.youtube.com/embed/piX-MwO3xrI'
-        frameborder='0'
-        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-        allowfullscreen
-      ></iframe>
-    ));
-
-    modalContext.showModal();
-  };
   return (
     <React.Fragment>
-      <Modal hidePadding transparentBackground>
-        <ResponsiveVideoWrapper>
-          {modalContext.modalContent}
-        </ResponsiveVideoWrapper>
-      </Modal>
       <Hero
         className={[
           'is-halfheight',
