@@ -15,7 +15,7 @@ import BrakingSystem from './structure/BrakingSystem/BrakingSystem';
 import Transmission from './structure/Transmission/Transmission';
 import Engine from './structure/Engine/Engine';
 import Chasis from './structure/Chasis/Chasis';
-import ElectronicSystem from './structure/electronicSystems/ElectronicSystems';
+import ElectronicSystem from './structure/ElectronicSystems/ElectronicSystems';
 import Safety from './structure/Safety/Safety';
 
 const routes = {

@@ -1,7 +1,8 @@
 import React from 'react';
 
 import OrderedList from '../../common/UI/OrderedList';
-
+import Block from '../../common/UI/Wrappers/Block';
+import Figure from '../../common/UI/Figure/Figure';
 import motorParts from '../../assets/img/motor-parts.png';
 
 // Text
@@ -11,26 +12,13 @@ import TextSemibold from '../../common/UI/Text/TextSemibold';
 
 import charging from '../../assets/img/electronics/charging.jpg';
 
-const chargeBatterySteps = [
-  'Открутить щит с помощью отвертки',
-  'Снять щит с автомобиля',
-  'Соединить положительный стартер-кабель с плюсом разряженного аккумулятора',
-  'Соединить другой конец положительного стартер-кабеля с заряженным аккумулятором другого автомобиля',
-  'Соединить негативный стартер-кабель с минусом на заряженном аккумуляторе',
-  'Соединить другой конец негативного стартер-кабеля с оголенной частью неработающего двигателя',
-  'Завести двигатель автомобиля с работающим аккумулятором до 2000-3000 RPM (согласно тахометру)',
-  'Завести двигатель автомобиля с неработающим аккумулятором',
-  'Подержать машины в соединенном состоянии на протяжении трех минут',
-  'Отсоединить стартер-кабели в противоположном порядке (начиная с негативного стартер-кабеля от неработающего автомобиля)',
-  'Дать двигателю не работать на протяжении минуты',
-  'Установить щить батареи',
-  'Установить болты обратно на щите',
-];
+// data
+import { chargeBatterySteps } from './data/battery';
 
 const Battery = () => {
   return (
     <React.Fragment>
-      <div className='block'>
+      <Block>
         <H3>Аккумуляторная батарея</H3>
         <p>
           Предназначена для питания потребителей электрическим током при{' '}
@@ -61,23 +49,21 @@ const Battery = () => {
           Стоит обратить внимание, что аккумуляторная батарея содержит в себе
           токсичные и ядовитые соединения.
         </p>
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
         <div className='columns'>
+          <div className='column is-8'>
+            <Figure img={{ src: motorParts }} />
+          </div>
           <div className='column is-4'>
             <p>
               Расположение батареи указано буквой <TextSemibold>А</TextSemibold>{' '}
               (под крышкой).<br></br>
             </p>
           </div>
-          <div className='column is-8'>
-            <figure className='image'>
-              <img src={motorParts} alt=''></img>
-            </figure>
-          </div>
         </div>
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
         <H4>
           Заряд аккумуляторной батареи методом{' '}
           <TextSemibold>прикуривания</TextSemibold>
@@ -90,13 +76,16 @@ const Battery = () => {
           может разрядиться. <br></br>Данная модель снабжена батарейным щитом,
           который необходимо будет снимать при данной операции.
         </p>
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
         <H4>Последовательность действий следующая:</H4>
         <OrderedList listItems={chargeBatterySteps} />
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
         <div className='columns'>
+          <div className='column is-5'>
+            <Figure img={{ src: charging }} />
+          </div>
           <div className='column is-7'>
             На рисунке изображена схема соединения автомобилей для{' '}
             <TextSemibold>прикуривания</TextSemibold>.<br></br>
@@ -104,13 +93,8 @@ const Battery = () => {
             аккумулятором.<br></br>
             <TextSemibold>2</TextSemibold> автомобиль с заряженным аккумулятором
           </div>
-          <div className='column is-5'>
-            <figure className='image'>
-              <img src={charging} alt=''></img>
-            </figure>
-          </div>
         </div>
-      </div>
+      </Block>
     </React.Fragment>
   );
 };

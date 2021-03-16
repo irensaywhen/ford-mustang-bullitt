@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import Section from '../../common/UI/Section';
 import ComparisonCards from '../../common/UI/cards/ComparisonCards';
 import FeaturesList from '../../common/UI/FeaturesList/FeaturesList';
-import CenteredParagraph from '../../common/UI/CenteredParagraph';
+import CenteredParagraph from '../../common/UI/Paragraphs/CenteredParagraph';
 import Modal from '../../common/UI/Modal';
 import FaultsList from '../../common/UI/FaultsList';
 import NarrowContentWrapper from '../../common/UI/Wrappers/NarrowContentWrapper';
