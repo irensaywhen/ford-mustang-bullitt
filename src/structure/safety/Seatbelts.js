@@ -1,5 +1,8 @@
 import React from 'react';
 
+import Block from '../../common/UI/Wrappers/Block';
+import Figure from '../../common/UI/Figure/Figure';
+
 // Text
 import H3 from '../../common/UI/Titles/H3';
 
@@ -9,7 +12,7 @@ import seatBelts from '../../assets/img/safety/seatbelts.png';
 const Seatbelts = () => {
   return (
     <React.Fragment>
-      <div className='block'>
+      <Block>
         <H3>Ремни безопасности</H3>
         <p>
           Данная модель оборудована трехточечными инерционными ремнями
@@ -18,19 +21,15 @@ const Seatbelts = () => {
           во время движения.<br></br>
           Недопустимо ехать с ребенком на руках, поскольку человек не может
           защитить ребенка при аварии. <br></br>
-          Для поездок с детьми необходимо иметь специальные кресла, вместе с
-          которыми дети могут быть пристегнуты.
         </p>
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
         <div className='columns'>
           <div className='column'>
-            <figure className='image'>
-              <img src={seatBelts} alt=''></img>
-            </figure>
+            <Figure img={{ src: seatBelts }} />
           </div>
         </div>
-      </div>
+      </Block>
     </React.Fragment>
   );
 };
