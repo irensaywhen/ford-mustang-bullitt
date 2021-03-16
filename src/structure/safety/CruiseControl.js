@@ -1,6 +1,8 @@
 import React from 'react';
 
 import OrderedList from '../../common/UI/OrderedList';
+import Figure from '../../common/UI/Figure/Figure';
+import Block from '../../common/UI/Wrappers/Block';
 
 // Text
 import H3 from '../../common/UI/Titles/H3';
@@ -11,31 +13,23 @@ import TextSemibold from '../../common/UI/Text/TextSemibold';
 // Image
 import cruiseControlSwitchers from '../../assets/img/safety/cruise-control.png';
 
-const setCruiseControlSpeed = [
-  'Разогнаться до предпочтительной скорости',
-  'Нажать SET+ или SET-',
-  'Убрать ногу с педали газа',
-  'Индикатор поменяет цвет на дисплее',
-];
-
-const changeCruiseControlSpeed = [
-  'Нажать SET+ или SET- для того чтобы регулировать выставленную скорость малыми шагами',
-  'Нажать педаль газа или педаль тормоза до желаемой скорости, затем нажать SET+ или SET-',
-  'Зажать SET+ или SET- чтобы менять скорость большими шагами',
-];
-
+// data
+import {
+  setCruiseControlSpeed,
+  changeCruiseControlSpeed,
+} from './data/cruiseControl';
 const CruiseControl = () => {
   return (
     <React.Fragment>
-      <div className='block'>
+      <Block>
         <H3>Круиз контроль</H3>
         <p>
           Система круз контроля позволяет поддерживать определенную скорость не
           держа ногу на педали газа. <br></br>Использовать систему круиз
           контроля можно при скорости <TextSemibold>выше 30 км/ч</TextSemibold>.
         </p>
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
         <H4 className='pb-2'>Управление системой круиз контроля</H4>
         <div className='columns'>
           <div className='column is-6'>
@@ -48,25 +42,23 @@ const CruiseControl = () => {
             <TextSemibold>OFF</TextSemibold>.
           </div>
           <div className='column is-6'>
-            <figure className='image'>
-              <img src={cruiseControlSwitchers} alt=''></img>
-            </figure>
+            <Figure img={{ src: cruiseControlSwitchers }} />
           </div>
         </div>
-      </div>
+      </Block>
 
-      <div className='block'>
+      <Block>
         <H5>Выставление скорости</H5>
         <OrderedList listItems={setCruiseControlSpeed} />
-      </div>
+      </Block>
 
-      <div className='block'>
+      <Block>
         <H5>Изменение выставленной скорости</H5>
         <p>
           Поменять выставленную скорость можно несколькими разными способами.
         </p>
         <OrderedList listItems={changeCruiseControlSpeed} />
-      </div>
+      </Block>
     </React.Fragment>
   );
 };

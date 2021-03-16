@@ -10,7 +10,7 @@ import SupplementaryRestraintSystem from '../SupplementaryRestraintSystem';
 
 export const activeSafetySystem = [
   {
-    tabName: 'ESP и ETP',
+    tabName: 'ESC и ETC',
     tabLink: 'stability-and-traction-control',
     Component: StabilityControl,
   },
