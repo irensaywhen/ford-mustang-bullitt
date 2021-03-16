@@ -1,4 +1,5 @@
 import React from 'react';
+import Block from '../../common/UI/Wrappers/Block';
 
 // Text
 import H3 from '../../common/UI/Titles/H3';
@@ -6,7 +7,7 @@ import H3 from '../../common/UI/Titles/H3';
 const ABS = () => {
   return (
     <React.Fragment>
-      <div className='block'>
+      <Block>
         <H3>ABS - Anti-lock Brake System</H3>
         <p>
           Позволяет не блокировать колеса при (экстренном) торможении, из-за
@@ -26,7 +27,7 @@ const ABS = () => {
           образом сохраняет необходимое сцепление с дорожным покрытием, позволяя
           одновременно тормозить и выполнять маневр.
         </p>
-      </div>
+      </Block>
     </React.Fragment>
   );
 };
