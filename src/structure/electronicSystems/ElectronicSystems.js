@@ -13,6 +13,7 @@ import Battery from './Battery';
 import Generator from './Generator';
 import StartingEngine from './StartingEngine';
 import Lights from './Lights';
+import WipersAndWashers from './WipersAndWashers';
 
 // Hero
 import Hero from '../../common/UI/Hero/Hero';
@@ -55,6 +56,11 @@ const consumersParts = [
     tabName: 'Система освещения и сигнализации',
     tabLink: 'lights',
     Component: Lights,
+  },
+  {
+    tabName: 'Дворники',
+    tabLink: 'wipers-and-washers',
+    Component: WipersAndWashers,
   },
 ];
 

@@ -2,7 +2,6 @@ import React from 'react';
 import BulletpointWithIcon from './BulletpointWithIcon';
 
 const WarningsList = props => {
-  console.log(props.warnings);
   const warningsList = props.warnings.map((warning, index) => (
     <BulletpointWithIcon
       key={index}
