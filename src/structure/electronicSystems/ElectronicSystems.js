@@ -7,13 +7,9 @@ import WhiteOutlineButton from '../../common/UI/Buttons/WhiteOutlineButton';
 import Table from '../../common/UI/Table';
 import Modal from '../../common/UI/Modal';
 import ResponsiveVideoWrapper from '../../common/UI/ResponsiveVideoWrapper';
-
-// Tab components
-import Battery from './Battery';
-import Generator from './Generator';
-import StartingEngine from './StartingEngine';
-import Lights from './Lights';
-import WipersAndWashers from './WipersAndWashers';
+import VideoIframe from '../../common/UI/VideoIframe';
+import Block from '../../common/UI/Wrappers/Block';
+import Figure from '../../common/UI/Figure/Figure';
 
 // Hero
 import Hero from '../../common/UI/Hero/Hero';
@@ -25,57 +21,21 @@ import H2 from '../../common/UI/Titles/H2';
 import H3 from '../../common/UI/Titles/H3';
 import TextSemibold from '../../common/UI/Text/TextSemibold';
 import CenteredParagraphLg from '../../common/UI/Paragraphs/CenteredParagraphLg';
+import NarrowContentWrapper from '../../common/UI/Wrappers/NarrowContentWrapper';
 
 // Images
 import fugeTypes from '../../assets/img/electronics/fuse-types.jpg';
 
+// data
+import {
+  supplyParts,
+  consumersParts,
+  fusesTable,
+} from './data/electronicSystems';
+
 import classes from '../../assets/scss/pages/heroes.module.scss';
 
 import { ModalContext } from '../../context/modal-context';
-
-const supplyParts = [
-  {
-    tabName: 'Аккумуляторная батарея',
-    tabLink: 'battery',
-    Component: Battery,
-  },
-  {
-    tabName: 'Генератор',
-    tabLink: 'generator',
-    Component: Generator,
-  },
-];
-
-const consumersParts = [
-  {
-    tabName: 'Система пуска двигателя',
-    tabLink: 'starting-engine',
-    Component: StartingEngine,
-  },
-  {
-    tabName: 'Система освещения и сигнализации',
-    tabLink: 'lights',
-    Component: Lights,
-  },
-  {
-    tabName: 'Дворники',
-    tabLink: 'wipers-and-washers',
-    Component: WipersAndWashers,
-  },
-];
-
-const fusesTable = {
-  thead: ['Обозначение', 'Тип'],
-  tBody: [
-    ['A', 'Micro 2'],
-    ['B', 'Micro 3'],
-    ['C', 'Maxi'],
-    ['D', 'Mini'],
-    ['E', 'M Case'],
-    ['J', 'J Case'],
-    ['G', 'J Case Low Profile'],
-  ],
-};
 
 const ElectronicSystems = () => {
   const { path } = useRouteMatch();
@@ -84,16 +44,10 @@ const ElectronicSystems = () => {
   const openModal = () => {
     // Set video content
     modalContext.setModalContent(() => (
-      <iframe
-        className='has-ratio'
+      <VideoIframe
         title='Has electronics work in car'
-        width='560'
-        height='315'
         src='https://www.youtube.com/embed/piX-MwO3xrI'
-        frameborder='0'
-        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-        allowfullscreen
-      ></iframe>
+      ></VideoIframe>
     ));
 
     modalContext.showModal();
@@ -113,10 +67,10 @@ const ElectronicSystems = () => {
           classes.ElectronicsImage,
         ].join(' ')}
       >
-        <div className='block'>
+        <Block>
           <HeroTitle>Электрооборудование автомобиля</HeroTitle>
-        </div>
-        <div className='block'>
+        </Block>
+        <Block>
           <HeroSubtitle>
             Включает в себя <TextSemibold>источники</TextSemibold> и{' '}
             <TextSemibold>потребители</TextSemibold> тока.<br></br>
@@ -124,27 +78,25 @@ const ElectronicSystems = () => {
               Как устроено электрооборудование?
             </WhiteOutlineButton>
           </HeroSubtitle>
-        </div>
+        </Block>
       </Hero>
       {<Redirect to={`${path}/${supplyParts[0].tabLink}`} />}
       <Section>
-        <div className='block'>
+        <Block>
           <H2 className='has-text-centered'>Источники тока</H2>
-          <CenteredParagraphLg className='pt-2'>
+          <CenteredParagraphLg>
             К источникам тока относятся{' '}
             <TextSemibold>аккумуляторная батарея</TextSemibold> и{' '}
             <TextSemibold>генератор</TextSemibold>.
           </CenteredParagraphLg>
-          <div className='columns is-justify-content-center'>
-            <div className='column is-12-mobile is-10-tablet is-8-desktop'>
-              <Tabs tabs={supplyParts} />
-            </div>
-          </div>
-        </div>
+          <NarrowContentWrapper>
+            <Tabs tabs={supplyParts} />
+          </NarrowContentWrapper>
+        </Block>
 
-        <div className='block'>
+        <Block>
           <H2 className='has-text-centered'>Потребители тока</H2>
-          <CenteredParagraphLg className='pt-2'>
+          <CenteredParagraphLg>
             К потребителям тока относятся системы:{' '}
             <TextSemibold>зажигания</TextSemibold>,{' '}
             <TextSemibold>пуска двигателя</TextSemibold>,{' '}
@@ -164,51 +116,44 @@ const ElectronicSystems = () => {
             дополнительному электрооборудованию можно отнести различную
             косметику - аудиосистему, бортовой компьютер.
           </CenteredParagraphLg>
-          <div className='columns is-justify-content-center'>
-            <div className='column is-12-mobile is-10-tablet is-8-desktop'>
-              <Tabs tabs={consumersParts} />
-            </div>
-          </div>
-        </div>
+          <NarrowContentWrapper>
+            <Tabs tabs={consumersParts} />
+          </NarrowContentWrapper>
+        </Block>
 
-        <div className='block'>
-          <div className='columns is-justify-content-center'>
-            <div className='column is-12-mobile is-10-tablet is-8-desktop'>
-              <div className='block'>
-                <H2 className='has-text-centered'>Предохранители</H2>
-                <p>
-                  Часто неисправности, связанные с электрическими системами,
-                  могут быть связаны с пробоем предохранителей. <br></br>{' '}
-                  Предохранители нужны для защиты потребителей электрического
-                  тока. <br></br>
-                  Важно отметить, что перед заменой предохранителей необходимо
-                  выключить аккумулятор. <br></br>
-                  Заменять предохранители нужно на такие же (рассчитанные на
-                  такие же токи). Проверять перегоревшие предохранители нужно
-                  перед тем как приступать к попыткам починить другие элементы
-                  электрообрудования автомобиля.
-                </p>
-              </div>
+        <Block>
+          <NarrowContentWrapper>
+            <Block>
+              <H2 className='has-text-centered'>Предохранители</H2>
+              <p>
+                Часто неисправности, связанные с электрическими системами, могут
+                быть связаны с пробоем предохранителей. <br></br> Предохранители
+                нужны для защиты потребителей электрического тока. <br></br>
+                Важно отметить, что перед заменой предохранителей необходимо
+                выключить аккумулятор. <br></br>
+                Заменять предохранители нужно на такие же (рассчитанные на такие
+                же токи). Проверять перегоревшие предохранители нужно перед тем
+                как приступать к попыткам починить другие элементы
+                электрообрудования автомобиля.
+              </p>
+            </Block>
 
-              <div className='block'>
-                <H3 className='has-text-centered'>Типы предохранителей</H3>
-                <div className='columns'>
-                  <div className='column is-6'>
-                    <Table
-                      theadRow={fusesTable.thead}
-                      tbodyRows={fusesTable.tBody}
-                    />
-                  </div>
-                  <div className='column is-6'>
-                    <figure className='image'>
-                      <img src={fugeTypes} alt=''></img>
-                    </figure>
-                  </div>
+            <Block>
+              <H3 className='has-text-centered'>Типы предохранителей</H3>
+              <div className='columns'>
+                <div className='column is-6'>
+                  <Table
+                    theadRow={fusesTable.thead}
+                    tbodyRows={fusesTable.tBody}
+                  />
+                </div>
+                <div className='column is-6'>
+                  <Figure img={{ src: fugeTypes }} />
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
+            </Block>
+          </NarrowContentWrapper>
+        </Block>
       </Section>
     </React.Fragment>
   );
