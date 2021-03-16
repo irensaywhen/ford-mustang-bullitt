@@ -6,19 +6,13 @@ import Accordion from '../../common/UI/Accordion/Accordion';
 import H3 from '../../common/UI/Titles/H3';
 
 import TextSemibold from '../../common/UI/Text/TextSemibold';
-
-const definitions = [
-  {
-    header: 'Регулятор напряжения',
-    body:
-      'Это электронный прибор, который ограничивает вырабатываемое генератором напряжение в пределах 13.6-14.2В постоянного тока.',
-  },
-];
+import Block from '../../common/UI/Wrappers/Block';
+import { definitions } from './data/generator';
 
 const Generator = () => {
   return (
     <React.Fragment>
-      <div className='block'>
+      <Block>
         <H3>Генератор</H3>
         <p>
           Предназначен для питания электрическим током всех потребителей и для
@@ -33,11 +27,11 @@ const Generator = () => {
           требуемое, он работает в паре с{' '}
           <TextSemibold>регулятором напряжения.</TextSemibold>
         </p>
-      </div>
+      </Block>
 
-      <div className='block pt-4'>
+      <Block className='pt-4'>
         <Accordion items={definitions}></Accordion>
-      </div>
+      </Block>
     </React.Fragment>
   );
 };

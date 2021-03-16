@@ -1,36 +1,35 @@
 import React from 'react';
 
 import OrderedList from '../../common/UI/OrderedList';
+import Block from '../../common/UI/Wrappers/Block';
+import Figure from '../../common/UI/Figure/Figure';
 
 // Text
 import H3 from '../../common/UI/Titles/H3';
 import H4 from '../../common/UI/Titles/H4';
 import TextSemibold from '../../common/UI/Text/TextSemibold';
 
-const startingEngineParts = [
-  'Стартера с тяговым реле и механизмом привода',
-  'Реле включения стартера',
-  'Замка зажигания',
-];
+import keylessStart from '../../assets/img/electronics/keyless-start.jpg';
+import { startingEngineParts } from './data/startingEngine';
 
 const StartingEngine = () => {
   return (
     <React.Fragment>
-      <div className='block'>
+      <Block>
         <H3>Система пуска двигателя</H3>
         <p>
           Презназначена для поддержания нормального теплового режима работы
-          двигателяю <br></br>
+          двигателя. <br></br>
           При работе двигателя температура в его цилиндрах поднимается выше{' '}
           <TextSemibold>2000 градусов</TextSemibold>, а средняя составляет{' '}
           <TextSemibold>800 - 900 градусов</TextSemibold>. Это приводит к
           необходимости его постоянно охлождать.
         </p>
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
         <H4>Состоит из:</H4>
         <OrderedList listItems={startingEngineParts} />
-        <p className='pt-2'>
+        <p>
           Работа стартера состоить из трех этапов. <br></br>
           При запуске двигателя, стартер начинает вращаться. <br></br>
           Засчет реле, он приводится в зацепление с коленчатым валом двигателя.{' '}
@@ -38,9 +37,9 @@ const StartingEngine = () => {
           Когда скорость вращеняи коленчатого вала сравнивается со скоростью
           вращеняи стартера, он выводится из зацепления.
         </p>
-      </div>
+      </Block>
 
-      <div className='block'>
+      <Block>
         <H4>Безключевое зажигание</H4>
         <p>
           Данная модель имеет систему безключевого зажигания. При этом ключ
@@ -56,7 +55,8 @@ const StartingEngine = () => {
           на педаль сцепления и затем нажать на кнопку. Тогда двигатель
           заработает.
         </p>
-      </div>
+        <Figure className='pt-4' img={{ src: keylessStart }} />
+      </Block>
     </React.Fragment>
   );
 };
