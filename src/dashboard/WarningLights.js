@@ -1,49 +1,65 @@
 import React from 'react';
 
 import Section from '../common/UI/Section';
+import Block from '../common/UI/Wrappers/Block';
 import warningLightsImage from '../assets/img/dacia-logan-dashboard-warning-lights.jpg';
 import WarningLightsList from './WarningLightsList';
 
-import criticalWarnings from './warningLights/data/criticalWarnings';
-import nonCriticalWaningLights from './warningLights/data/nonCriticalWarnings';
+// Hero
+import Hero from '../common/UI/Hero/Hero';
+import HeroTitle from '../common/UI/Hero/HeroTitle';
+import HeroSubtitle from '../common/UI/Hero/HeroSubtitle';
+
+// import criticalWarnings from './warningLights/data/criticalWarnings';
+// import nonCriticalWaningLights from './warningLights/data/nonCriticalWarnings';
 import lightningSymbols from './warningLights/data/lightningSymbols';
 import commonSymbols from './warningLights/data/commonSymbols';
 
+// data
+import { criticalWarnings, nonCriticalWanings } from './data/warningLights';
+import classes from '../assets/scss/pages/heroes.module.scss';
+import warningLightsClasses from '../assets/scss/pages/dashboard.module.scss';
+
 const WarningLights = () => {
   return (
-    <Section className='WarningLightsSection'>
-      <div className='block'>
-        <figure className='image is-flex is-justify-content-center'>
-          <img src={warningLightsImage} alt='' />
-        </figure>
-      </div>
+    <>
+      <Hero
+        className={[
+          'is-halfheight',
+          'has-text-centered',
+          classes.HeroImage,
+          classes.GaugesImage,
+        ].join(' ')}
+      >
+        <Block>
+          <HeroTitle>Световые индикаторы</HeroTitle>
+        </Block>
+        <Block>
+          <HeroSubtitle>
+            Некоторые загораются при включении двигателя, чтобы проверить их
+            работоспособность.
+          </HeroSubtitle>
+        </Block>
+      </Hero>
+      <Section className={warningLightsClasses.Section}>
+        <WarningLightsList
+          listTitle={criticalWarnings.metaData.title}
+          listDescription={criticalWarnings.metaData.description}
+          warningsList={criticalWarnings.list}
+        />
 
-      <div className='block'>
-        <h1 className='title has-text-centered'>
-          Индикаторы на панели Renault Logan
-        </h1>
-      </div>
+        <WarningLightsList
+          listTitle={nonCriticalWanings.metaData.title}
+          listDescription={nonCriticalWanings.metaData.description}
+          warningsList={nonCriticalWanings.list}
+        />
 
-      <WarningLightsList
-        listTitle='Индикаторы серьезных поломок'
-        warningsList={criticalWarnings}
-      />
-
-      <WarningLightsList
-        listTitle='Предупреждающие и информационные индикаторы'
-        warningsList={nonCriticalWaningLights}
-      />
-
-      <WarningLightsList
-        listTitle='Световые индикаторы'
-        warningsList={lightningSymbols}
-      />
-
-      <WarningLightsList
-        listTitle='Индикаторы общего назначения'
-        warningsList={commonSymbols}
-      />
-    </Section>
+        <WarningLightsList
+          listTitle='Световые индикаторы'
+          warningsList={lightningSymbols}
+        />
+      </Section>
+    </>
   );
 };
 

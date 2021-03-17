@@ -20,6 +20,7 @@ import Safety from './structure/Safety/Safety';
 
 // Dashboard
 import Gauges from './Dashboard/Gauges';
+import WarningLights from './Dashboard/WarningLights';
 
 const routes = {
   main: {
@@ -99,6 +100,11 @@ const routes = {
       path: '/gauges',
       name: 'Приборная панель',
       Component: Gauges,
+    },
+    warningLights: {
+      path: '/warning-lights',
+      name: 'Индикаторы',
+      Component: WarningLights,
     },
   },
 };

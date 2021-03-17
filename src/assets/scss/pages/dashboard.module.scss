@@ -1,6 +1,6 @@
 @import '../utilities/variables';
 
-.WarningLightsSection {
+.Section {
   .card {
     border-radius: $radius-small;
     .card-image {
@@ -12,5 +12,9 @@
   }
   .swiper-slide {
     max-width: 250px;
+  }
+
+  ol {
+    margin-left: 0 !important;
   }
 }
