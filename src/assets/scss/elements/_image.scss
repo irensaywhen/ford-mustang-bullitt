@@ -6,7 +6,6 @@ img {
 
 .image {
   &.is-128x128 {
-    height: auto;
     max-height: 128px !important;
   }
 }

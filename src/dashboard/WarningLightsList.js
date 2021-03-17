@@ -3,11 +3,18 @@ import React from 'react';
 import Figure from '../common/UI/Figure/Figure';
 import Block from '../common/UI/Wrappers/Block';
 import H2 from '../common/UI/Titles/H2';
+import NarrowContentWrapper from '../common/UI/Wrappers/NarrowContentWrapper';
 
+import SwiperCore, { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.scss';
+import 'swiper/components/pagination/pagination.scss';
 
-const swiperConfig = {
+console.log(Pagination);
+
+SwiperCore.use([Pagination]);
+
+const defaultSwiperConfig = {
   breakpoints: {
     320: {
       slidesPerView: 1,
@@ -22,21 +29,36 @@ const swiperConfig = {
       spaceBetween: 40,
     },
   },
-  // centeredSlides: true,
-  observer: true,
+  autoHeight: true,
+  centerInsufficientSlides: true,
+  loop: true,
 };
 
-const WarningLightsList = ({ listTitle, warningsList }) => {
+const WarningLightsList = ({
+  listTitle,
+  listDescription,
+  warningsList,
+  swiperConfig: customSwiperConfig = {},
+}) => {
+  const swiperConfig = {
+    ...defaultSwiperConfig,
+    ...customSwiperConfig,
+  };
   return (
     <>
       <Block>
         <H2 className='has-text-centered'>{listTitle}</H2>
       </Block>
       <Block>
-        <Swiper {...swiperConfig}>
+        <NarrowContentWrapper>
+          <p className='has-text-centered'>{listDescription}</p>
+        </NarrowContentWrapper>
+      </Block>
+      <Block>
+        <Swiper {...swiperConfig} pagination>
           {warningsList.map((warning, index) => (
             <SwiperSlide key={index}>
-              <div className='card'>
+              <div className='card mb-5'>
                 <div className='card-image has-background-black is-flex is-justify-content-center'>
                   <Figure
                     img={{ src: warning.img }}

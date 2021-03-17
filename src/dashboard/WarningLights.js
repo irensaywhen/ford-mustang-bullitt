@@ -2,7 +2,6 @@ import React from 'react';
 
 import Section from '../common/UI/Section';
 import Block from '../common/UI/Wrappers/Block';
-import warningLightsImage from '../assets/img/dacia-logan-dashboard-warning-lights.jpg';
 import WarningLightsList from './WarningLightsList';
 
 // Hero
@@ -10,15 +9,37 @@ import Hero from '../common/UI/Hero/Hero';
 import HeroTitle from '../common/UI/Hero/HeroTitle';
 import HeroSubtitle from '../common/UI/Hero/HeroSubtitle';
 
-// import criticalWarnings from './warningLights/data/criticalWarnings';
-// import nonCriticalWaningLights from './warningLights/data/nonCriticalWarnings';
-import lightningSymbols from './warningLights/data/lightningSymbols';
-import commonSymbols from './warningLights/data/commonSymbols';
-
 // data
-import { criticalWarnings, nonCriticalWanings } from './data/warningLights';
+import {
+  criticalWarnings,
+  lightsIndicators,
+  nonCriticalWanings,
+} from './data/warningLights';
 import classes from '../assets/scss/pages/heroes.module.scss';
 import warningLightsClasses from '../assets/scss/pages/dashboard.module.scss';
+
+// Swiper configs
+const swiperConfigs = {
+  lampsIndicators: {
+    loop: false,
+  },
+  criticalWarnings: {
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      580: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+      },
+      990: {
+        slidesPerView: 3,
+        spaceBetween: 40,
+      },
+    },
+  },
+};
 
 const WarningLights = () => {
   return (
@@ -46,6 +67,7 @@ const WarningLights = () => {
           listTitle={criticalWarnings.metaData.title}
           listDescription={criticalWarnings.metaData.description}
           warningsList={criticalWarnings.list}
+          swiperConfig={swiperConfigs.criticalWarnings}
         />
 
         <WarningLightsList
@@ -55,8 +77,10 @@ const WarningLights = () => {
         />
 
         <WarningLightsList
-          listTitle='Световые индикаторы'
-          warningsList={lightningSymbols}
+          listTitle={lightsIndicators.metaData.title}
+          listDescription={lightsIndicators.metaData.description}
+          warningsList={lightsIndicators.list}
+          swiperConfig={swiperConfigs.lampsIndicators}
         />
       </Section>
     </>

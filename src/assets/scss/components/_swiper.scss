@@ -1,0 +1,9 @@
+@import '../../../../node_modules/swiper/components/navigation/navigation.scss';
+
+.swiper-pagination {
+  .swiper-pagination-bullet {
+    &.swiper-pagination-bullet-active {
+      background: $primary !important;
+    }
+  }
+}

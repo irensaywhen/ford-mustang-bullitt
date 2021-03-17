@@ -24,6 +24,11 @@ import washFluid from '../../assets/img/icons/washFluid.png';
 import lowBeamMalfunction from '../../assets/img/icons/lowBeamMalfunction.png';
 import trunkAjar from '../../assets/img/icons/trunkAjar.png';
 
+// lights icons
+import hightBeam from '../../assets/img/icons/car-dashboard-symbols-high-beam-light-indicator-150x150.png';
+import fogFront from '../../assets/img/icons/fog-front.png';
+import parkingLights from '../../assets/img/icons/parking-lights.png';
+
 const brakeLampFunctionsList = [
   'Включен стояночный тормоз при включенном двигателе',
   'Двигатель имеет поломку тормозной системы или низкий уровень тормозной жидкости',
@@ -82,8 +87,9 @@ export const criticalWarnings = {
 
 export const nonCriticalWanings = {
   metaData: {
-    title: '',
-    description: '',
+    title: 'Индикаторы общего назначения',
+    description:
+      'Индикаторы, которые несут информационную функцию. Могут указывать на поломки в определенных ситуациях в зависимости от индикатора.',
   },
   list: [
     {
@@ -171,6 +177,31 @@ export const nonCriticalWanings = {
       description:
         'Загорается, когда машина заведена, но багажник закрыт не до конца или открыт.',
       img: trunkAjar,
+    },
+  ],
+};
+
+export const lightsIndicators = {
+  metaData: {
+    title: 'Индикаторы световых приборов',
+    description: 'Загораются, когда работают соответствующие световые приборы.',
+  },
+  list: [
+    {
+      name: 'Передние противотуманные фары',
+      description: 'Загорается при включении передних противотуманных фонарей.',
+      img: fogFront,
+    },
+    {
+      name: 'Фары дальнего света',
+      description:
+        'Загорается при включении фар дальнего света. Мигает при мигании фарами.',
+      img: hightBeam,
+    },
+    {
+      name: 'Габаритные огни',
+      description: 'Включается, когда работают габаритные огни.',
+      img: parkingLights,
     },
   ],
 };
