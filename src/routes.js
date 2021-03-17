@@ -18,6 +18,9 @@ import Chasis from './structure/Chasis/Chasis';
 import ElectronicSystem from './structure/ElectronicSystems/ElectronicSystems';
 import Safety from './structure/Safety/Safety';
 
+// Dashboard
+import Gauges from './Dashboard/Gauges';
+
 const routes = {
   main: {
     home: {
@@ -92,9 +95,11 @@ const routes = {
     },
   },
   dashboard: {
-    index: '/dashboard',
-    warningLights: '/dashboard/warning-lights',
-    mainGauges: '/dashboard/main-gauges',
+    gauges: {
+      path: '/gauges',
+      name: 'Приборная панель',
+      Component: Gauges,
+    },
   },
 };
 
