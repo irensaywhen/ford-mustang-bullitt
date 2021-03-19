@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { Redirect, useRouteMatch } from 'react-router-dom';
 
+import Fuel from './Fuel';
+
 import Section from '../../common/UI/Section';
 import Tabs from '../../common/UI/Tabs';
 import Block from '../../common/UI/Wrappers/Block';
 import NarrowContentWrapper from '../../common/UI/Wrappers/NarrowContentWrapper';
 import Figure from '../../common/UI/Figure/Figure';
-import OrderedList from '../../common/UI/OrderedList';
 import UnorderedList from '../../common/UI/UnorderedList';
 import Modal from '../../common/UI/Modal';
 import ResponsiveVideoWrapper from '../../common/UI/ResponsiveVideoWrapper';
@@ -90,15 +91,7 @@ const Transmission = () => {
       </Section>
       <Section>
         <NarrowContentWrapper>
-          <H2 className='has-text-centered pb-4'>Части двигателя</H2>
-          <Tabs tabs={parts} />
-        </NarrowContentWrapper>
-      </Section>
-      <Section>
-        <NarrowContentWrapper>
-          <H2 className='has-text-centered pb-4'>
-            Рекомендации по использованию
-          </H2>
+          <H2 className='has-text-centered pb-4'>Системы двигателя</H2>
           <Tabs tabs={parts} />
         </NarrowContentWrapper>
       </Section>
