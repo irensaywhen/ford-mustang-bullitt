@@ -3,6 +3,13 @@ import BulletpointWithIcon from '../BulletpointWithIcon';
 import Card from './Card';
 
 const ComparisonCards = props => {
+  const cardClasses = ['column'];
+
+  if (props.cardsSize) {
+    cardClasses.push(props.cardsSize);
+  } else {
+    cardClasses.push('is-5-tablet is-4-desktop');
+  }
   const cards = props.cardsData.map((card, index) => {
     const prosAndCons = card.prosAndCons
       .sort((item1, item2) => {
@@ -32,7 +39,7 @@ const ComparisonCards = props => {
         </BulletpointWithIcon>
       ));
     return (
-      <div key={index} className='column is-5-tablet is-4-desktop'>
+      <div key={index} className={cardClasses.join(' ')}>
         <Card title={card.title}>{prosAndCons}</Card>
       </div>
     );
