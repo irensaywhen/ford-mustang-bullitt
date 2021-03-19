@@ -60,7 +60,7 @@ const FuelSystem = () => {
         </p>
       </Block>
       <Block>
-        <PrimaryButton onClick={openModal}>
+        <PrimaryButton onClick={() => openModal('main')}>
           Узнать подробнее об общем устройстве
         </PrimaryButton>
       </Block>
@@ -74,7 +74,7 @@ const FuelSystem = () => {
         </p>
       </Block>
       <Block>
-        <PrimaryButton onClick={openModal}>
+        <PrimaryButton onClick={() => openModal('carburetor')}>
           Как работает карбюратор?
         </PrimaryButton>
       </Block>
