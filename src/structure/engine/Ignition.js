@@ -1,23 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import OrderedList from '../../common/UI/OrderedList';
+import Block from '../../common/UI/Wrappers/Block';
+import VideoIframe from '../../common/UI/VideoIframe';
+import PrimaryButton from '../../common/UI/Buttons/PrimaryButton';
+
+import { ModalContext } from '../../context/modal-context';
 
 // Text
 import H3 from '../../common/UI/Titles/H3';
 import H4 from '../../common/UI/Titles/H4';
 import TextSemibold from '../../common/UI/Text/TextSemibold';
 
-const ignitionSystemPeculiarities = [
-  'Точный контроль времени зажигания для каждого цилиндра по отдельности',
-  'Уменьшение выбросов',
-  'Более экономичный расход топлива',
-  'Уменьшение потерей энергии',
-];
+import { ignitionSystemPeculiarities } from './data/ignition';
 
 const Ignition = () => {
+  const modalContext = useContext(ModalContext);
+
+  const openModal = () => {
+    // Set video content
+    modalContext.setModalContent(() => (
+      <VideoIframe
+        title='Принцип работы системы зажигания'
+        src='https://www.youtube.com/embed/gUM5f8CWXvk'
+      ></VideoIframe>
+    ));
+
+    modalContext.showModal();
+  };
   return (
     <React.Fragment>
-      <div className='block'>
+      <Block>
         <H3>Система зажигания</H3>
         <p>
           Система зажигания является частью{' '}
@@ -28,8 +41,13 @@ const Ignition = () => {
             бесконтактной системой зажигания COP(Coin on Plug)
           </TextSemibold>
         </p>
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
+        <PrimaryButton onClick={openModal}>
+          Узнать подробнее о системе зажигания
+        </PrimaryButton>
+      </Block>
+      <Block>
         <H4>Общий принцип работы контактной системы зажигания</H4>
         <p>
           Электрическая система автомобиля вырабатывает{' '}
@@ -42,8 +60,9 @@ const Ignition = () => {
           <TextSemibold>свечу зажигания</TextSemibold>, позволяя пробить
           воздушный зазор и воспламенить горючую смесь в цилиндре.
         </p>
-      </div>
-      <div className='block'>
+      </Block>
+
+      <Block>
         <H4>Бесконтактная система зажигания</H4>
         <p>
           Отличается от контактной тем, что малые токи вырабатывает датчик
@@ -56,9 +75,9 @@ const Ignition = () => {
           необходимости беречь контакты от того, чтобы они не перегорали. Более
           мощная искра облегчает пуск двигателя.
         </p>
-      </div>
-      <div className='block'>
-        <H4 className='pb-2'>
+      </Block>
+      <Block>
+        <H4>
           Особенности системы зажигания <TextSemibold>COP</TextSemibold>
         </H4>
         <p>
@@ -67,10 +86,10 @@ const Ignition = () => {
           отдельности. Каждая свеча зажигания обсуживается отдельной катушкой
           зажигания.
         </p>
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
         <OrderedList listItems={ignitionSystemPeculiarities} />
-      </div>
+      </Block>
     </React.Fragment>
   );
 };
