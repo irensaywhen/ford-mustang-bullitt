@@ -1,8 +1,6 @@
 import React, { useContext } from 'react';
 import { Redirect, useRouteMatch } from 'react-router-dom';
 
-import Fuel from './Fuel';
-
 import Section from '../../common/UI/Section';
 import Tabs from '../../common/UI/Tabs';
 import Block from '../../common/UI/Wrappers/Block';
@@ -26,12 +24,10 @@ import HeroSubtitle from '../../common/UI/Hero/HeroSubtitle';
 // Text
 import H2 from '../../common/UI/Titles/H2';
 import H3 from '../../common/UI/Titles/H3';
-import TextSemibold from '../../common/UI/Text/TextSemibold';
 
 import classes from '../../assets/scss/pages/heroes.module.scss';
 
 import { ModalContext } from '../../context/modal-context';
-import { speedIndexTableData } from '../Chasis/data/wheelsAndTires';
 
 const Transmission = () => {
   const { path } = useRouteMatch();
@@ -85,9 +81,16 @@ const Transmission = () => {
         <div className='columns is-multiline'>{specificationsData}</div>
       </Section>
       <Section>
-        <H2>Обзор Подкапотного простраства</H2>
-        <Figure img={{ src: underTheHood }} />
-        <UnorderedList listItems={underTheHoodData} />
+        <H2 className='has-text-centered'>Обзор Подкапотного простраства</H2>
+
+        <div className='columns'>
+          <div className='column is-5'>
+            <Figure img={{ src: underTheHood }} />
+          </div>
+          <div className='column is-7'>
+            <UnorderedList className='pt-5' listItems={underTheHoodData} />
+          </div>
+        </div>
       </Section>
       <Section>
         <NarrowContentWrapper>
