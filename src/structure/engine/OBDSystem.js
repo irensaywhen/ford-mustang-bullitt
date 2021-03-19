@@ -1,6 +1,8 @@
 import React from 'react';
 
 import OrderedList from '../../common/UI/OrderedList';
+import Block from '../../common/UI/Wrappers/Block';
+import Figure from '../../common/UI/Figure/Figure';
 
 // Text
 import H3 from '../../common/UI/Titles/H3';
@@ -10,33 +12,25 @@ import TextSemibold from '../../common/UI/Text/TextSemibold';
 // Image
 import warningLightIcon from '../../assets/img/icons/dacia-logan-check-engine.gif';
 
-const indicatorFiringReasons = [
-  'Закончилось топливо - двигатель будет работать с перебоями',
-  'Плохое качество топлива или попадание воды в топливо - двигатель может работать с перебоями',
-  'Пробка в заливной горловине неплотно закрыта',
-  'Дополнительного глушителя',
-  'Движенеи по воде - электрическая система промокла',
-];
+import { indicatorFiringReasons } from './data/obdSystem';
 
 const OBDSystem = () => {
   return (
     <React.Fragment>
-      <div className='block'>
+      <Block>
         <H3>
           Система <TextSemibold>OBD-II (On-Board Diagnostics)</TextSemibold>
         </H3>
-        <p className='pt-2'>
+        <p>
           Данная модель оснащена системой, контролирующей выбросы автомобиля в
           атмосферу. Эта система предназначена для защиты окружающей среды и
           контроля норм выбросов.
         </p>
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
         <div className='columns is-mobile'>
           <div className='column is-narrow'>
-            <figure className='image'>
-              <img src={warningLightIcon} alt=''></img>
-            </figure>
+            <Figure img={{ src: warningLightIcon }} />
           </div>
           <div className='column'>
             <p>
@@ -45,11 +39,11 @@ const OBDSystem = () => {
             </p>
           </div>
         </div>
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
         <H4>Возможные причины появления данного индикатора</H4>
         <OrderedList listItems={indicatorFiringReasons} />
-      </div>
+      </Block>
     </React.Fragment>
   );
 };
