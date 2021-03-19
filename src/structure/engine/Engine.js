@@ -5,15 +5,17 @@ import Section from '../../common/UI/Section';
 import Tabs from '../../common/UI/Tabs';
 import Block from '../../common/UI/Wrappers/Block';
 import NarrowContentWrapper from '../../common/UI/Wrappers/NarrowContentWrapper';
+import Figure from '../../common/UI/Figure/Figure';
+import OrderedList from '../../common/UI/OrderedList';
+import UnorderedList from '../../common/UI/UnorderedList';
+import Modal from '../../common/UI/Modal';
+import ResponsiveVideoWrapper from '../../common/UI/ResponsiveVideoWrapper';
 
 import Table from '../../common/UI/Table';
 
 // data
-import {
-  parts,
-  fielEfficiencyAutonomy,
-  basicCharacteristics,
-} from './data/engine';
+import { parts, specifications, underTheHoodData } from './data/engine';
+import underTheHood from '../../assets/img/engine/under-the-hood.png';
 
 // Hero
 import Hero from '../../common/UI/Hero/Hero';
@@ -28,11 +30,28 @@ import TextSemibold from '../../common/UI/Text/TextSemibold';
 import classes from '../../assets/scss/pages/heroes.module.scss';
 
 import { ModalContext } from '../../context/modal-context';
+import { speedIndexTableData } from '../Chasis/data/wheelsAndTires';
 
 const Transmission = () => {
   const { path } = useRouteMatch();
+  const modalContext = useContext(ModalContext);
+
+  const specificationsData = specifications.map((specificationData, index) => (
+    <div key={index} className='column is-6 '>
+      <H3>{specificationData.tableTitle}</H3>
+      <Table
+        theadRow={specificationData.tableData.thead}
+        tbodyRows={specificationData.tableData.tbody}
+      />
+    </div>
+  ));
   return (
     <React.Fragment>
+      <Modal hidePadding transparentBackground>
+        <ResponsiveVideoWrapper>
+          {modalContext.modalContent}
+        </ResponsiveVideoWrapper>
+      </Modal>
       <Hero
         className={[
           'is-halfheight',
@@ -53,21 +72,33 @@ const Transmission = () => {
       </Hero>
       <Redirect to={`${path}/${parts[0].tabLink}`} />
       <Section>
-        <H2 className='has-text-centered pb-4'>Общие характеристики</H2>
-        <div className='columns is-justify-content-center'>
-          <div className='column'>
-            <H3>Расход топлива</H3>
-            <Table tbodyRows={basicCharacteristics.tBody} />
-          </div>
-          <div className='column'>
-            <H3>Двигатель</H3>
-            <Table tbodyRows={fielEfficiencyAutonomy.tBody} />
-          </div>
-        </div>
+        <Block>
+          <H2 className='has-text-centered'>Общие характеристики</H2>
+          <NarrowContentWrapper>
+            <p className='has-text-centered'>
+              Двигатель автомобиля - сложный механизм, имеющий большое
+              количество различных характеристик.
+            </p>
+          </NarrowContentWrapper>
+        </Block>
+        <div className='columns is-multiline'>{specificationsData}</div>
+      </Section>
+      <Section>
+        <H2>Обзор Подкапотного простраства</H2>
+        <Figure img={{ src: underTheHood }} />
+        <UnorderedList listItems={underTheHoodData} />
       </Section>
       <Section>
         <NarrowContentWrapper>
           <H2 className='has-text-centered pb-4'>Части двигателя</H2>
+          <Tabs tabs={parts} />
+        </NarrowContentWrapper>
+      </Section>
+      <Section>
+        <NarrowContentWrapper>
+          <H2 className='has-text-centered pb-4'>
+            Рекомендации по использованию
+          </H2>
           <Tabs tabs={parts} />
         </NarrowContentWrapper>
       </Section>
