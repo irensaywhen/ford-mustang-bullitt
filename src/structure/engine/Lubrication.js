@@ -2,7 +2,10 @@ import React, { useContext } from 'react';
 
 import OrderedList from '../../common/UI/OrderedList';
 import Accordion from '../../common/UI/Accordion/Accordion';
-import BulletpointWithIcon from '../../common/UI/BulletpointWithIcon';
+import FaultsList from '../../common/UI/FaultsList';
+import VideoIframe from '../../common/UI/VideoIframe';
+import Block from '../../common/UI/Wrappers/Block';
+import Figure from '../../common/UI/Figure/Figure';
 
 // Text
 import H3 from '../../common/UI/Titles/H3';
@@ -15,68 +18,12 @@ import { ModalContext } from '../../context/modal-context';
 
 import dipstick from '../../assets/img/engine/dipstick.png';
 
-const faults = [
-  {
-    title: 'Подтекание масла',
-    description:
-      'Может возникать из-за избыточного давления, слабо затянутой сливной пробки в поддоне, повреждения уплотнительных прокладок и маслопроводов, износа сальников.',
-  },
-  {
-    title: 'Низкое давление в системе смазки',
-    description:
-      'Может возникать по причине недостаточного количества масла, некачественного масла, износа подшипников и деталей масляного насоса',
-  },
-];
-
-const definitions = [
-  {
-    header: 'Поддон картера',
-    body:
-      'Является резервуаром для хранения масла. Когда масло заливается через маслозаливную горловину, оно проходит по пустотам внутри двигателя и опускается в поддон картера. Уровень можно измерить масляным щупом.',
-  },
-  {
-    header: 'Масляный насос',
-    body:
-      'Под давлением подает масло к элементам двигателя. Состоит из двух шестерен и приводится в действие от коленчатого вала двигателя. При вращении шестерен зубья захватывают масло и нагнетают его в главную маслянную магистраль. Имеет фильтр для предотвращеняи попадания в масло частиц. ',
-  },
-  {
-    header: 'Редукционный клапан',
-    body:
-      'Служит для ограничения давления в системе и сливает лишнее масло из трубок в картер.',
-  },
-  {
-    header: 'Масляный фильтр',
-    body:
-      'Служит для очистки проходящего через него масла от механических примесей. Устанавливается сразу после насоса. В случае засорения масло будет проходить без очистки.',
-  },
-  {
-    header: 'Вентилятор картера двигателя',
-    body:
-      'Обеспечивает отсос из картера и отвод во впускной трубопровод паров бензина и выхлопных газов, которые попадают в нижнюю часть двигателя.',
-  },
-  {
-    header: 'Радиатор',
-    body: 'Служит для охлаждения масла.',
-  },
-];
-
-const lubricationSystemParts = [
-  'Поддона картера',
-  'Масляного насоса с маслоприемником',
-  'Масляного фильтра',
-  'Редукционного клапана',
-  'Каналов для подачи масла',
-  'Вентилятор картера двигателя',
-  'Радиатора',
-];
-
-const oilCheckProcedure = [
-  'Включить стояночный тормоз',
-  'Включить двигатель и дождаться, пока он прогреется',
-  'Выключить двигатель и подождать 15 минут, чтобы масло стекло в картер',
-  'Открыть капот',
-  'Достать щуп, протереть его, провести измерение и убедиться, что уровень масла между максимальной и минимальной отметками',
-];
+import {
+  faults,
+  definitions,
+  lubricationSystemParts,
+  oilCheckProcedure,
+} from './data/lubrication';
 
 const Lubrication = () => {
   const modalContext = useContext(ModalContext);
@@ -84,57 +31,40 @@ const Lubrication = () => {
   const openModal = () => {
     // Set video content
     modalContext.setModalContent(() => (
-      <iframe
-        title='How lubrcation system work'
-        width='560'
-        height='315'
-        className='has-ratio'
+      <VideoIframe
+        title='Принцип работы системы смазки'
         src='https://www.youtube.com/embed/Y7NZBJ1w5PI'
-        frameborder='0'
-        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-        allowfullscreen
-      ></iframe>
+      ></VideoIframe>
     ));
 
     modalContext.showModal();
   };
 
-  const faultsList = faults.map((fault, index) => (
-    <BulletpointWithIcon
-      key={index}
-      icon={<i className='fas fa-tools'></i>}
-      iconWrapperClasses={['is-1']}
-    >
-      <h5 className='is-5 has-text-weight-bold'>{fault.title}</h5>
-      <p>{fault.description}</p>
-    </BulletpointWithIcon>
-  ));
-
   return (
     <React.Fragment>
-      <div className='block'>
+      <Block>
         <H3>Система смазки</H3>
         <p>
           Предназначена для подачи масла к трущимся деталям, их частичного
           охлаждения и удаления продуктов износа.
         </p>
-      </div>
-      <div className='block'>
-        <H4>Состоит из:</H4>
-        <OrderedList listItems={lubricationSystemParts} />
         <p className='pt-2'>
           В системе охлаждения имеется два круга циркуляции охлаждающей
           жидкости. Один предназначен для скорейшего прогрева охлаждающей
           жидкости, когда двигатель начинает работу, другой - для его охдаждения
           в процессе работы.
         </p>
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
+        <H4>Состоит из:</H4>
+        <OrderedList listItems={lubricationSystemParts} />
+      </Block>
+      <Block>
         <PrimaryButton onClick={openModal}>
           Узнать подробнее о принципе работы
         </PrimaryButton>
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
         <H4>Контроль уровня масла</H4>
         <p>
           Для нормальной работы двигателя необходимо следить за уровнем и
@@ -148,42 +78,47 @@ const Lubrication = () => {
           </TextSemibold>
           .
         </p>
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
         <H4>Как проверить уровень масла</H4>
-        <p className='pt-2'>
+        <p>
           Для проверки уровня масла существует специальный измерительный щуп,
           имеющий отметки минимально и максимально допустимых уровней масла.
         </p>
-      </div>
-      <div className='block'>
+      </Block>
+      <Block>
         <div className='columns'>
           <div className='column is-6'>
             <OrderedList listItems={oilCheckProcedure} />
           </div>
           <div className='column is-6'>
-            <figure className='image'>
-              <img src={dipstick} alt=''></img>
-            </figure>
+            <Figure img={{ src: dipstick }} />
           </div>
         </div>
-      </div>
+      </Block>
 
-      <div className='block'>
+      <Block>
         <H4>Масляные фильтры</H4>
         <p>
           Помимо контроля за уровней масла, необходимо также регулярно менять
           масляные фильтры.
         </p>
-      </div>
+      </Block>
 
-      <div className='block pt-5'>
-        <H4 className='pb-3'>Основные неисправности системы охлаждения</H4>
-        {faultsList}
-      </div>
-      <div className='block pt-4'>
+      <Block>
+        <H4>Основные неисправности системы смазки</H4>
+        <p>
+          Неисправности системы смазки опасны тем, что из-за них может
+          значительно усилиться трение деталей двигателя, из-за чего они быстро
+          выйдут из строя.
+        </p>
+      </Block>
+      <Block>
+        <FaultsList faults={faults} />
+      </Block>
+      <Block>
         <Accordion items={definitions}></Accordion>
-      </div>
+      </Block>
     </React.Fragment>
   );
 };
