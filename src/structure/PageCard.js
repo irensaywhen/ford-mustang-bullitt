@@ -10,8 +10,8 @@ const pageCard = props => {
 
         <H2 className='card-header-title is-size-4'>{props.name}</H2>
       </header>
-      <div class='card-content'>
-        <div class='content'>{props.description}</div>
+      <div className='card-content'>
+        <div className='content'>{props.description}</div>
       </div>
     </div>
   );

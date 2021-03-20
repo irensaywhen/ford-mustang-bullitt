@@ -15,6 +15,7 @@ const DocumentationMenu = () => {
   if (docsMenuVisible) {
     menuClasses.push('is-active');
   }
+
   return (
     <aside className={menuClasses.join(' ')}>
       <div className='menu-btn' onClick={toggleDocsMenuVisibility}>

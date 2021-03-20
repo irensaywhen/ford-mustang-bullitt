@@ -10,8 +10,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.scss';
 import 'swiper/components/pagination/pagination.scss';
 
-console.log(Pagination);
-
 SwiperCore.use([Pagination]);
 
 const defaultSwiperConfig = {

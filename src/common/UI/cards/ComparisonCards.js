@@ -26,9 +26,9 @@ const ComparisonCards = props => {
           key={index}
           icon={
             listItem.type === 'pro' ? (
-              <i class='far fa-check-circle'></i>
+              <i className='far fa-check-circle'></i>
             ) : (
-              <i class='far fa-times-circle'></i>
+              <i className='far fa-times-circle'></i>
             )
           }
           iconWrapperClasses={[

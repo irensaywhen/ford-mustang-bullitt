@@ -2,17 +2,17 @@
   border-radius: $radius;
 }
 
-.my-node-enter {
+.modal-fade-enter {
   opacity: 0;
 }
-.my-node-enter-active {
-  opacity: 1;
-  transition: opacity 200ms;
-}
-.my-node-exit {
+.modal-fade-enter-active {
+  @include ease-out;
   opacity: 1;
 }
-.my-node-exit-active {
+.modal-fade-exit {
+  opacity: 1;
+}
+.modal-fade-exit-active {
+  @include ease-out;
   opacity: 0;
-  transition: opacity 200ms;
 }
