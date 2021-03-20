@@ -1,0 +1,28 @@
+.page-card-wrapper {
+  a {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.page-card {
+  height: 100%;
+
+  .card-header {
+    padding-left: 0.5rem;
+    align-items: center;
+
+    .icon-wrapper {
+      min-width: 3rem;
+      min-height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .icon {
+        font-size: 2rem !important;
+      }
+    }
+  }
+}

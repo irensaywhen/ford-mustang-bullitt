@@ -89,8 +89,7 @@ const WheelsAndTires = () => {
       </Block>
       <Block>
         <H3>Расположение нитей корда</H3>
-        <OrderedList listItems={tireParts} />
-        <p className='pt-2'>
+        <p>
           Шины бывают с <TextSemibold>диагональным</TextSemibold> и{' '}
           <TextSemibold>радиальным</TextSemibold> расположением нитей корда.
         </p>
