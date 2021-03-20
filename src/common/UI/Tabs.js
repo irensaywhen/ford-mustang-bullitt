@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Route, useRouteMatch, useLocation, NavLink } from 'react-router-dom';
 
 import { CSSTransition } from 'react-transition-group';
@@ -7,6 +7,7 @@ const Tabs = ({ tabs }) => {
   const { path, url } = useRouteMatch();
 
   const location = useLocation();
+  const nodeRef = useRef(null);
 
   const tabsList = tabs.map((tab, index) => {
     const liClassName =
@@ -28,9 +29,10 @@ const Tabs = ({ tabs }) => {
             in={match != null}
             timeout={300}
             classNames='tab-content'
+            nodeRef={nodeRef}
             unmountOnExit
           >
-            <div className='tab-content'>
+            <div className='tab-content' ref={nodeRef}>
               <Component />
             </div>
           </CSSTransition>
