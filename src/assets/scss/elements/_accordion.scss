@@ -33,15 +33,19 @@
       width: 100%;
       height: auto;
       overflow: hidden;
+      max-height: 1500px;
+      padding: 2rem 1.5rem;
 
       transition: all 0.3s linear;
 
       &.hide {
         max-height: 0;
+        padding: 0 1.5rem;
       }
-      &.show {
-        max-height: 150px;
-      }
+      // &.show {
+      //   max-height: 1500px;
+      //   padding: 2rem 1.5rem;
+      // }
     }
   }
 }
