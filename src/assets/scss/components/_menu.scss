@@ -1,5 +1,6 @@
 .menu {
   @include ease-out;
+  font-family: $family-serif;
   position: fixed;
   top: $navbar-height;
   z-index: 5;

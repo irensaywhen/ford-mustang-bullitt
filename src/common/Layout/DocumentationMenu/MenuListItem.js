@@ -1,11 +1,7 @@
 import React from 'react';
 
-const MenuListItem = () => {
-  return (
-    <li>
-      <a>Dashboard</a>
-    </li>
-  );
+const MenuListItem = props => {
+  return <li>{props.children}</li>;
 };
 
 export default MenuListItem;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import MenuLabel from './MenuLabel';
-import MenuList from './MenuList';
+import MenuSection from './MenuSection';
+
+import routes from '../../../routes';
 
 const DocumentationMenu = () => {
   const [docsMenuVisible, setDocsMenuVisible] = useState(false);
@@ -21,10 +22,9 @@ const DocumentationMenu = () => {
         <div className='btn-line'></div>
         <div className='btn-line'></div>
       </div>
-      <MenuLabel>General</MenuLabel>
-      <MenuList />
-      <MenuLabel>Transactions</MenuLabel>
-      <MenuList />
+
+      <MenuSection menuLabel='Устройство' routes={routes.documentation} />
+      <MenuSection menuLabel='Приборная панель' routes={routes.dashboard} />
     </aside>
   );
 };
