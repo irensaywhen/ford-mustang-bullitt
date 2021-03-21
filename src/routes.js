@@ -22,9 +22,6 @@ import Safety from './structure/Safety/Safety';
 import Gauges from './Dashboard/Gauges';
 import WarningLights from './Dashboard/WarningLights';
 
-// Text
-import TextSemibold from './common/UI/Text/TextSemibold';
-
 const routes = {
   main: {
     home: {
