@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { mergeClasses } from '../../../utilities';
 
 const Hero = props => {
+  const nodeRef = useRef(null);
   const classes = mergeClasses({
     defaultClasses: 'hero',
     extraClasses: props.className,

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import ScrollToTopOnMount from '../ScrollToTopOnMount';
 
 const RouterWrapper = ({ component: Component, Layout, exact, ...rest }) => {
   return (
@@ -8,6 +9,7 @@ const RouterWrapper = ({ component: Component, Layout, exact, ...rest }) => {
       exact={exact}
       render={props => (
         <Layout {...props}>
+          <ScrollToTopOnMount />
           <Component {...props} />
         </Layout>
       )}

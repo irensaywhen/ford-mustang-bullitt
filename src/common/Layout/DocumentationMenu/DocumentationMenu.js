@@ -1,24 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import MenuSection from './MenuSection';
+
+import { DocsMenuContext } from '../../../context/docs-menu-context';
 
 import routes from '../../../routes';
 
 const DocumentationMenu = () => {
-  const [docsMenuVisible, setDocsMenuVisible] = useState(false);
-
-  const toggleDocsMenuVisibility = () => {
-    setDocsMenuVisible(isMenuVisible => !isMenuVisible);
-  };
+  const docsMenuContext = useContext(DocsMenuContext);
 
   const menuClasses = ['menu'];
 
-  if (docsMenuVisible) {
+  if (docsMenuContext.isDocsMenuVisible) {
     menuClasses.push('is-active');
   }
 
   return (
     <aside className={menuClasses.join(' ')}>
-      <div className='menu-btn' onClick={toggleDocsMenuVisibility}>
+      <div className='menu-btn' onClick={docsMenuContext.toggleMenuVisibility}>
         <div className='btn-line'></div>
         <div className='btn-line'></div>
         <div className='btn-line'></div>
