@@ -2,6 +2,8 @@ import React, { useRef } from 'react';
 import { Route, useRouteMatch, Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 
+import ScrollToTopOnMount from '../common/ScrollToTopOnMount';
+
 import PageCard from './PageCard';
 import Section from '../common/UI/Section';
 import Block from '../common/UI/Wrappers/Block';
@@ -23,24 +25,36 @@ const StructureArticles = () => {
   const { path, url } = useRouteMatch();
   const nodeRef = useRef(null);
 
+  // const documentationRoutes = Object.values(routes.documentation).map(
+  //   (routeData, index) => {
+  //     const Component = routeData.Component;
+  //     return (
+  //       <Route key={index} path={`${path}${routeData.path}`}>
+  //         {({ match }) => (
+  //           <CSSTransition
+  //             in={match != null}
+  //             timeout={300}
+  //             classNames='page'
+  //             nodeRef={nodeRef}
+  //             unmountOnExit
+  //           >
+  //             <div className='page' ref={nodeRef}>
+  //               <Component {...routeData} />
+  //             </div>
+  //           </CSSTransition>
+  //         )}
+  //       </Route>
+  //     );
+  //   }
+  // );
+
   const documentationRoutes = Object.values(routes.documentation).map(
     (routeData, index) => {
       const Component = routeData.Component;
       return (
         <Route key={index} path={`${path}${routeData.path}`}>
-          {({ match }) => (
-            <CSSTransition
-              in={match != null}
-              timeout={300}
-              classNames='page'
-              nodeRef={nodeRef}
-              unmountOnExit
-            >
-              <div className='page' ref={nodeRef}>
-                <Component {...routeData} />
-              </div>
-            </CSSTransition>
-          )}
+          <ScrollToTopOnMount />
+          <Component />
         </Route>
       );
     }

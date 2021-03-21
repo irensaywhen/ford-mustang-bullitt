@@ -71,19 +71,19 @@ const Gearbox = () => {
           количествами зубцов).<br></br>
           Переключая передачи, мы меняем соприкасающиеся шестерни, изменяя тем
           самым <TextSemibold>передаточное отношение</TextSemibold>
-          <div className='columns pt-5 pb-3 pl-3'>
-            <div className='col'>
-              <Table
-                tHeaderCaption={
-                  <TextSemibold>Передаточные отношения</TextSemibold>
-                }
-                theadRow={gearRatios.thead}
-                tbodyRows={gearRatios.tbody}
-                hasTextLeft
-              />
-            </div>
-          </div>
         </p>
+        <div className='columns pt-5 pb-3 pl-3'>
+          <div className='col'>
+            <Table
+              tHeaderCaption={
+                <TextSemibold>Передаточные отношения</TextSemibold>
+              }
+              theadRow={gearRatios.thead}
+              tbodyRows={gearRatios.tbody}
+              hasTextLeft
+            />
+          </div>
+        </div>
         <p className='pt-2'>
           Чем <TextSemibold>выше</TextSemibold> передача, тем двигателю{' '}
           <TextSemibold>тяжелее</TextSemibold> крутить колеса, но тем машина{' '}

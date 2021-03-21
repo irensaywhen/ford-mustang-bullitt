@@ -20,13 +20,11 @@ const CardanJoint = () => {
           Есть только у <TextSemibold>заднеприводных</TextSemibold> автомобилей
           и предназначена для передачи крутящего момента от вторичного вала
           коробки передач к главной передаче под изменяющимся углом.
-          <br></br>
-          <br></br>
-          Состоит из:
         </p>
-        <p className='pt-2'>
-          <OrderedList listItems={cardanJointParts} />
-        </p>
+      </Block>
+      <Block>
+        <H4>Состоит из:</H4>
+        <OrderedList listItems={cardanJointParts} />
       </Block>
       <Block>
         <H4>Назначение и принцип работы</H4>
