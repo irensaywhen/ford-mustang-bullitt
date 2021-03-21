@@ -7,6 +7,7 @@
 }
 
 .page-card {
+  @include ease-out;
   height: 100%;
 
   .card-header {
@@ -24,5 +25,12 @@
         font-size: 2rem !important;
       }
     }
+  }
+
+  &:hover {
+    transform: translate3d(0, -10px, 0);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 16px 25px -2.2px,
+      rgba(0, 0, 0, 0.02) 0px 0px 0px 1px 0 0.5em 1em -0.125em rgba(0, 0, 0, 0.1),
+      0 0px 0 1px rgba(0, 0, 0, 0.02);
   }
 }
