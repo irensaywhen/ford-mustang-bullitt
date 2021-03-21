@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { DocsMenuContext } from '../../../context/docs-menu-context';
 
 const MenuListItem = props => {
+  const docsMenuContext = useContext(DocsMenuContext);
   return (
-    <li onClick={() => console.log('List item clicked')}>{props.children}</li>
+    <li onClick={docsMenuContext.toggleMenuVisibility}>{props.children}</li>
   );
 };
 
