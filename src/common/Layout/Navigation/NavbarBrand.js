@@ -10,8 +10,8 @@ const NavbarBrand = () => {
 
   return (
     <div className='navbar-brand'>
-      <Link to={routes.home} className='navbar-item'>
-        Car
+      <Link to={routes.main.home.path} className='navbar-item'>
+        <div className='brand'>Mustang Bullitt</div>
       </Link>
 
       <div
