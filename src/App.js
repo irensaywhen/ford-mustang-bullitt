@@ -1,3 +1,4 @@
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import ModalContextProvider from './context/modal-context';
@@ -21,11 +22,13 @@ function App() {
   });
   return (
     <Router>
-      <ModalContextProvider>
-        <DocsMenuContextProvider>
-          <MobileMenuContextProvider>{mainPages}</MobileMenuContextProvider>
-        </DocsMenuContextProvider>
-      </ModalContextProvider>
+      <Suspense fallback={'Loading...'}>
+        <ModalContextProvider>
+          <DocsMenuContextProvider>
+            <MobileMenuContextProvider>{mainPages}</MobileMenuContextProvider>
+          </DocsMenuContextProvider>
+        </ModalContextProvider>
+      </Suspense>
     </Router>
   );
 }

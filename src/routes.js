@@ -1,26 +1,38 @@
+import React, { lazy } from 'react';
+
 // Layouts
-import MainLayout from './common/Layout/MainLayout';
-import DocumentationLayout from './common/Layout/DocumentationLayout';
+const MainLayout = lazy(() => import('./common/Layout/MainLayout'));
+const DocumentationLayout = lazy(() =>
+  import('./common/Layout/DocumentationLayout')
+);
 
 // Main Navigation
-import Home from './home/Home';
-import History from './history/History';
-import About from './about/About';
+const Home = lazy(() => import('./home/Home'));
+const History = lazy(() => import('./history/History'));
+const About = lazy(() => import('./about/About'));
 
 // Structure
-import StructureHome from './structure/StructureHome';
-import CarBody from './structure/CarBody/CarBody';
-import SteeringSystem from './structure/SteeringSystem/SteeringSystem';
-import BrakingSystem from './structure/BrakingSystem/BrakingSystem';
-import Transmission from './structure/Transmission/Transmission';
-import Engine from './structure/Engine/Engine';
-import Chasis from './structure/Chasis/Chasis';
-import ElectronicSystem from './structure/ElectronicSystems/ElectronicSystems';
-import Safety from './structure/Safety/Safety';
+const StructureHome = lazy(() => import('./structure/StructureHome'));
+const CarBody = lazy(() => import('./structure/CarBody/CarBody'));
+const SteeringSystem = lazy(() =>
+  import('./structure/SteeringSystem/SteeringSystem')
+);
+const BrakingSystem = lazy(() =>
+  import('./structure/BrakingSystem/BrakingSystem')
+);
+const Transmission = lazy(() =>
+  import('./structure/Transmission/Transmission')
+);
+const Engine = lazy(() => import('./structure/Engine/Engine'));
+const Chasis = lazy(() => import('./structure/Chasis/Chasis'));
+const ElectronicSystem = lazy(() =>
+  import('./structure/ElectronicSystems/ElectronicSystems')
+);
+const Safety = lazy(() => import('./structure/Safety/Safety'));
 
 // Dashboard
-import Gauges from './Dashboard/Gauges';
-import WarningLights from './Dashboard/WarningLights';
+const Gauges = lazy(() => import('./Dashboard/Gauges'));
+const WarningLights = lazy(() => import('./Dashboard/WarningLights'));
 
 const routes = {
   main: {
