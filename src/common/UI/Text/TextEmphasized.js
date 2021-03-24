@@ -2,8 +2,8 @@ import React from 'react';
 
 import withMergeClasses from '../../hoc/withMergeClasses';
 
-const TextSemibold = ({ children, className }) => {
+const TextEmphasized = ({ children, className }) => {
   return <span className={className}>{children}</span>;
 };
 
-export default withMergeClasses(TextSemibold, 'has-text-weight-semibold');
+export default withMergeClasses(TextEmphasized, 'has-text-emphasized');
