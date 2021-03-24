@@ -31,14 +31,6 @@ const FuelSystem = () => {
           ></VideoIframe>
         );
         break;
-      case 'carburetor':
-        modalContent = (
-          <VideoIframe
-            title='Устройство карбюратора'
-            src='https://www.youtube.com/embed/Lrds070lu4I'
-          ></VideoIframe>
-        );
-        break;
       default:
         throw new Error('Incorrect video type');
     }
@@ -62,20 +54,6 @@ const FuelSystem = () => {
       <Block>
         <PrimaryButton onClick={() => openModal('main')}>
           Узнать подробнее об общем устройстве
-        </PrimaryButton>
-      </Block>
-      <Block>
-        <H4>Карбюратор</H4>
-        <p>
-          Это один из самых сложных устройств автомобиля.<br></br>
-          Усправление карбюратором происходит через{' '}
-          <TextSemibold>педаль газа</TextSemibold>. Когда водитель давит на газ,
-          он управляет <TextSemibold>дроссельной заслонкой</TextSemibold>.
-        </p>
-      </Block>
-      <Block>
-        <PrimaryButton onClick={() => openModal('carburetor')}>
-          Как работает карбюратор?
         </PrimaryButton>
       </Block>
 
