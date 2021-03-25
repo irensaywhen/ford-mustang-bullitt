@@ -8,7 +8,6 @@ import Block from '../../common/UI/Wrappers/Block';
 // Text
 import H3 from '../../common/UI/Titles/H3';
 import H4 from '../../common/UI/Titles/H4';
-import TextSemibold from '../../common/UI/Text/TextSemibold';
 
 import PrimaryButton from '../../common/UI/Buttons/PrimaryButton';
 
