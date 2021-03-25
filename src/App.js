@@ -6,6 +6,7 @@ import MobileMenuContextProvider from './context/mobile-menu-context';
 import DocsMenuContextProvider from './context/docs-menu-context';
 
 import RouterWrapper from './common/hoc/RouterWrapper';
+import LoadingIndicator from './common/UI/LoadingIndicator';
 import routes from './routes';
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
   });
   return (
     <Router>
-      <Suspense fallback={'Loading...'}>
+      <Suspense fallback={<LoadingIndicator />}>
         <ModalContextProvider>
           <DocsMenuContextProvider>
             <MobileMenuContextProvider>{mainPages}</MobileMenuContextProvider>

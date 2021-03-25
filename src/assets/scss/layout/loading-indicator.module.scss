@@ -1,0 +1,12 @@
+@import '../utilities/variables';
+
+.LoadingIndicator {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: $info-light;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
