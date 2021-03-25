@@ -7,28 +7,28 @@ const DocumentationLayout = lazy(() =>
 );
 
 // Main Navigation
-const Home = lazy(() => import('./Home/Home'));
+const Home = lazy(() => import('./home/Home'));
 const History = lazy(() => import('./history/History'));
 const About = lazy(() => import('./about/About'));
 
 // Structure
 const StructureHome = lazy(() => import('./structure/StructureHome'));
-const CarBody = lazy(() => import('./structure/CarBody/CarBody'));
+const CarBody = lazy(() => import('./structure/carBody/CarBody'));
 const SteeringSystem = lazy(() =>
-  import('./structure/SteeringSystem/SteeringSystem')
+  import('./structure/steeringSystem/SteeringSystem')
 );
 const BrakingSystem = lazy(() =>
-  import('./structure/BrakingSystem/BrakingSystem')
+  import('./structure/brakingSystem/BrakingSystem')
 );
 const Transmission = lazy(() =>
-  import('./structure/Transmission/Transmission')
+  import('./structure/transmission/Transmission')
 );
-const Engine = lazy(() => import('./structure/Engine/Engine'));
-const Chasis = lazy(() => import('./structure/Chasis/Chasis'));
+const Engine = lazy(() => import('./structure/engine/Engine'));
+const Chasis = lazy(() => import('./structure/chasis/Chasis'));
 const ElectronicSystem = lazy(() =>
-  import('./structure/ElectronicSystems/ElectronicSystems')
+  import('./structure/electronicSystems/ElectronicSystems')
 );
-const Safety = lazy(() => import('./structure/Safety/Safety'));
+const Safety = lazy(() => import('./structure/safety/Safety'));
 
 // Dashboard
 const Gauges = lazy(() => import('./Dashboard/Gauges'));
