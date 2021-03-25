@@ -15,7 +15,7 @@ const About = lazy(() => import('./about/About'));
 const StructureHome = lazy(() => import('./structure/StructureHome'));
 const CarBody = lazy(() => import('./structure/carBody/CarBody'));
 const SteeringSystem = lazy(() =>
-  import('./structure/steeringSystem/SteeringSystem')
+  import('./structure/SteeringSystem/SteeringSystem')
 );
 const BrakingSystem = lazy(() =>
   import('./structure/brakingSystem/BrakingSystem')
