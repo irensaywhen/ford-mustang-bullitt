@@ -13,12 +13,12 @@ const About = lazy(() => import('./about/About'));
 
 // Structure
 const StructureHome = lazy(() => import('./structure/StructureHome'));
-const CarBody = lazy(() => import('./structure/carBody/CarBody'));
+const CarBody = lazy(() => import('./structure/CarBody/CarBody'));
 const SteeringSystem = lazy(() =>
-  import('./structure/steeringSystem/SteeringSystem')
+  import('./structure/SteeringSystem/SteeringSystem')
 );
 const BrakingSystem = lazy(() =>
-  import('./structure/brakingSystem/BrakingSystem')
+  import('./structure/BrakingSystem/BrakingSystem')
 );
 const Transmission = lazy(() =>
   import('./structure/transmission/Transmission')
