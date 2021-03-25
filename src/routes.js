@@ -7,7 +7,7 @@ const DocumentationLayout = lazy(() =>
 );
 
 // Main Navigation
-const Home = lazy(() => import('./home/Home'));
+const Home = lazy(() => import('./Home/Home'));
 const History = lazy(() => import('./history/History'));
 const About = lazy(() => import('./about/About'));
 
