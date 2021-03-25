@@ -31,8 +31,8 @@ const ElectronicSystem = lazy(() =>
 const Safety = lazy(() => import('./structure/safety/Safety'));
 
 // Dashboard
-const Gauges = lazy(() => import('./Dashboard/Gauges'));
-const WarningLights = lazy(() => import('./Dashboard/WarningLights'));
+const Gauges = lazy(() => import('./dashboard/Gauges'));
+const WarningLights = lazy(() => import('./dashboard/WarningLights'));
 
 const routes = {
   main: {
