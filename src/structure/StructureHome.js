@@ -48,28 +48,18 @@ const StructureArticles = () => {
     )
   );
 
-  // const dashboardRoutes = Object.values(routes.dashboard).map(
-  //   (routeData, index) => (
-  //     <Route key={index} path={`${path}${routeData.path}`}>
-  //       {({ match }) => {
-  //         const Component = routeData.Component;
-  //         return (
-  //           <CSSTransition
-  //             in={match != null}
-  //             timeout={300}
-  //             classNames='page'
-  //             nodeRef={nodeRef}
-  //             unmountOnExit
-  //           >
-  //             <div className='page' ref={nodeRef}>
-  //               <Component {...routeData} />
-  //             </div>
-  //           </CSSTransition>
-  //         );
-  //       }}
-  //     </Route>
-  //   )
-  // );
+  const dashboardRoutes = Object.values(routes.dashboard).map(
+    (routeData, index) => {
+      const Component = routeData.Component;
+      return (
+        <Route key={index} path={`${path}${routeData.path}`}>
+          <ScrollToTopOnMount />
+          <Component />
+        </Route>
+      );
+    }
+  );
+
   const dashboardLinks = Object.values(routes.dashboard).map(
     (routeData, index) => (
       <div
@@ -85,8 +75,8 @@ const StructureArticles = () => {
   return (
     <React.Fragment>
       {documentationRoutes}
+      {dashboardRoutes}
 
-      {/*dashboardRoutes*/}
       <Route path={routes.main.documentation.path} exact>
         <Hero
           className={[
